@@ -1,0 +1,208 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.title</title>
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="~/Content/assets/main-Dsz9U2DG.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="~/Content/svg/logo.svg" alt="Logo">
+            </div>
+            <div class="action">
+                <span onclick="openMenu()" for="check-menu" class="openMenu">
+                    <i class="fa-solid fa-bars"></i>
+                </span>
+                <div class="btn-action">
+                    <button><img src="~/Content/svg/header/search.svg" alt></button>
+                    <button><img src="~/Content/svg/header/bell.svg" alt></button>
+                    <button><img src="~/Content/svg/header/ticket.svg" alt></button>
+                </div>
+                <div class="user-info">
+                    <img src="~/Content/svg/header/user.svg" alt>
+                    <!-- <button><i class="fa-solid fa-bars"></i></button> -->
+                </div>
+                <img class="ticket" src="~/Content/svg/header/ticket-header.svg" alt>
+            </div>
+        </div>
+        <div>
+            <button id="backToTop" class="back-to-top">
+                ↑
+            </button>
+
+        </div>
+    </header>
+    <nav class="navigation">
+        <div class="container">
+            <div class="nav">
+                <ul class="menu">
+                    <li><a href="3">khách sạn</a></li>
+                    <li><a href="3">Tour</a></li>
+                    <li>
+                        <a href="3">Vé máy bay</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/123">máy bay</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/123">máy </a></li>
+                                    <li><a href="/123">máy bay</a></li>
+                                    <li><a href="/123">máy bay</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/123">máy bay</a></li>
+                            <li>
+                                <a href="/123">máy bay</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/123">máy bsssss bsssss bsssss bsssss </a></li>
+                                    <li><a href="/123">máy bay</a></li>
+                                    <li><a href="/123">máy bay</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="3">khách sạn</a></li>
+                    <li><a href="3">Tour</a></li>
+                    <li><a href="3">Tour</a></li>
+                    <li><a href="3">Tour</a></li>
+
+                </ul>
+                <div class="action">
+                    <div class="btn-action">
+                        <a><img src="~/Content/svg/header/facebook.svg" alt /></a>
+                        <a><img src="~/Content/svg/header/mess.svg" alt /></a>
+                    </div>
+                    <div class="user-info">
+                        <a href="tel:0919005320">
+                            <img src="~/Content/svg/header/phone.svg" alt />
+                            0919005320
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="row">
+                        <div class="col-4 col-lg-12">
+                            <div class="colums">
+                                <img src="~/Content/svg/footer/logoTicket.svg" alt="Logo Ticket">
+                                <p class="heading">MEMBER OF PROTECH GROUP</p>
+                                <p>
+                                    The most prestigious ticket
+                                    booking website in Vietnam ing website in Vietn
+                                </p>
+                                <hr>
+                                <div class="qr-code">
+                                    <img src="~/Content/img/QR-code.png" alt>
+                                    <img src="~/Content/img/QR-code.png" alt>
+                                    <img src="~/Content/img/QR-code.png" alt>
+                                    <img src="~/Content/img/QR-code.png" alt>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2  col-lg-6 col-md-12">
+                            <div class="colums">
+                                <p class="heading">About Us</p>
+                                <ul>
+                                    <li><a href="#">Introduction</a></li>
+                                    <li><a href="#">Customer reviews</a></li>
+                                    <li><a href="#">Operational Regulations</a></li>
+                                    <li><a href="#">Information privacy policy</a></li>
+                                    <li><a href="#">Partners</a></li>
+                                    <li><a href="#">Sitemap</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-2  col-lg-6 col-md-12">
+                            <div class="colums">
+                                <p class="heading">Tutorials & Help</p>
+                                <ul>
+                                    <li><a href="#">Frequently asked questions</a></li>
+                                    <li><a href="#">Ticket booking guide</a></li>
+                                    <li><a href="#">Payment Guide</a></li>
+                                    <li><a href="#">Review your order</a></li>
+                                    <li><a href="#">Print e-tickets</a></li>
+                                    <li><a href="#">Feedback about orders</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-12">
+                            <div class="colums">
+                                <div>
+                                    <p class="heading">Hotline 24/7 : </p>
+                                    <a class="number-phone" href="tel:+84919005320">
+                                        09 1900
+                                        5320
+                                    </a>
+                                </div>
+                                <p class="heading">
+                                    PROSPERITY TOURISM AND TECHNOLOGY GROUP
+                                    JOINT STOCK COMPANY
+                                </p>
+                                <p class="heading">
+                                    No. 19 Alley 5, Do Nha Street, Tay Mo Ward,
+                                    Nam Tu Liem District, Hanoi City, Vietnam
+                                </p>
+
+                                <form action>
+                                    <input type="text" placeholder="Email">
+                                    <button>Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-content">
+                    <div>
+                        <p>©2023 Pro Tech Group</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="#">www.vemaybayso.vn</a></li>
+                            <li><a href="#">www.tickit.vn</a></li>
+                            <li><a href="#">www.evoucher.vn</a></li>
+                            <li><a href="#">www.protravel.vn</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+    <script src="~/Content/assets/main-C9EblPud.js"></script>
+</body>
+
+</html>

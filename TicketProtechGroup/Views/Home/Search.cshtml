@@ -1,0 +1,2041 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* <div class="banner"  style="background-image: url('/img/banner.png')"> *@
+<!-- FORM SEARCH -->
+<div class="modal-form-search">
+    <form class="form-search" method="post" action="/Search/Index">
+        <div class="g-1 row" style="width: 100%">
+            <div class="col-12">
+                <div class="left-form row">
+                    <div class="col-4 col-xl-5 col-lg-9 col-sm-12">
+                        <div class="itinerary">
+                            <input hidden type="radio" name="type" id="oneway" class="typeItinerary" value="oneway" />
+                            <label for="oneway">Một chiều</label>
+                            <input hidden type="radio" name="type" id="roundtrip" checked class="typeItinerary" value="roundtrip" />
+                            <label for="roundtrip">Khứ hồi</label>
+                            <input hidden type="radio" name="type" id="multicity" class="typeItinerary" value="multicity" />
+                            <label for="multicity">Nhiều chặng</label>
+                        </div>
+                    </div>
+                    <div class="col-3 col-xl-4 col-lg-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <select name="sltHangve" id>
+                                    <option value="all">Chọn hạng ghế</option>
+                                    <option value="tietKiem">Hạng tiết kiệm</option>
+                                    <option value="khuyenMai">Hạng khuyến mại</option>
+                                    <option value="phoThong">Hạng phổ thông</option>
+                                    <option value="thuongGia">Hạng thương gia</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <select name id>
+                                    <option value="all">Chọn hãng bay</option>
+                                    @*@foreach (var airline in Model.Airlines)
+                                    {
+                                        <option value="@airline.AirlineCode">@airline.AirlineName</option>
+                                    }*@
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="right-form row g-0">
+                    <div class="row col-8 col-xl-12 item-route route-first">
+                        <div class="action-head col-12 d-none">
+                            <h2>Chặng 1</h2>
+                        </div>
+                        <div class="row g-1 col-6 col-lg-12 route-point">
+                            <div class="col-6 col-lg-12" onclick="openModal2(1,1)">
+                                <div class="point-start point box">
+                                    <label class="row g-0">
+                                        <div class="col-xl-12">
+                                            <img src="~/Content/svg/search/plane.svg" alt="plane" />
+                                            <span>Điểm đi</span>
+                                        </div>
+                                        <p id="start" data-position-box="1" data-position-item="1"
+                                           class="col-xl-9 col-sm-12 point-route">
+                                            Chọn Điểm đi
+                                        </p>
+                                        <input type="text" hidden name="chang1[diemDi]" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-12" onclick="openModal2(1,2)">
+                                <div class="point-end point box">
+                                    <label class="row g-0">
+                                        <div class="col-xl-12">
+                                            <img src="~/Content/svg/search/map.svg" alt="plane" />
+                                            <span>Điểm đến</span>
+                                        </div>
+                                        <p data-position-box="1" data-position-item="2" class="col-xl-9 col-sm-12 point-route">
+                                            Chọn điểm đến
+                                        </p>
+                                        <input type="text" hidden name="chang1[diemDien]" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="iconRound">
+                                <img src="~/Content/svg/search/oneRound.svg" alt="iconRound" class="icon-one" />
+                                <img src="~/Content/svg/search/twoRound.svg" alt="iconRound" class="icon-two" />
+                            </div>
+                        </div>
+                        <div class="row col-6 g-1 col-lg-12 date-search">
+                            <div class="col-6 startDay col-sm-12">
+                                <div class="point-start point box">
+                                    <label class="row g-0">
+                                        <div class="col-12">
+                                            <img src="~/Content/svg/search/calender.svg" alt="plane" />
+                                            <span>Ngày đi</span>
+                                        </div>
+                                        <input type="text" name="chang1[ngayDi]" class="calendar-input col-12"
+                                               placeholder="dd/mm/yyyy" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6 dateEnd col-sm-12">
+                                <div class="point-end point box">
+                                    <label class="row g-0">
+                                        <div>
+                                            <img src="~/Content/svg/search/calender.svg" alt="plane" />
+                                            <span>Ngày về</span>
+                                        </div>
+                                        <input name="chang1[ngayVe]" type="text" class="col-12 calendar-input"
+                                               placeholder="dd/mm/yyyy" />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="route-point box-submit-search col-4 col-xl-12">
+                        <div class="row g-1">
+                            <div class="row col-7">
+                                <div class="row col-12">
+                                    <div class="col-12 member-box" onclick="openModal()">
+                                        <div class="box">
+                                            <label>
+                                                <div>
+                                                    <img src="~/Content/svg/search/plane.svg" alt="plane" />
+                                                    <span>Hành khách</span>
+                                                </div>
+                                                <p id="value-member">
+                                                    <span id="member1">1</span> Người lớn,
+                                                    <span id="member2">1</span> Trẻ em,
+                                                    <span id="member3">1</span> Em bé
+                                                </p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-5">
+                                <div class="row col-12">
+                                    <div class="col-12 member-box btn-search-box">
+                                        <button class="btn-search">Tìm Kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
+        <input type="number" class="count count1" value="1" name="nguoiLon" hidden />
+        <input type="number" class="count count2" value="1" name="treEm" id hidden />
+        <input type="number" class="count count3" value="1" name="emBe" id hidden />
+    </form>
+</div>
+<div class="modal-overlay" id="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span>HÀNH KHÁCH</span>
+            <span class="close-btn" onclick="modal.style.display ='none'">X</span>
+        </div>
+        <div class="passenger-row">
+            <div>
+                <strong>NGƯỜI LỚN</strong><br />
+                <small>Từ 12 tuổi</small>
+            </div>
+            <div class="counter">
+                <span class="minus minus1">−</span>
+                <span id="memberModal1">1</span>
+                <span class="plus plus1">+</span>
+            </div>
+        </div>
+        <div class="passenger-row">
+            <div>
+                <strong>TRẺ EM</strong><br />
+                <small>Từ 2 đến 11 tuổi</small>
+            </div>
+            <div class="counter">
+                <span class="minus minus2">−</span>
+                <span id="memberModal2">1</span>
+                <span class="plus plus2">+</span>
+            </div>
+        </div>
+        <div class="passenger-row">
+            <div>
+                <strong>EM BÉ</strong><br />
+                <small>Dưới 2 tuổi</small>
+            </div>
+            <div class="counter">
+                <span class="minus minus3">−</span>
+                <span id="memberModal3">1</span>
+                <span class="plus plus3">+</span>
+            </div>
+        </div>
+        <span class="btn-model" onclick="modal.style.display ='none'">Xác nhận</span>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal2">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span>Chọn điểm đi</span>
+            <span class="close-btn" onclick="modal2.style.display ='none'">X</span>
+        </div>
+        <div class="passenger-row">
+            <div class="inputSearch">
+                <label>
+                    NHẬP THÀNH PHỐ HOẶC MÃ SÂN BAY
+                    <div class="input">
+                        <input type="text" id="airportInput" oninput="filterAirports()" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="passenger-row">
+            <div class="list-items">
+                <ul>
+                    @*@foreach (var airport in Model.Airports)
+                    {
+                        <li onclick="checkRoute(this,'@airport.AirportCode')">@airport.CityName (@airport.AirportCode)</li>
+                    }*@
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Nút mở modal -->
+<!-- END FORM SEARCH -->
+<!-- Nút mở modal -->
+<!-- END FORM SEARCH -->
+<main class="flight-list">
+    <div class="heading">
+        <div class="container">
+            <h1 class="color-dark">DANH SÁCH CHUYẾN BAY</h1>
+            <p class="color-primary">
+                Giá vé chưa bao gồm thuế và các loại thuế khác, khách hàng lưu ý
+                chọn chi tiết để xem đầy đủ.
+            </p>
+        </div>
+    </div>
+    <div class="session">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="filter">
+                        <div class="heading">
+                            <p class="color-dark">Bộ lọc</p>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 6V4M12 6C10.8954 6 10 6.89543 10 8C10 9.10457 10.8954 10 12 10M12 6C13.1046 6 14 6.89543 14 8C14 9.10457 13.1046 10 12 10M6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14M6 18C4.89543 18 4 17.1046 4 16C4 14.8954 4.89543 14 6 14M6 18V20M6 14V4M12 10V20M18 18C19.1046 18 20 17.1046 20 16C20 14.8954 19.1046 14 18 14M18 18C16.8954 18 16 17.1046 16 16C16 14.8954 16.8954 14 18 14M18 18V20M18 14V4" stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="box-filter">
+                            <div class="heading">
+                                <p class="color-primary">Sắp xếp</p>
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.1426 1.5L7.64258 8.5L1.14258 1.5" stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="filter-content">
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    Giá (Từ thấp đến cao)
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    Giờ cất cánh (Sớm đến muộn)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="box-filter">
+                            <div class="heading">
+                                <p class="color-primary">Lọc theo Giá vé</p>
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.1426 1.5L7.64258 8.5L1.14258 1.5" stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="filter-content">
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    Giá chưa bao gồm thuế phí
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    Giá full thuế phí cho 1 người lớn
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    Tổng giá cho tất cả hành khách
+                                </label>
+                            </div>
+                        </div>
+                        <div class="box-filter">
+                            <div class="heading">
+                                <p class="color-primary">Lọc Hãng hàng không</p>
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.1426 1.5L7.64258 8.5L1.14258 1.5" stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="filter-content">
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>VietJet Air</span>
+                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Bamboo Airways</span>
+                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Vietravel Airlines</span>
+                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Vietnam Airlines</span>
+                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Pacific Airlines</span>
+                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="box-filter">
+                            <div class="heading">
+                                <p class="color-primary">Giờ cất cánh chiều đi</p>
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.1426 1.5L7.64258 8.5L1.14258 1.5" stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="filter-content">
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Cả ngày</span>
+                                        <span class="time">00:00 - 24:00</span>
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Buổi sớm</span>
+                                        <span class="time">00:00 - 06:00</span>
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Buổi sáng</span>
+                                        <span class="time">06:00 - 12:00</span>
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Buổi chiều</span>
+                                        <span class="time">12:00 - 18:00</span>
+                                    </div>
+                                </label>
+                                <label class="color-dark">
+                                    <input type="checkbox" />
+                                    <div>
+                                        <span>Buổi tối</span>
+                                        <span class="time">18:00 - 24:00</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-xxl-12">
+                    <div class="is-deposited">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="airline-info">
+                                    <img src="/img/home/image-log-bamboo.png" alt="logo">
+                                    <div class="airline-name">
+                                        <span class="color-dark name">VIETJET AIR</span>
+                                        <span class="color-info code">VJ2051 - A320</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="flight-details">
+                                    <div class="time-info">
+                                        <div class="departure">
+                                            <div class="time">17:15</div>
+                                            <div class="location">HAN</div>
+                                            <div class="date">Thứ 5-04/02</div>
+                                        </div>
+                                        <div class="arrow">✈</div>
+                                        <div class="arrival">
+                                            <div class="time">19:15</div>
+                                            <div class="location">SGN</div>
+                                            <div class="date">Thứ 5-04/02</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="flight-meta">
+                                    <p class="color-dark">Tổng tiền chiều đi:</p>
+                                    <p class="color-info">7,240,000đ</p>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="box-checked">
+                                    <p class="item-checked">Đã chọn</p>
+                                </div>
+                                <div>
+                                    <button class="btn">Thay đổi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="is-placing">
+                        <div class="row">
+                            <div class="col-3">
+                                <p class="color-info">Chiều đi</p>
+                                <p class="color-dark">NGÀY 06/02/2023</p>
+                            </div>
+                            <div class="col-7">
+                                <p class="color-info">(HÀ NỘI -> HỒ CHÍ MINH)</p>
+                                <p class="color-dark">1 NGƯỜI LỚN | 1 TRẺ EM | 1 EM BÉ</p>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn">Thay đổi</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-ticket">
+                        <div class="list-action">
+                            <div class="action-item">
+                                <input type="radio" id="re-nhat" checked name="action-list" hidden />
+                                <label for="re-nhat">
+                                    <div>
+                                        <span class="color-primary">GIÁ RẺ NHẤT</span>
+                                        <span class="color-dark">37,580,000đ</span>
+                                        <span class="color-dark">10h 50m (Avg)</span>
+                                    </div>
+                                    <div>
+                                        <img src="./img/flight-list/singapore.png" alt />
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="action-item">
+                                <input type="radio" id="toi-uu" name="action-list" hidden />
+                                <label for="toi-uu">
+                                    <div>
+                                        <span class="color-primary">TỐI ƯU NHẤT</span>
+                                        <span class="color-dark">37,580,000đ</span>
+                                        <span class="color-dark">10h 50m (Avg)</span>
+                                    </div>
+                                    <div>
+                                        <img src="./img/flight-list/singapore.png" alt />
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="action-item">
+                                <input type="radio" id="nhanh-nhat" name="action-list" hidden />
+                                <label for="nhanh-nhat">
+                                    <div>
+                                        <span class="color-primary">NHANH NHẤT</span>
+                                        <span class="color-dark">37,580,000đ</span>
+                                        <span class="color-dark">10h 50m (Avg)</span>
+                                    </div>
+                                    <div>
+                                        <img src="./img/flight-list/singapore.png" alt />
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="list-ticket-items">
+                            <div class="cheapest">
+                                @*@foreach (var ticket in Model.Tickets)
+                                {
+                                    <div class="item-ticket">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="airline-info">
+
+                                                    <img src="@ticket.LogoPath" alt="logo @ticket.AirlineName" />
+                                                    <div class="airline-name">
+                                                        <span class="color-dark name">@ticket.AirlineName</span>
+                                                        <span class="color-info code">VJ2051 - A30</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="flight-details">
+                                                    <div class="time-info">
+                                                        <div class="departure">
+                                                            <div class="time">@ticket.DepartureDate.ToString("HH:mm")</div>
+                                                            <div class="location">@ticket.DepartureAirport</div>
+                                                            <div class="date">Thứ 5-04/02</div>
+                                                        </div>
+                                                        <div class="arrow">✈</div>
+                                                        <div class="arrival">
+                                                            <div class="time">@ticket.ArrivalDate.ToString("HH:mm")</div>
+                                                            <div class="location">@ticket.ArrivalAirport</div>
+                                                            <div class="date">Thứ 5-04/02</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="flight-meta">
+                                                    <div>
+                                                        <p class="color-info">Bay thẳng</p>
+                                                        <p class="color-dark">02h10m</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="color-info">Hạng vé</p>
+                                                        <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="info-price">
+                                                    <span class="color-info price">3,240,000đ</span>
+                                                    <div class="color-primary info">
+                                                        Giá cho 1 người lớn
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="btn-detail">
+                                                    <button class="color-dark toggle-info" data-target="#ticket-1">
+                                                        Chi tiết
+                                                        <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="extras">
+                                                    <div class="item">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <p class="color-info">07kg</p>
+                                                    </div>
+                                                    <div class="item">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <p class="color-info">20kg</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="change-seat">
+                                                    <select name id>
+                                                        <option value="">Đổi hạng vé</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="btn-booking">
+                                                    <a class="btn btn-info">ĐẶT VÉ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info-ticket color-primary" id="ticket-1">
+                                            <div class="ticket-section">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="column info">
+                                                            <h3 class="color-info">
+                                                                🔸 THÔNG TIN CHUYẾN BAY:
+                                                            </h3>
+                                                            <p>
+                                                                <strong>Khởi hành:</strong>
+                                                                <span class="color-dark">10:10, 01/08/2023</span>
+                                                                (Giờ địa phương)
+                                                            </p>
+                                                            <ul>
+                                                                <li class="color-dark">
+                                                                    <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                                </li>
+                                                            </ul>
+                                                            <p>
+                                                                <strong>Đến:</strong>
+                                                                <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                                địa
+                                                                phương)
+                                                            </p>
+                                                            <ul>
+                                                                <li>
+                                                                    <strong class="color-dark">
+                                                                        Tp. Hồ Chí Minh - Sân bay
+                                                                        Tân
+                                                                        Sơn
+                                                                        Nhất
+                                                                    </strong>
+                                                                </li>
+                                                            </ul>
+                                                            <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 price">
+                                                        <div class="column price">
+                                                            <h3 class="color-info">
+                                                                GIÁ VÉ CHIỀU ĐI:
+                                                                <span class="total-price color-info">6,240,000VND</span>
+                                                            </h3>
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="color-info">
+                                                                            Hành khách x SL x Giá vé
+                                                                        </th>
+                                                                        <th class="color-info">Thuế và phí</th>
+                                                                        <th class="color-info">Tổng tiền</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Người lớn 2 x 759,000</td>
+                                                                        <td>725,000</td>
+                                                                        <td><strong>2,968,000</strong></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Trẻ em 1 x 570,000</td>
+                                                                        <td>646,000</td>
+                                                                        <td><strong>1,216,000</strong></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Em bé 1 x 100,000</td>
+                                                                        <td>80,000</td>
+                                                                        <td><strong>180,000</strong></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ticket-section">
+                                                <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                                <ul class="conditions">
+                                                    <li>Phí hoàn: 500.000 VND</li>
+                                                    <li>
+                                                        Phí đổi: 360.000 VND/1 lần đổi + chênh lệch giá vé
+                                                        (nếu có)
+                                                    </li>
+                                                    <li>Quầy thủ tục ưu tiên: Không bao gồm</li>
+                                                    <li>Đổi chuyến tại sân bay: Thu phí</li>
+                                                    <li>Chọn chỗ: Thu phí</li>
+                                                    <li>Phòng khách Bông Sen: Không áp dụng</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }*@
+
+                                @* <div class="item-ticket">
+                                      <div class="row">
+                                        <div class="col-3">
+                                          <div class="airline-info">
+                                            <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                            <div class="airline-name">
+                                              <span class="color-dark name">VIETJET AIR</span>
+                                              <span class="color-info code">VJ2051 - A320</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="flight-details">
+                                            <div class="time-info">
+                                              <div class="departure">
+                                                <div class="time">17:15</div>
+                                                <div class="location">HAN</div>
+                                                <div class="date">Thứ 5-04/02</div>
+                                              </div>
+                                              <div class="arrow">✈</div>
+                                              <div class="arrival">
+                                                <div class="time">19:15</div>
+                                                <div class="location">SGN</div>
+                                                <div class="date">Thứ 5-04/02</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="flight-meta">
+                                            <div>
+                                              <p class="color-info">Nối chuyến</p>
+                                              <p class="color-dark">02h10m</p>
+                                            </div>
+                                            <div>
+                                              <p class="color-info">Hạng vé</p>
+                                              <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="info-price">
+                                            <span class="color-info price">3,240,000đ</span>
+                                            <div class="color-primary info">
+                                              Giá cho 1 người lớn
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="airline-info">
+                                            <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                            <div class="airline-name">
+                                              <span class="color-dark name">VIETJET AIR</span>
+                                              <span class="color-info code">VJ2051 - A320</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="flight-details">
+                                            <div class="time-info">
+                                              <div class="departure">
+                                                <div class="time">17:15</div>
+                                                <div class="location">HAN</div>
+                                                <div class="date">Thứ 5-04/02</div>
+                                              </div>
+                                              <div class="arrow">✈</div>
+                                              <div class="arrival">
+                                                <div class="time">19:15</div>
+                                                <div class="location">SGN</div>
+                                                <div class="date">Thứ 5-04/02</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3"></div>
+                                        <div class="col-3"></div>
+                                        <div class="col-3">
+                                          <div class="btn-detail">
+                                            <button class="color-dark toggle-info" data-target="#ticket-2">
+                                              Chi tiết
+                                              <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                              </svg>
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="extras">
+                                            <div class="item">
+                                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                              </svg>
+                                              <p class="color-info">07kg</p>
+                                            </div>
+                                            <div class="item">
+                                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                              </svg>
+                                              <p class="color-info">20kg</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="change-seat">
+                                            <select name id>
+                                              <option value="">Đổi hạng vé</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-3">
+                                          <div class="btn-booking">
+                                            <a class="btn btn-info">ĐẶT VÉ</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="info-ticket color-primary" id="ticket-2">
+                                        <div class="ticket-section">
+                                          <div class="row">
+                                            <div class="col-6">
+                                              <div class="column info">
+                                                <h3 class="color-info">
+                                                  🔸 THÔNG TIN CHUYẾN BAY:
+                                                </h3>
+                                                <p>
+                                                  <strong>Khởi hành:</strong>
+                                                  <span class="color-dark">10:10, 01/08/2023</span>
+                                                  (Giờ địa phương)
+                                                </p>
+                                                <ul>
+                                                  <li class="color-dark">
+                                                    <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                  </li>
+                                                </ul>
+                                                <p>
+                                                  <strong>Đến:</strong>
+                                                  <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                  địa
+                                                  phương)
+                                                </p>
+                                                <ul>
+                                                  <li>
+                                                    <strong class="color-dark">Tp. Hồ Chí Minh - Sân bay
+                                                      Tân
+                                                      Sơn
+                                                      Nhất</strong>
+                                                  </li>
+                                                </ul>
+                                                <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                              </div>
+                                            </div>
+                                            <div class="col-6 price">
+                                              <div class="column price">
+                                                <h3 class="color-info">
+                                                  GIÁ VÉ CHIỀU ĐI:
+                                                  <span class="total-price color-info">6,240,000VND</span>
+                                                </h3>
+                                                <table>
+                                                  <thead>
+                                                    <tr>
+                                                      <th class="color-info">
+                                                        Hành khách x SL x Giá vé
+                                                      </th>
+                                                      <th class="color-info">Thuế và phí</th>
+                                                      <th class="color-info">Tổng tiền</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                      <td>Người lớn 2 x 759,000</td>
+                                                      <td>725,000</td>
+                                                      <td><strong>2,968,000</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Trẻ em 1 x 570,000</td>
+                                                      <td>646,000</td>
+                                                      <td><strong>1,216,000</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Em bé 1 x 100,000</td>
+                                                      <td>80,000</td>
+                                                      <td><strong>180,000</strong></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="ticket-section">
+                                          <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                          <ul class="conditions">
+                                            <li>Phí hoàn: 500.000 VND</li>
+                                            <li>
+                                              Phí đổi: 360.000 VND/1 lần đổi + chênh lệch giá vé
+                                              (nếu có)
+                                            </li>
+                                            <li>Quầy thủ tục ưu tiên: Không bao gồm</li>
+                                            <li>Đổi chuyến tại sân bay: Thu phí</li>
+                                            <li>Chọn chỗ: Thu phí</li>
+                                            <li>Phòng khách Bông Sen: Không áp dụng</li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div> *@
+                            </div>
+                            @* <div class="best">
+                                  <div class="item-ticket">
+                                    <div class="row">
+                                      <div class="col-3">
+                                        <div class="airline-info">
+                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <div class="airline-name">
+                                            <span class="color-dark name">VIETJET AIR</span>
+                                            <span class="color-info code">VJ2051 - A320</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-details">
+                                          <div class="time-info">
+                                            <div class="departure">
+                                              <div class="time">17:15</div>
+                                              <div class="location">HAN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                            <div class="arrow">✈</div>
+                                            <div class="arrival">
+                                              <div class="time">19:15</div>
+                                              <div class="location">SGN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-meta">
+                                          <div>
+                                            <p class="color-info">Bay thẳng</p>
+                                            <p class="color-dark">02h10m</p>
+                                          </div>
+                                          <div>
+                                            <p class="color-info">Hạng vé</p>
+                                            <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="info-price">
+                                          <span class="color-info price">3,240,000đ</span>
+                                          <div class="color-primary info">
+                                            Giá cho 1 người lớn
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="btn-detail">
+                                          <button class="color-dark toggle-info" data-target="#ticket-1">
+                                            Chi tiết
+                                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="extras">
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">07kg</p>
+                                          </div>
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">20kg</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="change-seat">
+                                          <select name id>
+                                            <option value="">Đổi hạng vé</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="btn-booking">
+                                          <a class="btn btn-info">ĐẶT VÉ</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="info-ticket color-primary" id="ticket-1">
+                                      <div class="ticket-section">
+                                        <div class="row">
+                                          <div class="col-6">
+                                            <div class="column info">
+                                              <h3 class="color-info">
+                                                🔸 THÔNG TIN CHUYẾN BAY:
+                                              </h3>
+                                              <p>
+                                                <strong>Khởi hành:</strong>
+                                                <span class="color-dark">10:10, 01/08/2023</span>
+                                                (Giờ địa phương)
+                                              </p>
+                                              <ul>
+                                                <li class="color-dark">
+                                                  <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                </li>
+                                              </ul>
+                                              <p>
+                                                <strong>Đến:</strong>
+                                                <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                địa
+                                                phương)
+                                              </p>
+                                              <ul>
+                                                <li>
+                                                  <strong class="color-dark">Tp. Hồ Chí Minh - Sân bay
+                                                    Tân
+                                                    Sơn
+                                                    Nhất</strong>
+                                                </li>
+                                              </ul>
+                                              <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                            </div>
+                                          </div>
+                                          <div class="col-6 price">
+                                            <div class="column price">
+                                              <h3 class="color-info">
+                                                GIÁ VÉ CHIỀU ĐI:
+                                                <span class="total-price color-info">6,240,000VND</span>
+                                              </h3>
+                                              <table>
+                                                <thead>
+                                                  <tr>
+                                                    <th class="color-info">
+                                                      Hành khách x SL x Giá vé
+                                                    </th>
+                                                    <th class="color-info">Thuế và phí</th>
+                                                    <th class="color-info">Tổng tiền</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>Người lớn 2 x 759,000</td>
+                                                    <td>725,000</td>
+                                                    <td><strong>2,968,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Trẻ em 1 x 570,000</td>
+                                                    <td>646,000</td>
+                                                    <td><strong>1,216,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Em bé 1 x 100,000</td>
+                                                    <td>80,000</td>
+                                                    <td><strong>180,000</strong></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="ticket-section">
+                                        <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                        <ul class="conditions">
+                                          <li>Phí hoàn: 500.000 VND</li>
+                                          <li>
+                                            Phí đổi: 360.000 VND/1 lần đổi + chênh lệch giá vé
+                                            (nếu có)
+                                          </li>
+                                          <li>Quầy thủ tục ưu tiên: Không bao gồm</li>
+                                          <li>Đổi chuyến tại sân bay: Thu phí</li>
+                                          <li>Chọn chỗ: Thu phí</li>
+                                          <li>Phòng khách Bông Sen: Không áp dụng</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="item-ticket">
+                                    <div class="row">
+                                      <div class="col-3">
+                                        <div class="airline-info">
+                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <div class="airline-name">
+                                            <span class="color-dark name">VIETJET AIR</span>
+                                            <span class="color-info code">VJ2051 - A320</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-details">
+                                          <div class="time-info">
+                                            <div class="departure">
+                                              <div class="time">17:15</div>
+                                              <div class="location">HAN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                            <div class="arrow">✈</div>
+                                            <div class="arrival">
+                                              <div class="time">19:15</div>
+                                              <div class="location">SGN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-meta">
+                                          <div>
+                                            <p class="color-info">Nối chuyến</p>
+                                            <p class="color-dark">02h10m</p>
+                                          </div>
+                                          <div>
+                                            <p class="color-info">Hạng vé</p>
+                                            <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="info-price">
+                                          <span class="color-info price">3,240,000đ</span>
+                                          <div class="color-primary info">
+                                            Giá cho 1 người lớn
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="airline-info">
+                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <div class="airline-name">
+                                            <span class="color-dark name">VIETJET AIR</span>
+                                            <span class="color-info code">VJ2051 - A320</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-details">
+                                          <div class="time-info">
+                                            <div class="departure">
+                                              <div class="time">17:15</div>
+                                              <div class="location">HAN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                            <div class="arrow">✈</div>
+                                            <div class="arrival">
+                                              <div class="time">19:15</div>
+                                              <div class="location">SGN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3"></div>
+                                      <div class="col-3"></div>
+                                      <div class="col-3">
+                                        <div class="btn-detail">
+                                          <button class="color-dark toggle-info" data-target="#ticket-2">
+                                            Chi tiết
+                                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="extras">
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">07kg</p>
+                                          </div>
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">20kg</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="change-seat">
+                                          <select name id>
+                                            <option value="">Đổi hạng vé</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="btn-booking">
+                                          <a class="btn btn-info">ĐẶT VÉ</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="info-ticket color-primary" id="ticket-2">
+                                      <div class="ticket-section">
+                                        <div class="row">
+                                          <div class="col-6">
+                                            <div class="column info">
+                                              <h3 class="color-info">
+                                                🔸 THÔNG TIN CHUYẾN BAY:
+                                              </h3>
+                                              <p>
+                                                <strong>Khởi hành:</strong>
+                                                <span class="color-dark">10:10, 01/08/2023</span>
+                                                (Giờ địa phương)
+                                              </p>
+                                              <ul>
+                                                <li class="color-dark">
+                                                  <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                </li>
+                                              </ul>
+                                              <p>
+                                                <strong>Đến:</strong>
+                                                <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                địa
+                                                phương)
+                                              </p>
+                                              <ul>
+                                                <li>
+                                                  <strong class="color-dark">Tp. Hồ Chí Minh - Sân bay
+                                                    Tân
+                                                    Sơn
+                                                    Nhất</strong>
+                                                </li>
+                                              </ul>
+                                              <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                            </div>
+                                          </div>
+                                          <div class="col-6 price">
+                                            <div class="column price">
+                                              <h3 class="color-info">
+                                                GIÁ VÉ CHIỀU ĐI:
+                                                <span class="total-price color-info">6,240,000VND</span>
+                                              </h3>
+                                              <table>
+                                                <thead>
+                                                  <tr>
+                                                    <th class="color-info">
+                                                      Hành khách x SL x Giá vé
+                                                    </th>
+                                                    <th class="color-info">Thuế và phí</th>
+                                                    <th class="color-info">Tổng tiền</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>Người lớn 2 x 759,000</td>
+                                                    <td>725,000</td>
+                                                    <td><strong>2,968,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Trẻ em 1 x 570,000</td>
+                                                    <td>646,000</td>
+                                                    <td><strong>1,216,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Em bé 1 x 100,000</td>
+                                                    <td>80,000</td>
+                                                    <td><strong>180,000</strong></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="ticket-section">
+                                        <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                        <ul class="conditions">
+                                          <li>Phí hoàn: 500.000 VND</li>
+                                          <li>
+                                            Phí đổi: 360.000 VND/1 lần đổi + chênh lệch giá vé
+                                            (nếu có)
+                                          </li>
+                                          <li>Quầy thủ tục ưu tiên: Không bao gồm</li>
+                                          <li>Đổi chuyến tại sân bay: Thu phí</li>
+                                          <li>Chọn chỗ: Thu phí</li>
+                                          <li>Phòng khách Bông Sen: Không áp dụng</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="fastest">
+                                  <div class="item-ticket">
+                                    <div class="row">
+                                      <div class="col-3">
+                                        <div class="airline-info">
+                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <div class="airline-name">
+                                            <span class="color-dark name">VIETJET AIR</span>
+                                            <span class="color-info code">VJ2051 - A320</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-details">
+                                          <div class="time-info">
+                                            <div class="departure">
+                                              <div class="time">17:15</div>
+                                              <div class="location">HAN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                            <div class="arrow">✈</div>
+                                            <div class="arrival">
+                                              <div class="time">19:15</div>
+                                              <div class="location">SGN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-meta">
+                                          <div>
+                                            <p class="color-info">Bay thẳng</p>
+                                            <p class="color-dark">02h10m</p>
+                                          </div>
+                                          <div>
+                                            <p class="color-info">Hạng vé</p>
+                                            <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="info-price">
+                                          <span class="color-info price">3,240,000đ</span>
+                                          <div class="color-primary info">
+                                            Giá cho 1 người lớn
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="btn-detail">
+                                          <button class="color-dark toggle-info" data-target="#ticket-1">
+                                            Chi tiết
+                                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="extras">
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">07kg</p>
+                                          </div>
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">20kg</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="change-seat">
+                                          <select name id>
+                                            <option value="">Đổi hạng vé</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="btn-booking">
+                                          <a class="btn btn-info">ĐẶT VÉ</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="info-ticket color-primary" id="ticket-1">
+                                      <div class="ticket-section">
+                                        <div class="row">
+                                          <div class="col-6">
+                                            <div class="column info">
+                                              <h3 class="color-info">
+                                                🔸 THÔNG TIN CHUYẾN BAY:
+                                              </h3>
+                                              <p>
+                                                <strong>Khởi hành:</strong>
+                                                <span class="color-dark">10:10, 01/08/2023</span>
+                                                (Giờ địa phương)
+                                              </p>
+                                              <ul>
+                                                <li class="color-dark">
+                                                  <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                </li>
+                                              </ul>
+                                              <p>
+                                                <strong>Đến:</strong>
+                                                <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                địa
+                                                phương)
+                                              </p>
+                                              <ul>
+                                                <li>
+                                                  <strong class="color-dark">Tp. Hồ Chí Minh - Sân bay
+                                                    Tân
+                                                    Sơn
+                                                    Nhất</strong>
+                                                </li>
+                                              </ul>
+                                              <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                            </div>
+                                          </div>
+                                          <div class="col-6 price">
+                                            <div class="column price">
+                                              <h3 class="color-info">
+                                                GIÁ VÉ CHIỀU ĐI:
+                                                <span class="total-price color-info">6,240,000VND</span>
+                                              </h3>
+                                              <table>
+                                                <thead>
+                                                  <tr>
+                                                    <th class="color-info">
+                                                      Hành khách x SL x Giá vé
+                                                    </th>
+                                                    <th class="color-info">Thuế và phí</th>
+                                                    <th class="color-info">Tổng tiền</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>Người lớn 2 x 759,000</td>
+                                                    <td>725,000</td>
+                                                    <td><strong>2,968,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Trẻ em 1 x 570,000</td>
+                                                    <td>646,000</td>
+                                                    <td><strong>1,216,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Em bé 1 x 100,000</td>
+                                                    <td>80,000</td>
+                                                    <td><strong>180,000</strong></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="ticket-section">
+                                        <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                        <ul class="conditions">
+                                          <li>Phí hoàn: 500.000 VND</li>
+                                          <li>
+                                            Phí đổi: 360.000 VND/1 lần đổi + chênh lệch giá vé
+                                            (nếu có)
+                                          </li>
+                                          <li>Quầy thủ tục ưu tiên: Không bao gồm</li>
+                                          <li>Đổi chuyến tại sân bay: Thu phí</li>
+                                          <li>Chọn chỗ: Thu phí</li>
+                                          <li>Phòng khách Bông Sen: Không áp dụng</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="item-ticket">
+                                    <div class="row">
+                                      <div class="col-3">
+                                        <div class="airline-info">
+                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <div class="airline-name">
+                                            <span class="color-dark name">VIETJET AIR</span>
+                                            <span class="color-info code">VJ2051 - A320</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-details">
+                                          <div class="time-info">
+                                            <div class="departure">
+                                              <div class="time">17:15</div>
+                                              <div class="location">HAN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                            <div class="arrow">✈</div>
+                                            <div class="arrival">
+                                              <div class="time">19:15</div>
+                                              <div class="location">SGN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-meta">
+                                          <div>
+                                            <p class="color-info">Nối chuyến</p>
+                                            <p class="color-dark">02h10m</p>
+                                          </div>
+                                          <div>
+                                            <p class="color-info">Hạng vé</p>
+                                            <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="info-price">
+                                          <span class="color-info price">3,240,000đ</span>
+                                          <div class="color-primary info">
+                                            Giá cho 1 người lớn
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="airline-info">
+                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <div class="airline-name">
+                                            <span class="color-dark name">VIETJET AIR</span>
+                                            <span class="color-info code">VJ2051 - A320</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="flight-details">
+                                          <div class="time-info">
+                                            <div class="departure">
+                                              <div class="time">17:15</div>
+                                              <div class="location">HAN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                            <div class="arrow">✈</div>
+                                            <div class="arrival">
+                                              <div class="time">19:15</div>
+                                              <div class="location">SGN</div>
+                                              <div class="date">Thứ 5-04/02</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3"></div>
+                                      <div class="col-3"></div>
+                                      <div class="col-3">
+                                        <div class="btn-detail">
+                                          <button class="color-dark toggle-info" data-target="#ticket-2">
+                                            Chi tiết
+                                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="extras">
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">07kg</p>
+                                          </div>
+                                          <div class="item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10" stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="color-info">20kg</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="change-seat">
+                                          <select name id>
+                                            <option value="">Đổi hạng vé</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="btn-booking">
+                                          <a class="btn btn-info">ĐẶT VÉ</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="info-ticket color-primary" id="ticket-2">
+                                      <div class="ticket-section">
+                                        <div class="row">
+                                          <div class="col-6">
+                                            <div class="column info">
+                                              <h3 class="color-info">
+                                                🔸 THÔNG TIN CHUYẾN BAY:
+                                              </h3>
+                                              <p>
+                                                <strong>Khởi hành:</strong>
+                                                <span class="color-dark">10:10, 01/08/2023</span>
+                                                (Giờ địa phương)
+                                              </p>
+                                              <ul>
+                                                <li class="color-dark">
+                                                  <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                </li>
+                                              </ul>
+                                              <p>
+                                                <strong>Đến:</strong>
+                                                <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                địa
+                                                phương)
+                                              </p>
+                                              <ul>
+                                                <li>
+                                                  <strong class="color-dark">Tp. Hồ Chí Minh - Sân bay
+                                                    Tân
+                                                    Sơn
+                                                    Nhất</strong>
+                                                </li>
+                                              </ul>
+                                              <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                            </div>
+                                          </div>
+                                          <div class="col-6 price">
+                                            <div class="column price">
+                                              <h3 class="color-info">
+                                                GIÁ VÉ CHIỀU ĐI:
+                                                <span class="total-price color-info">6,240,000VND</span>
+                                              </h3>
+                                              <table>
+                                                <thead>
+                                                  <tr>
+                                                    <th class="color-info">
+                                                      Hành khách x SL x Giá vé
+                                                    </th>
+                                                    <th class="color-info">Thuế và phí</th>
+                                                    <th class="color-info">Tổng tiền</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>Người lớn 2 x 759,000</td>
+                                                    <td>725,000</td>
+                                                    <td><strong>2,968,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Trẻ em 1 x 570,000</td>
+                                                    <td>646,000</td>
+                                                    <td><strong>1,216,000</strong></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Em bé 1 x 100,000</td>
+                                                    <td>80,000</td>
+                                                    <td><strong>180,000</strong></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="ticket-section">
+                                        <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                        <ul class="conditions">
+                                          <li>Phí hoàn: 500.000 VND</li>
+                                          <li>
+                                            Phí đổi: 360.000 VND/1 lần đổi + chênh lệch giá vé
+                                            (nếu có)
+                                          </li>
+                                          <li>Quầy thủ tục ưu tiên: Không bao gồm</li>
+                                          <li>Đổi chuyến tại sân bay: Thu phí</li>
+                                          <li>Chọn chỗ: Thu phí</li>
+                                          <li>Phòng khách Bông Sen: Không áp dụng</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+
+<script>
+    let a = 1
+    // open model
+    const modal = document.getElementById('modal')
+    const modal2 = document.getElementById('modal2')
+    const modal3 = document.getElementById('modal3')
+    // Mở modal
+    function openModal() {
+        modal.style.display = 'flex'
+    }
+    // Mở modal
+    let isArrCheck = []
+
+    function openModal2(numberChang, name) {
+        //numberChang: số chặng
+        // name : 1 : start hoặc 2: end
+        isArrCheck.push(numberChang)
+        isArrCheck.push(name)
+        modal2.style.display = 'flex'
+        const listItems = document.querySelectorAll('.list-items li')
+        listItems.forEach(li => {
+            li.style.display = 'list-item'
+        })
+    }
+
+    function checkRoute(elementClick, code) {
+        modal2.style.display = 'none'
+        const elements = document.querySelectorAll('.point-route')
+        elements.forEach(el => {
+            if (
+                isArrCheck[0] == el.getAttribute('data-position-box') &&
+                isArrCheck[1] == el.getAttribute('data-position-item')
+            ) {
+                el.textContent = elementClick.textContent
+                el.nextElementSibling.value = code
+            }
+        })
+        isArrCheck = []
+    }
+
+    function filterAirports() {
+        const input = document.getElementById('airportInput')
+        const filter = input.value.toLowerCase()
+        const listItems = document.querySelectorAll('.list-items li')
+        listItems.forEach(li => {
+            const text = li.textContent.toLowerCase()
+            if (text.includes(filter)) {
+                li.style.display = 'list-item'
+            } else {
+                li.style.display = 'none'
+            }
+        })
+    }
+
+    function filterAirports2() {
+        const input = document.getElementById('airportInput2')
+        const filter = input.value.toLowerCase() // chữ thường để so sánh không phân biệt hoa thường
+        const listItems = document.querySelectorAll('.list-items li')
+        listItems.forEach(li => {
+            const text = li.textContent.toLowerCase()
+            if (text.includes(filter)) {
+                li.style.display = 'list-item'
+            } else {
+                li.style.display = 'none'
+            }
+        })
+    }
+
+    // Đóng modal
+    for (let i = 1; i <= 3; i++) {
+        const minus = document.querySelector(`.minus${i}`)
+        const plus = document.querySelector(`.plus${i}`)
+        const count = document.querySelector(`.count${i}`)
+
+        const member = document.querySelector(`#member${i}`)
+        const memberModal = document.querySelector(`#memberModal${i}`)
+        minus.addEventListener('click', () => {
+            let value = parseInt(count.value) || 0
+            if (value > 0) {
+                count.value = value - 1
+                member.textContent = count.value
+                memberModal.textContent = count.value
+            }
+        })
+        plus.addEventListener('click', () => {
+            let value = parseInt(count.value) || 0
+            count.value = value + 1
+            member.textContent = count.value
+            memberModal.textContent = count.value
+        })
+    }
+    // Gán flatpickr cho tất cả input có class .calendar-input
+    function startFlatpickr() {
+        flatpickr('.calendar-input', {
+            dateFormat: 'd/m/Y',
+            minDate: 'today',
+            locale: 'vn'
+            // Bạn có thể thêm showMonths, range mode, v.v. nếu muốn
+        })
+    }
+    startFlatpickr()
+    const radiosSearch = document.querySelectorAll('.typeItinerary')
+    const iconOne = document.querySelector('.icon-one')
+    const iconTwo = document.querySelector('.icon-two')
+    const dateEnd = document.querySelector('.dateEnd')
+
+    function addNewRoute() {
+        // Xoá nút remove nếu có
+        const removeBtn = document.querySelector('.remove-route')
+        if (removeBtn) removeBtn.remove()
+
+        // Update UI
+        document.querySelector('.action-head')?.classList.remove('d-none')
+        document.querySelector('.route-first')?.classList.add('col-12')
+        document.querySelector('.box-submit-search')?.classList.add('col-12')
+
+        // Tạo container chứa các route nếu chưa có
+        let routeContainer = document.querySelector('.new-route')
+        if (!routeContainer) {
+            routeContainer = document.createElement('div')
+            routeContainer.className = 'new-route col-12'
+            // Chèn container vào DOM — ví dụ sau .route-first
+            const target = document.querySelector('.route-first')
+            target?.parentNode.insertBefore(routeContainer, target.nextSibling)
+        }
+
+        // Tạo item mới
+        const existingRoutes = document.querySelectorAll('.item-route')
+        const newRouteNumber = existingRoutes.length + 1
+
+        const routeItem = document.createElement('div')
+        routeItem.className = 'row col-12 col-xl-12 item-route'
+        routeItem.innerHTML = `
+     <div class="action-head col-12">
+      <h2>Chặng ${newRouteNumber}</h2>
+      <h2 class="btn-remove" onclick="removeRoute(event)"><i class="color-info fa-solid fa-trash remove-route"></i></h2>
+    </div>
+    <div class="row g-1 col-6 col-lg-12 route-point col-8">
+      <div class="col-6 col-lg-12" onclick="openModal2(${newRouteNumber},1)">
+        <div class="point-start point box">
+          <label class="row g-0">
+            <div class="col-xl-12">
+              <img src="/svg/search/plane.svg" alt="plane">
+              <span>Điểm đi</span>
+            </div>
+            <p id="start" data-position-box="${newRouteNumber}" data-position-item="1" class="col-xl-9 col-sm-12 point-route">
+              Chọn điểm đến
+            </p>
+            <input type="text" hidden name="chang${newRouteNumber}[diemDi]">
+          </label>
+        </div>
+      </div>
+      <div class="col-6 col-lg-12" onclick="openModal2(${newRouteNumber},2)">
+        <div class="point-end point box">
+          <label class="row g-0">
+            <div class="col-xl-12">
+              <img src="/svg/search/map.svg" alt="plane">
+              <span>Điểm đến</span>
+            </div>
+            <p data-position-box="${newRouteNumber}" data-position-item="2" class="col-xl-9 col-sm-12 point-route">
+              Chọn điểm đến
+            </p>
+            <input type="text" hidden name="chang${newRouteNumber}[diemDien]">
+          </label>
+        </div>
+      </div>
+      <div class="iconRound">
+        <img src="/svg/search/oneRound.svg" alt="iconRound" class="icon-one">
+        <img src="/svg/search/twoRound.svg" alt="iconRound" class="icon-two hidden">
+      </div>
+    </div>
+    <div class="row  g-1 col-lg-12 date-search col-4">
+      <div class="col-6 startDay col-12">
+        <div class="point-start point box">
+          <label class="row g-0">
+            <div class="col-12">
+              <img src="/svg/search/calender.svg" alt="plane">
+              <span>Ngày đi</span>
+            </div>
+            <input type="text" name="chang${newRouteNumber}[ngayDi]" class="calendar-input col-12 flatpickr-input" placeholder="dd/mm/yyyy" readonly>
+          </label>
+        </div>
+      </div>
+      <div class="col-6 dateEnd hidden">
+        <div class="point-end point box">
+          <label class="row g-0">
+            <div>
+              <img src="/svg/search/calender.svg" alt="plane">
+              <span>Ngày về</span>
+            </div>
+            <input name="chang${newRouteNumber}[ngayVe]" type="text" class="col-12 calendar-input flatpickr-input" placeholder="dd/mm/yyyy" readonly>
+          </label>
+        </div>
+      </div>
+    </div>
+  `
+
+        // Thêm vào container
+        routeContainer.appendChild(routeItem)
+
+        // Khởi tạo flatpickr
+        flatpickr(routeItem.querySelectorAll('.calendar-input'), {
+            dateFormat: 'd/m/Y',
+            minDate: 'today',
+            locale: 'vn'
+        })
+        // Tạo nút thêm chặng nếu chưa có
+        if (!document.querySelector('.createRoute')) {
+            const addButton = document.createElement('p')
+            addButton.classList.add('createRoute')
+            addButton.textContent = '+'
+            addButton.onclick = addNewRoute
+            routeContainer.parentNode.insertBefore(
+                addButton,
+                routeContainer.nextSibling
+            )
+        }
+        if (newRouteNumber === 6) {
+            document.querySelector('.createRoute').remove()
+        }
+        // Debug log
+        console.log('🔱 addNewRoute:', newRouteNumber)
+    }
+
+    function removeRoute(event) {
+        // Ngăn sự kiện nổi bọt nếu cần
+        event?.stopPropagation()
+        // Tìm phần tử cần xoá (cha chứa class item-route)
+        const routeItem = event.target.closest('.item-route')
+        if (routeItem) {
+            routeItem.remove()
+        }
+
+        const indexItemaddRemove =
+            document.querySelectorAll('.item-route').length - 1
+        if (indexItemaddRemove >= 2) {
+            const item = document
+                .querySelectorAll('.item-route')
+            [indexItemaddRemove].querySelector('.btn-remove')
+            const icon = document.createElement('i')
+            icon.className = 'color-info fa-solid fa-trash remove-route'
+            item.appendChild(icon)
+        }
+    }
+
+    function updateIcon() {
+        if (document.getElementById('roundtrip').checked) {
+            document.querySelector('.route-point').classList.remove('col-8')
+            document.querySelector('.date-search').classList.remove('col-4')
+            document.querySelector('.date-search').classList.add('col-6')
+            document.querySelector('.startDay').classList.remove('col-12')
+            iconOne.classList.add('hidden')
+            iconTwo.classList.remove('hidden')
+            dateEnd.classList.remove('hidden')
+        } else {
+            document.querySelector('.route-point').classList.add('col-8')
+            document.querySelector('.date-search').classList.remove('col-6')
+            document.querySelector('.date-search').classList.add('col-4')
+            document.querySelector('.startDay').classList.add('col-12')
+            iconOne.classList.remove('hidden')
+            iconTwo.classList.add('hidden')
+            dateEnd.classList.add('hidden')
+        }
+        // THÊM FORM
+        if (document.getElementById('multicity').checked) {
+            addNewRoute()
+            document.querySelector('.modal-form-search').id = 'modal-form-search'
+        } else {
+            document.querySelector('.modal-form-search').id = ''
+            if (document.querySelector('.createRoute')) {
+                document.querySelector('.createRoute').remove()
+            }
+            document.querySelector('.route-first').classList.remove('col-12')
+            document.querySelector('.action-head').classList.add('d-none')
+            if (document.querySelector('.new-route')) {
+                document.querySelector('.new-route').remove()
+            }
+            document
+                .querySelector('.box-submit-search')
+                .classList.remove('col-12')
+        }
+    }
+    radiosSearch.forEach(radio => {
+        radio.addEventListener('change', updateIcon)
+    })
+    window.addEventListener('DOMContentLoaded', updateIcon)
+    // MENU
+    const menuButton = document.querySelector('.openMenu')
+    const navigation = document.querySelector('.navigation')
+    // Mở/đóng menu
+    menuButton.addEventListener('click', function () {
+        navigation.classList.toggle('openMenu')
+        if (navigation.classList.contains('openMenu')) {
+            document.body.classList.add('no-scroll')
+        } else {
+            document.body.classList.remove('no-scroll')
+        }
+    })
+    // Click ra ngoài để đóng menu
+    document.addEventListener('click', function (event) {
+        if (
+            !navigation.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+            navigation.classList.remove('openMenu')
+            document.body.classList.remove('no-scroll')
+        }
+    })
+    // Toggle submenu
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('toggle-submenu')) {
+            const nextUl = e.target.nextElementSibling
+            if (nextUl && nextUl.tagName === 'UL') {
+                nextUl.classList.toggle('open')
+            }
+        }
+    })
+    if (window.innerWidth < 1207) {
+        console.log(window.innerWidth)
+        document.querySelectorAll('li').forEach(li => {
+            const submenu = li.querySelector('.sub-menu')
+            if (submenu) {
+                const toggle = document.createElement('span')
+                toggle.classList.add('toggle-submenu')
+                toggle.textContent = '▼'
+                li.insertBefore(toggle, submenu)
+            }
+        })
+    }
+    // END MENU
+    // backToTop
+    document.addEventListener('DOMContentLoaded', () => {
+        const backToTopBtn = document.getElementById('backToTop')
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block'
+            } else {
+                backToTopBtn.style.display = 'none'
+            }
+        })
+        document.getElementById('backToTop').addEventListener('click', () => {
+            scrollToTop(1000) // Thời gian: 1000ms = 1 giây (bạn có thể tăng lên)
+        })
+
+        function scrollToTop(duration) {
+            const start = window.scrollY
+            const startTime = performance.now()
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime
+                const progress = Math.min(elapsed / duration, 1) // [0..1]
+                const ease = 1 - Math.pow(1 - progress, 3) // ease-out cubic
+                window.scrollTo(0, start * (1 - ease))
+                if (elapsed < duration) {
+                    requestAnimationFrame(animate)
+                }
+            }
+            requestAnimationFrame(animate)
+        }
+    })
+    // backToTop
+    // JS DEAFAUL
+</script>
+<script>
+    $(document).ready(function () {
+        // Ẩn danh sách giá rẻ khi load trang
+        $('#tickets-list-items-gia-re').hide()
+        $('#tickets-list-items-don-moi').show()
+        // Khi click vào radio "Đơn mới"
+        $('#don-moi').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#tickets-list-items-don-moi').slideDown('slow')
+                $('#tickets-list-items-gia-re').slideUp('slow')
+            }
+        })
+
+        // Khi click vào radio "Giá rẻ"
+        $('#gia-re').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#tickets-list-items-gia-re').slideDown('slow')
+                $('#tickets-list-items-don-moi').slideUp('slow')
+            }
+        })
+    })
+</script>

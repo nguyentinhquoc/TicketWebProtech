@@ -1,0 +1,1602 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="banner" style="background-image: url('/Content/img/banner.png')">
+    <!-- FORM SEARCH -->
+    <div class="modal-form-search">
+        <form class="form-search" method="post" action="/Search/Index">
+            <div class="g-1 row" style="width: 100%">
+                <div class="col-12">
+                    <div class="left-form row">
+                        <div class="col-4 col-xl-5 col-lg-9 col-sm-12">
+                            <div class="itinerary">
+                                <input hidden type="radio" name="type" id="oneway" class="typeItinerary" value="oneway" />
+                                <label for="oneway">Một chiều</label>
+                                <input hidden type="radio" name="type" id="roundtrip" checked class="typeItinerary" value="roundtrip" />
+                                <label for="roundtrip">Khứ hồi</label>
+                                <input hidden type="radio" name="type" id="multicity" class="typeItinerary" value="multicity" />
+                                <label for="multicity">Nhiều chặng</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-xl-4 col-lg-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <select name="sltHangve" id>
+                                        <option value="all">Chọn hạng ghế</option>
+                                        <option value="tietKiem">Hạng tiết kiệm</option>
+                                        <option value="khuyenMai">Hạng khuyến mại</option>
+                                        <option value="phoThong">Hạng phổ thông</option>
+                                        <option value="thuongGia">Hạng thương gia</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select name id>
+                                        <option value="all">Chọn hãng bay</option>
+                                        @*@foreach (var airline in Model.AirlinesVN)
+                                        {
+                                            <option value="@airline.AirlineCode">@airline.AirlineName</option>
+                                        }*@
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="right-form row g-0">
+                        <div class="row col-8 col-xl-12 item-route route-first">
+                            <div class="action-head col-12 d-none">
+                                <h2>Chặng 1</h2>
+                            </div>
+                            <div class="row g-1 col-6 col-lg-12 route-point">
+                                <div class="col-6 col-lg-12" onclick="openModal2(1,1)">
+                                    <div class="point-start point box">
+                                        <label class="row g-0">
+                                            <div class="col-xl-12">
+                                                <img src="~/Content/svg/search/plane.svg" alt="plane" />
+                                                <span>Điểm đi</span>
+                                            </div>
+                                            <p id="start" data-position-box="1" data-position-item="1"
+                                               class="col-xl-9 col-sm-12 point-route">
+                                                Chọn Điểm đi
+                                            </p>
+                                            <input type="text" hidden name="chang1[diemDi]" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-12" onclick="openModal2(1,2)">
+                                    <div class="point-end point box">
+                                        <label class="row g-0">
+                                            <div class="col-xl-12">
+                                                <img src="~/Content/svg/search/map.svg" alt="plane" />
+                                                <span>Điểm đến</span>
+                                            </div>
+                                            <p data-position-box="1" data-position-item="2" class="col-xl-9 col-sm-12 point-route">
+                                                Chọn điểm đến
+                                            </p>
+                                            <input type="text" hidden name="chang1[diemDien]" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="iconRound">
+                                    <img src="~/Content/svg/search/oneRound.svg" alt="iconRound" class="icon-one" />
+                                    <img src="~/Content/svg/search/twoRound.svg" alt="iconRound" class="icon-two" />
+                                </div>
+                            </div>
+                            <div class="row col-6 g-1 col-lg-12 date-search">
+                                <div class="col-6 startDay col-sm-12">
+                                    <div class="point-start point box">
+                                        <label class="row g-0">
+                                            <div class="col-12">
+                                                <img src="~/Content/svg/search/calender.svg" alt="plane" />
+                                                <span>Ngày đi</span>
+                                            </div>
+                                            <input type="text" name="chang1[ngayDi]" class="calendar-input col-12"
+                                                   placeholder="dd/mm/yyyy" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6 dateEnd col-sm-12">
+                                    <div class="point-end point box">
+                                        <label class="row g-0">
+                                            <div>
+                                                <img src="~/Content/svg/search/calender.svg" alt="plane" />
+                                                <span>Ngày về</span>
+                                            </div>
+                                            <input name="chang1[ngayVe]" type="text" class="col-12 calendar-input"
+                                                   placeholder="dd/mm/yyyy" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-point box-submit-search col-4 col-xl-12">
+                            <div class="row g-1">
+                                <div class="row col-7">
+                                    <div class="row col-12">
+                                        <div class="col-12 member-box" onclick="openModal()">
+                                            <div class="box">
+                                                <label>
+                                                    <div>
+                                                        <img src="~/Content/svg/search/plane.svg" alt="plane" />
+                                                        <span>Hành khách</span>
+                                                    </div>
+                                                    <p id="value-member">
+                                                        <span id="member1">1</span> Người lớn,
+                                                        <span id="member2">1</span> Trẻ em,
+                                                        <span id="member3">1</span> Em bé
+                                                    </p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col-5">
+                                    <div class="row col-12">
+                                        <div class="col-12 member-box btn-search-box">
+                                            <button class="btn-search">Tìm Kiếm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+
+            <input type="number" class="count count1" value="1" name="nguoiLon" hidden />
+            <input type="number" class="count count2" value="1" name="treEm" id hidden />
+            <input type="number" class="count count3" value="1" name="emBe" id hidden />
+        </form>
+    </div>
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>HÀNH KHÁCH</span>
+                <span class="close-btn" onclick="modal.style.display ='none'">X</span>
+            </div>
+            <div class="passenger-row">
+                <div>
+                    <strong>NGƯỜI LỚN</strong><br />
+                    <small>Từ 12 tuổi</small>
+                </div>
+                <div class="counter">
+                    <span class="minus minus1">−</span>
+                    <span id="memberModal1">1</span>
+                    <span class="plus plus1">+</span>
+                </div>
+            </div>
+            <div class="passenger-row">
+                <div>
+                    <strong>TRẺ EM</strong><br />
+                    <small>Từ 2 đến 11 tuổi</small>
+                </div>
+                <div class="counter">
+                    <span class="minus minus2">−</span>
+                    <span id="memberModal2">1</span>
+                    <span class="plus plus2">+</span>
+                </div>
+            </div>
+            <div class="passenger-row">
+                <div>
+                    <strong>EM BÉ</strong><br />
+                    <small>Dưới 2 tuổi</small>
+                </div>
+                <div class="counter">
+                    <span class="minus minus3">−</span>
+                    <span id="memberModal3">1</span>
+                    <span class="plus plus3">+</span>
+                </div>
+            </div>
+            <span class="btn-model" onclick="modal.style.display ='none'">Xác nhận</span>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Chọn điểm đi</span>
+                <span class="close-btn" onclick="modal2.style.display ='none'">X</span>
+            </div>
+            <div class="passenger-row">
+                <div class="inputSearch">
+                    <label>
+                        NHẬP THÀNH PHỐ HOẶC MÃ SÂN BAY
+                        <div class="input">
+                            <input type="text" id="airportInput" oninput="filterAirports()" />
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="passenger-row">
+                <div class="list-items">
+                    <ul>
+                        @*@foreach (var airport in Model.AirportsVN)
+                        {
+                            <li onclick="checkRoute(this,'@airport.AirportCode')">@airport.CityName (@airport.AirportCode)</li>
+                        }*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nút mở modal -->
+<!-- END FORM SEARCH -->
+<!-- Nút mở modal -->
+<!-- END FORM SEARCH -->
+
+<main>
+    <div class="cheap-flights">
+        <div class="container">
+            <div class="heading">
+                <div>
+                    <h2 class="color-dark">CHUYẾN BAY CÓ GIÁ TỐT</h2>
+                    <p class="color-primary">Save up to $400 per person</p>
+                </div>
+                <div>
+                    <ul>
+                        <li><a class="color-info" href>Asia</a></li>
+                        <li><a href>Africa</a></li>
+                        <li><a href>Euro</a></li>
+                        <li><a href>America</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row row-cols-md-1 g-md-2 g-2 g-xxl-1 g-xl-5 g-lg-3 g-md-1">
+                <div class="col-3 col-xl-6">
+                    <div class="item">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-12">
+                    <div class="item">
+                        <div class="image-container">
+                            <img class="bg-img" src="~/Content/img/home/image1.png" )" alt="Beach Tour" />
+                            <div class="content-info">
+                                <div class="top">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="badge">GIẢM 10%</div>
+                                </div>
+                                <div class="overlay-content">
+                                    <h3 class="title max-2">
+                                        Tour 1 Ngày Antelope<br />Canyon & Horseshoe Bend
+                                    </h3>
+                                    <div class="location color-dark">
+                                        Dubai - Tokyo
+                                        <span class="region color-primary">/ Asia</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="flight">
+                                            VÉ MÁY BAY QUỐC TẾ
+                                            <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                        </span>
+                                        <span class="rating">
+                                            <span class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </span>
+                                            <span class="count">25 Người xem</span>
+                                        </span>
+                                    </div>
+                                    <div class="footer">
+                                        <a class="btn btn-info btn-lg">CHI TIẾT</a>
+                                        <div class="price">
+                                            <span class="current">35,000,000 đ</span><br />
+                                            <span class="old">39,680,000 đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-12">
+                    <div class="item">
+                        <div class="image-container">
+                            <img class="bg-img" src="~/Content/img/home/image1.png" )" alt="Beach Tour" />
+                            <div class="content-info">
+                                <div class="top">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="badge">GIẢM 10%</div>
+                                </div>
+                                <div class="overlay-content">
+                                    <h3 class="title max-2">
+                                        Tour 1 Ngày Antelope<br />Canyon & Horseshoe Bend
+                                    </h3>
+                                    <div class="location color-dark">
+                                        Dubai - Tokyo
+                                        <span class="region color-primary">/ Asia</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="flight">
+                                            VÉ MÁY BAY QUỐC TẾ
+                                            <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                        </span>
+                                        <span class="rating">
+                                            <span class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </span>
+                                            <span class="count">25 Người xem</span>
+                                        </span>
+                                    </div>
+                                    <div class="footer">
+                                        <a class="btn btn-info btn-lg">CHI TIẾT</a>
+                                        <div class="price">
+                                            <span class="current">35,000,000 đ</span><br />
+                                            <span class="old">39,680,000 đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-news-layout">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-4 col-xxl-12">
+                    <div class="ticket-list">
+                        <div class="btn-actions">
+                            <input type="radio" hidden name="ticket-list" id="don-moi" checked />
+                            <label class="lable-left color-primary" for="don-moi">
+                                <img src="~/Content/svg/home/plane.svg"
+                                     alt="plane-icon" />Đơn
+                                mới
+                            </label>
+                            <input type="radio" hidden name="ticket-list" id="gia-re" />
+                            <label class="lable-right color-primary" for="gia-re">
+                                <img src="~/Content/svg/home/ticket-sales.svg" alt="plane-icon" />Giá rẻ
+                            </label>
+                        </div>
+                        <div id="tickets-list-items-don-moi" class="ticket-list-items color-dark">
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tickets-list-items-gia-re" class="ticket-list-items color-dark">
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES gr</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                            <div class="ticket-item">
+                                <div class="airline">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                    </div>
+                                    <div class="name">VIETNAM AIRLINES</div>
+                                    <div class="code color-info">VN2115</div>
+                                </div>
+                                <div class="infor">
+                                    Customer has just booked a one-way ticket from Vinh City
+                                    Go Ho Chi Minh City
+                                </div>
+                                <div class="date">July 10/2023</div>
+                                <div class="price">
+                                    <div>
+                                        <svg class="icon-ticket" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z"
+                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Giá từ:
+                                        <p class="color-info">1,375,600 USD</p>
+                                    </div>
+                                    <div class="btn btn-sm btn-primary">Đặt vé</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-xxl-6 col-lg-12">
+                    <div class="hotel">
+                        <div class="heading">
+                            <h2>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 19V3C17 1.89543 16.1046 1 15 1H5C3.89543 1 3 1.89543 3 3V19M17 19L19 19M17 19H12M3 19L1 19M3 19H8M7 4.99998H8M7 8.99998H8M12 4.99998H13M12 8.99998H13M8 19V14C8 13.4477 8.44772 13 9 13H11C11.5523 13 12 13.4477 12 14V19M8 19H12"
+                                          stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Khách sạn
+                            </h2>
+                            <p class="description min-2">Best Price</p>
+                        </div>
+                        <div class="img-banner">
+                            <div class="img">
+                                <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            </div>
+                            <div class="info-banner">
+                                <span class="sale">Giảm 10%</span>
+                                <div>
+                                    <p class="info max-2 min-2">Sunset Beach Resort with</p>
+                                    <p class="date">26/05/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-list">
+                            <div class="row g-1">
+                                <div class="col-12">
+                                    <div class="item">
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="item-img">
+                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                </div>
+                                                <p class="time">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12.6667 14V3.33333C12.6667 2.59695 12.0697 2 11.3333 2H4.66667C3.93029 2 3.33333 2.59695 3.33333 3.33333V14M12.6667 14L14 14M12.6667 14H9.33333M3.33333 14L2 14M3.33333 14H6.66667M6 4.66665H6.66667M6 7.33332H6.66667M9.33333 4.66665H10M9.33333 7.33332H10M6.66667 14V10.6667C6.66667 10.2985 6.96514 9.99999 7.33333 9.99999H8.66667C9.03486 9.99999 9.33333 10.2985 9.33333 10.6667V14M6.66667 14H9.33333"
+                                                              stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round"
+                                                              stroke-linejoin="round" />
+                                                    </svg>
+                                                    1 nights
+                                                </p>
+                                                <p class="price">
+                                                    <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.375 1.125V2.375M8.375 4.875V6.125M8.375 8.625V9.875M2.125 1.125C1.43464 1.125 0.875 1.68464 0.875 2.375V4.25C1.56536 4.25 2.125 4.80964 2.125 5.5C2.125 6.19036 1.56536 6.75 0.875 6.75V8.625C0.875 9.31536 1.43464 9.875 2.125 9.875H10.875C11.5654 9.875 12.125 9.31536 12.125 8.625V6.75C11.4346 6.75 10.875 6.19036 10.875 5.5C10.875 4.80964 11.4346 4.25 12.125 4.25V2.375C12.125 1.68464 11.5654 1.125 10.875 1.125H2.125Z"
+                                                              stroke="#0A7C79" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                    Giá từ: <br />
+                                                    <span class="color-info">1,375,600 USD</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="name color-dark max-3">
+                                                    Sunset Beach Resort with Kahung Beach with Kahung
+                                                    Beach
+                                                </p>
+                                                <div class="info-deail color-info">
+                                                    <p>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10.7711 10.1046C10.2493 10.6263 9.25177 11.6239 8.41365 12.462C7.6326 13.243 6.36711 13.2431 5.58606 12.462C4.76367 11.6396 3.78292 10.6589 3.2286 10.1046C1.1458 8.02177 1.1458 4.64489 3.2286 2.5621C5.3114 0.479301 8.68828 0.479301 10.7711 2.5621C12.8539 4.64489 12.8539 8.02177 10.7711 10.1046Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                            <path d="M8.99984 6.33333C8.99984 7.4379 8.10441 8.33333 6.99984 8.33333C5.89527 8.33333 4.99984 7.4379 4.99984 6.33333C4.99984 5.22876 5.89527 4.33333 6.99984 4.33333C8.10441 4.33333 8.99984 5.22876 8.99984 6.33333Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        Phuket
+                                                    </p>
+                                                    <p>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M7 1.90278C7.48863 1.34917 8.20354 1 9 1C10.4728 1 11.6667 2.19391 11.6667 3.66667C11.6667 5.13943 10.4728 6.33333 9 6.33333C8.20354 6.33333 7.48863 5.98416 7 5.43055M9 13H1V12.3333C1 10.1242 2.79086 8.33333 5 8.33333C7.20914 8.33333 9 10.1242 9 12.3333V13ZM9 13H13V12.3333C13 10.1242 11.2091 8.33333 9 8.33333C8.27143 8.33333 7.58835 8.52812 7 8.86846M7.66667 3.66667C7.66667 5.13943 6.47276 6.33333 5 6.33333C3.52724 6.33333 2.33333 5.13943 2.33333 3.66667C2.33333 2.19391 3.52724 1 5 1C6.47276 1 7.66667 2.19391 7.66667 3.66667Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        2 Khách/phòng
+                                                    </p>
+                                                </div>
+                                                <a class="btn btn-lg btn-info">Chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="item">
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="item-img">
+                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                </div>
+                                                <p class="time">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12.6667 14V3.33333C12.6667 2.59695 12.0697 2 11.3333 2H4.66667C3.93029 2 3.33333 2.59695 3.33333 3.33333V14M12.6667 14L14 14M12.6667 14H9.33333M3.33333 14L2 14M3.33333 14H6.66667M6 4.66665H6.66667M6 7.33332H6.66667M9.33333 4.66665H10M9.33333 7.33332H10M6.66667 14V10.6667C6.66667 10.2985 6.96514 9.99999 7.33333 9.99999H8.66667C9.03486 9.99999 9.33333 10.2985 9.33333 10.6667V14M6.66667 14H9.33333"
+                                                              stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round"
+                                                              stroke-linejoin="round" />
+                                                    </svg>
+                                                    1 nights
+                                                </p>
+                                                <p class="price">
+                                                    <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.375 1.125V2.375M8.375 4.875V6.125M8.375 8.625V9.875M2.125 1.125C1.43464 1.125 0.875 1.68464 0.875 2.375V4.25C1.56536 4.25 2.125 4.80964 2.125 5.5C2.125 6.19036 1.56536 6.75 0.875 6.75V8.625C0.875 9.31536 1.43464 9.875 2.125 9.875H10.875C11.5654 9.875 12.125 9.31536 12.125 8.625V6.75C11.4346 6.75 10.875 6.19036 10.875 5.5C10.875 4.80964 11.4346 4.25 12.125 4.25V2.375C12.125 1.68464 11.5654 1.125 10.875 1.125H2.125Z"
+                                                              stroke="#0A7C79" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                    Giá từ: <br />
+                                                    <span class="color-info">1,375,600 USD</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="name color-dark max-3">
+                                                    Sunset Beach Resort with Kahung Beach with Kahung
+                                                    Beach
+                                                </p>
+                                                <div class="info-deail color-info">
+                                                    <p>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10.7711 10.1046C10.2493 10.6263 9.25177 11.6239 8.41365 12.462C7.6326 13.243 6.36711 13.2431 5.58606 12.462C4.76367 11.6396 3.78292 10.6589 3.2286 10.1046C1.1458 8.02177 1.1458 4.64489 3.2286 2.5621C5.3114 0.479301 8.68828 0.479301 10.7711 2.5621C12.8539 4.64489 12.8539 8.02177 10.7711 10.1046Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                            <path d="M8.99984 6.33333C8.99984 7.4379 8.10441 8.33333 6.99984 8.33333C5.89527 8.33333 4.99984 7.4379 4.99984 6.33333C4.99984 5.22876 5.89527 4.33333 6.99984 4.33333C8.10441 4.33333 8.99984 5.22876 8.99984 6.33333Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        Phuket
+                                                    </p>
+                                                    <p>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M7 1.90278C7.48863 1.34917 8.20354 1 9 1C10.4728 1 11.6667 2.19391 11.6667 3.66667C11.6667 5.13943 10.4728 6.33333 9 6.33333C8.20354 6.33333 7.48863 5.98416 7 5.43055M9 13H1V12.3333C1 10.1242 2.79086 8.33333 5 8.33333C7.20914 8.33333 9 10.1242 9 12.3333V13ZM9 13H13V12.3333C13 10.1242 11.2091 8.33333 9 8.33333C8.27143 8.33333 7.58835 8.52812 7 8.86846M7.66667 3.66667C7.66667 5.13943 6.47276 6.33333 5 6.33333C3.52724 6.33333 2.33333 5.13943 2.33333 3.66667C2.33333 2.19391 3.52724 1 5 1C6.47276 1 7.66667 2.19391 7.66667 3.66667Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        2 Khách/phòng
+                                                    </p>
+                                                </div>
+                                                <a class="btn btn-lg btn-info">Chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="item">
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="item-img">
+                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                </div>
+                                                <p class="time">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12.6667 14V3.33333C12.6667 2.59695 12.0697 2 11.3333 2H4.66667C3.93029 2 3.33333 2.59695 3.33333 3.33333V14M12.6667 14L14 14M12.6667 14H9.33333M3.33333 14L2 14M3.33333 14H6.66667M6 4.66665H6.66667M6 7.33332H6.66667M9.33333 4.66665H10M9.33333 7.33332H10M6.66667 14V10.6667C6.66667 10.2985 6.96514 9.99999 7.33333 9.99999H8.66667C9.03486 9.99999 9.33333 10.2985 9.33333 10.6667V14M6.66667 14H9.33333"
+                                                              stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round"
+                                                              stroke-linejoin="round" />
+                                                    </svg>
+                                                    1 nights
+                                                </p>
+                                                <p class="price">
+                                                    <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.375 1.125V2.375M8.375 4.875V6.125M8.375 8.625V9.875M2.125 1.125C1.43464 1.125 0.875 1.68464 0.875 2.375V4.25C1.56536 4.25 2.125 4.80964 2.125 5.5C2.125 6.19036 1.56536 6.75 0.875 6.75V8.625C0.875 9.31536 1.43464 9.875 2.125 9.875H10.875C11.5654 9.875 12.125 9.31536 12.125 8.625V6.75C11.4346 6.75 10.875 6.19036 10.875 5.5C10.875 4.80964 11.4346 4.25 12.125 4.25V2.375C12.125 1.68464 11.5654 1.125 10.875 1.125H2.125Z"
+                                                              stroke="#0A7C79" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                    Giá từ: <br />
+                                                    <span class="color-info">1,375,600 USD</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="name color-dark max-3">
+                                                    Sunset Beach Resort with Kahung Beach with Kahung
+                                                    Beach
+                                                </p>
+                                                <div class="info-deail color-info">
+                                                    <p>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10.7711 10.1046C10.2493 10.6263 9.25177 11.6239 8.41365 12.462C7.6326 13.243 6.36711 13.2431 5.58606 12.462C4.76367 11.6396 3.78292 10.6589 3.2286 10.1046C1.1458 8.02177 1.1458 4.64489 3.2286 2.5621C5.3114 0.479301 8.68828 0.479301 10.7711 2.5621C12.8539 4.64489 12.8539 8.02177 10.7711 10.1046Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                            <path d="M8.99984 6.33333C8.99984 7.4379 8.10441 8.33333 6.99984 8.33333C5.89527 8.33333 4.99984 7.4379 4.99984 6.33333C4.99984 5.22876 5.89527 4.33333 6.99984 4.33333C8.10441 4.33333 8.99984 5.22876 8.99984 6.33333Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        Phuket
+                                                    </p>
+                                                    <p>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M7 1.90278C7.48863 1.34917 8.20354 1 9 1C10.4728 1 11.6667 2.19391 11.6667 3.66667C11.6667 5.13943 10.4728 6.33333 9 6.33333C8.20354 6.33333 7.48863 5.98416 7 5.43055M9 13H1V12.3333C1 10.1242 2.79086 8.33333 5 8.33333C7.20914 8.33333 9 10.1242 9 12.3333V13ZM9 13H13V12.3333C13 10.1242 11.2091 8.33333 9 8.33333C8.27143 8.33333 7.58835 8.52812 7 8.86846M7.66667 3.66667C7.66667 5.13943 6.47276 6.33333 5 6.33333C3.52724 6.33333 2.33333 5.13943 2.33333 3.66667C2.33333 2.19391 3.52724 1 5 1C6.47276 1 7.66667 2.19391 7.66667 3.66667Z"
+                                                                  stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                  stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        2 Khách/phòng
+                                                    </p>
+                                                </div>
+                                                <a class="btn btn-lg btn-info">Chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="" class="color-dark continue">Continue...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-xxl-6 col-lg-12">
+                    <div class="news">
+                        <div class="heading">
+                            <h2>TIN TỨC & KHUYẾN MẠI</h2>
+                            <p class="description">
+                                News hottest about Airlines & Explore Around the World
+                            </p>
+                        </div>
+                        <div class="img-banner">
+                            <div class="img">
+                                <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            </div>
+                            <div class="info-banner">
+                                <span class="sale">Giảm 10%</span>
+                                <div>
+                                    <p class="info max-2 min-2">Sunset Beach Resort with</p>
+                                    <p class="date">26/05/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-list">
+                            <div class="row g-1">
+                                <div class="col-12">
+                                    <div class="item">
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="item-img">
+                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                </div>
+                                                <p class="tag">
+                                                    AIRLINES
+                                                </p>
+                                                <p class="time">
+                                                    26/05/2025
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="name color-dark max-2">
+                                                    Sunset Beach Resort with Kahung Beach with Kahung Beach
+                                                </p>
+                                                <div class="info-deail color-dark max-5">
+                                                    From May 26 to the end of June 30, Vietnam
+                                                    Airlines
+                                                    applies the program "Korea -
+                                                    Summer paradise, cheap tickets Lorem ipsum dolor sit amet consectetur adi Lorem ipsum
+                                                    dolor sit amet consectetur adi cheap tic
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="item">
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="item-img">
+                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                </div>
+                                                <p class="tag">
+                                                    AIRLINES
+                                                </p>
+                                                <p class="time">
+                                                    26/05/2025
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="name color-dark max-2">
+                                                    Sunset Beach Resort with Kahung Beach with Kahung Beach
+                                                </p>
+                                                <div class="info-deail color-dark max-5">
+                                                    From May 26 to the end of June 30, Vietnam
+                                                    Airlines
+                                                    applies the program "Korea -
+                                                    Summer paradise, cheap tickets Lorem ipsum dolor sit amet consectetur adi Lorem ipsum
+                                                    dolor sit amet consectetur adi cheap tic
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="item">
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="item-img">
+                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                </div>
+                                                <p class="tag">
+                                                    AIRLINES
+                                                </p>
+                                                <p class="time">
+                                                    26/05/2025
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="name color-dark max-2">
+                                                    Sunset Beach Resort with Kahung Beach with Kahung Beach
+                                                </p>
+                                                <div class="info-deail color-dark max-5">
+                                                    From May 26 to the end of June 30, Vietnam
+                                                    Airlines
+                                                    applies the program "Korea -
+                                                    Summer paradise, cheap tickets Lorem ipsum dolor sit amet consectetur adi Lorem ipsum
+                                                    dolor sit amet consectetur adi cheap tic
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="" class="color-dark continue">Continue...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+
+<script>
+    let a = 1
+    // open model
+    const modal = document.getElementById('modal')
+    const modal2 = document.getElementById('modal2')
+    const modal3 = document.getElementById('modal3')
+    // Mở modal
+    function openModal() {
+        modal.style.display = 'flex'
+    }
+    // Mở modal
+    let isArrCheck = []
+
+    function openModal2(numberChang, name) {
+        //numberChang: số chặng
+        // name : 1 : start hoặc 2: end
+        isArrCheck.push(numberChang)
+        isArrCheck.push(name)
+        modal2.style.display = 'flex'
+        const listItems = document.querySelectorAll('.list-items li')
+        listItems.forEach(li => {
+            li.style.display = 'list-item'
+        })
+    }
+
+    function checkRoute(elementClick, code) {
+        modal2.style.display = 'none'
+        const elements = document.querySelectorAll('.point-route')
+        elements.forEach(el => {
+            if (
+                isArrCheck[0] == el.getAttribute('data-position-box') &&
+                isArrCheck[1] == el.getAttribute('data-position-item')
+            ) {
+                el.textContent = elementClick.textContent
+                el.nextElementSibling.value = code
+            }
+        })
+        isArrCheck = []
+    }
+
+    function filterAirports() {
+        const input = document.getElementById('airportInput')
+        const filter = input.value.toLowerCase()
+        const listItems = document.querySelectorAll('.list-items li')
+        listItems.forEach(li => {
+            const text = li.textContent.toLowerCase()
+            if (text.includes(filter)) {
+                li.style.display = 'list-item'
+            } else {
+                li.style.display = 'none'
+            }
+        })
+    }
+
+    function filterAirports2() {
+        const input = document.getElementById('airportInput2')
+        const filter = input.value.toLowerCase() // chữ thường để so sánh không phân biệt hoa thường
+        const listItems = document.querySelectorAll('.list-items li')
+        listItems.forEach(li => {
+            const text = li.textContent.toLowerCase()
+            if (text.includes(filter)) {
+                li.style.display = 'list-item'
+            } else {
+                li.style.display = 'none'
+            }
+        })
+    }
+
+    // Đóng modal
+    for (let i = 1; i <= 3; i++) {
+        const minus = document.querySelector(`.minus${i}`)
+        const plus = document.querySelector(`.plus${i}`)
+        const count = document.querySelector(`.count${i}`)
+
+        const member = document.querySelector(`#member${i}`)
+        const memberModal = document.querySelector(`#memberModal${i}`)
+        minus.addEventListener('click', () => {
+            let value = parseInt(count.value) || 0
+            if (value > 0) {
+                count.value = value - 1
+                member.textContent = count.value
+                memberModal.textContent = count.value
+            }
+        })
+        plus.addEventListener('click', () => {
+            let value = parseInt(count.value) || 0
+            count.value = value + 1
+            member.textContent = count.value
+            memberModal.textContent = count.value
+        })
+    }
+    // Gán flatpickr cho tất cả input có class .calendar-input
+    function startFlatpickr() {
+        flatpickr('.calendar-input', {
+            dateFormat: 'd/m/Y',
+            minDate: 'today',
+            locale: 'vn'
+            // Bạn có thể thêm showMonths, range mode, v.v. nếu muốn
+        })
+    }
+    startFlatpickr()
+    const radiosSearch = document.querySelectorAll('.typeItinerary')
+    const iconOne = document.querySelector('.icon-one')
+    const iconTwo = document.querySelector('.icon-two')
+    const dateEnd = document.querySelector('.dateEnd')
+
+    function addNewRoute() {
+        // Xoá nút remove nếu có
+        const removeBtn = document.querySelector('.remove-route')
+        if (removeBtn) removeBtn.remove()
+
+        // Update UI
+        document.querySelector('.action-head')?.classList.remove('d-none')
+        document.querySelector('.route-first')?.classList.add('col-12')
+        document.querySelector('.box-submit-search')?.classList.add('col-12')
+
+        // Tạo container chứa các route nếu chưa có
+        let routeContainer = document.querySelector('.new-route')
+        if (!routeContainer) {
+            routeContainer = document.createElement('div')
+            routeContainer.className = 'new-route col-12'
+            // Chèn container vào DOM — ví dụ sau .route-first
+            const target = document.querySelector('.route-first')
+            target?.parentNode.insertBefore(routeContainer, target.nextSibling)
+        }
+
+        // Tạo item mới
+        const existingRoutes = document.querySelectorAll('.item-route')
+        const newRouteNumber = existingRoutes.length + 1
+
+        const routeItem = document.createElement('div')
+        routeItem.className = 'row col-12 col-xl-12 item-route'
+        routeItem.innerHTML = `
+     <div class="action-head col-12">
+      <h2>Chặng ${newRouteNumber}</h2>
+      <h2 class="btn-remove" onclick="removeRoute(event)"><i class="color-info fa-solid fa-trash remove-route"></i></h2>
+    </div>
+    <div class="row g-1 col-6 col-lg-12 route-point col-8">
+      <div class="col-6 col-lg-12" onclick="openModal2(${newRouteNumber},1)">
+        <div class="point-start point box">
+          <label class="row g-0">
+            <div class="col-xl-12">
+              <img src="/Content/svg/search/plane.svg" alt="plane">
+              <span>Điểm đi</span>
+            </div>
+            <p id="start" data-position-box="${newRouteNumber}" data-position-item="1" class="col-xl-9 col-sm-12 point-route">
+              Chọn điểm đến
+            </p>
+            <input type="text" hidden name="chang${newRouteNumber}[diemDi]">
+          </label>
+        </div>
+      </div>
+      <div class="col-6 col-lg-12" onclick="openModal2(${newRouteNumber},2)">
+        <div class="point-end point box">
+          <label class="row g-0">
+            <div class="col-xl-12">
+              <img src="/Content/svg/search/map.svg" alt="plane">
+              <span>Điểm đến</span>
+            </div>
+            <p data-position-box="${newRouteNumber}" data-position-item="2" class="col-xl-9 col-sm-12 point-route">
+              Chọn điểm đến
+            </p>
+            <input type="text" hidden name="chang${newRouteNumber}[diemDien]">
+          </label>
+        </div>
+      </div>
+      <div class="iconRound">
+        <img src="/Content/svg/search/oneRound.svg" alt="iconRound" class="icon-one">
+        <img src="/Content/svg/search/twoRound.svg" alt="iconRound" class="icon-two hidden">
+      </div>
+    </div>
+    <div class="row  g-1 col-lg-12 date-search col-4">
+      <div class="col-6 startDay col-12">
+        <div class="point-start point box">
+          <label class="row g-0">
+            <div class="col-12">
+              <img src="/Content/svg/search/calender.svg" alt="plane">
+              <span>Ngày đi</span>
+            </div>
+            <input type="text" name="chang${newRouteNumber}[ngayDi]" class="calendar-input col-12 flatpickr-input" placeholder="dd/mm/yyyy" readonly>
+          </label>
+        </div>
+      </div>
+      <div class="col-6 dateEnd hidden">
+        <div class="point-end point box">
+          <label class="row g-0">
+            <div>
+              <img src="/Content/svg/search/calender.svg" alt="plane">
+              <span>Ngày về</span>
+            </div>
+            <input name="chang${newRouteNumber}[ngayVe]" type="text" class="col-12 calendar-input flatpickr-input" placeholder="dd/mm/yyyy" readonly>
+          </label>
+        </div>
+      </div>
+    </div>
+  `
+
+        // Thêm vào container
+        routeContainer.appendChild(routeItem)
+
+        // Khởi tạo flatpickr
+        flatpickr(routeItem.querySelectorAll('.calendar-input'), {
+            dateFormat: 'd/m/Y',
+            minDate: 'today',
+            locale: 'vn'
+        })
+        // Tạo nút thêm chặng nếu chưa có
+        if (!document.querySelector('.createRoute')) {
+            const addButton = document.createElement('p')
+            addButton.classList.add('createRoute')
+            addButton.textContent = '+'
+            addButton.onclick = addNewRoute
+            routeContainer.parentNode.insertBefore(
+                addButton,
+                routeContainer.nextSibling
+            )
+        }
+        if (newRouteNumber === 6) {
+            document.querySelector('.createRoute').remove()
+        }
+        // Debug log
+        console.log('🔱 addNewRoute:', newRouteNumber)
+    }
+
+    function removeRoute(event) {
+        // Ngăn sự kiện nổi bọt nếu cần
+        event?.stopPropagation()
+        // Tìm phần tử cần xoá (cha chứa class item-route)
+        const routeItem = event.target.closest('.item-route')
+        if (routeItem) {
+            routeItem.remove()
+        }
+
+        const indexItemaddRemove =
+            document.querySelectorAll('.item-route').length - 1
+        if (indexItemaddRemove >= 2) {
+            const item = document
+                .querySelectorAll('.item-route')
+            [indexItemaddRemove].querySelector('.btn-remove')
+            const icon = document.createElement('i')
+            icon.className = 'color-info fa-solid fa-trash remove-route'
+            item.appendChild(icon)
+        }
+    }
+
+    function updateIcon() {
+        if (document.getElementById('roundtrip').checked) {
+            document.querySelector('.route-point').classList.remove('col-8')
+            document.querySelector('.date-search').classList.remove('col-4')
+            document.querySelector('.date-search').classList.add('col-6')
+            document.querySelector('.startDay').classList.remove('col-12')
+            iconOne.classList.add('hidden')
+            iconTwo.classList.remove('hidden')
+            dateEnd.classList.remove('hidden')
+        } else {
+            document.querySelector('.route-point').classList.add('col-8')
+            document.querySelector('.date-search').classList.remove('col-6')
+            document.querySelector('.date-search').classList.add('col-4')
+            document.querySelector('.startDay').classList.add('col-12')
+            iconOne.classList.remove('hidden')
+            iconTwo.classList.add('hidden')
+            dateEnd.classList.add('hidden')
+        }
+        // THÊM FORM
+        if (document.getElementById('multicity').checked) {
+            addNewRoute()
+            document.querySelector('.modal-form-search').id = 'modal-form-search'
+        } else {
+            document.querySelector('.modal-form-search').id = ''
+            if (document.querySelector('.createRoute')) {
+                document.querySelector('.createRoute').remove()
+            }
+            document.querySelector('.route-first').classList.remove('col-12')
+            document.querySelector('.action-head').classList.add('d-none')
+            if (document.querySelector('.new-route')) {
+                document.querySelector('.new-route').remove()
+            }
+            document
+                .querySelector('.box-submit-search')
+                .classList.remove('col-12')
+        }
+    }
+    radiosSearch.forEach(radio => {
+        radio.addEventListener('change', updateIcon)
+    })
+    window.addEventListener('DOMContentLoaded', updateIcon)
+    // MENU
+    const menuButton = document.querySelector('.openMenu')
+    const navigation = document.querySelector('.navigation')
+    // Mở/đóng menu
+    menuButton.addEventListener('click', function () {
+        navigation.classList.toggle('openMenu')
+        if (navigation.classList.contains('openMenu')) {
+            document.body.classList.add('no-scroll')
+        } else {
+            document.body.classList.remove('no-scroll')
+        }
+    })
+    // Click ra ngoài để đóng menu
+    document.addEventListener('click', function (event) {
+        if (
+            !navigation.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+            navigation.classList.remove('openMenu')
+            document.body.classList.remove('no-scroll')
+        }
+    })
+    // Toggle submenu
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('toggle-submenu')) {
+            const nextUl = e.target.nextElementSibling
+            if (nextUl && nextUl.tagName === 'UL') {
+                nextUl.classList.toggle('open')
+            }
+        }
+    })
+    if (window.innerWidth < 1207) {
+        console.log(window.innerWidth)
+        document.querySelectorAll('li').forEach(li => {
+            const submenu = li.querySelector('.sub-menu')
+            if (submenu) {
+                const toggle = document.createElement('span')
+                toggle.classList.add('toggle-submenu')
+                toggle.textContent = '▼'
+                li.insertBefore(toggle, submenu)
+            }
+        })
+    }
+    // END MENU
+    // backToTop
+    document.addEventListener('DOMContentLoaded', () => {
+        const backToTopBtn = document.getElementById('backToTop')
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block'
+            } else {
+                backToTopBtn.style.display = 'none'
+            }
+        })
+        document.getElementById('backToTop').addEventListener('click', () => {
+            scrollToTop(1000) // Thời gian: 1000ms = 1 giây (bạn có thể tăng lên)
+        })
+
+        function scrollToTop(duration) {
+            const start = window.scrollY
+            const startTime = performance.now()
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime
+                const progress = Math.min(elapsed / duration, 1) // [0..1]
+                const ease = 1 - Math.pow(1 - progress, 3) // ease-out cubic
+                window.scrollTo(0, start * (1 - ease))
+                if (elapsed < duration) {
+                    requestAnimationFrame(animate)
+                }
+            }
+            requestAnimationFrame(animate)
+        }
+    })
+    // backToTop
+    // JS DEAFAUL
+</script>
+<script>
+    $(document).ready(function () {
+        // Ẩn danh sách giá rẻ khi load trang
+        $('#tickets-list-items-gia-re').hide()
+        $('#tickets-list-items-don-moi').show()
+        // Khi click vào radio "Đơn mới"
+        $('#don-moi').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#tickets-list-items-don-moi').slideDown('slow')
+                $('#tickets-list-items-gia-re').slideUp('slow')
+            }
+        })
+
+        // Khi click vào radio "Giá rẻ"
+        $('#gia-re').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#tickets-list-items-gia-re').slideDown('slow')
+                $('#tickets-list-items-don-moi').slideUp('slow')
+            }
+        })
+    })
+</script>

@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <SearchResponse xmlns="http://tempuri.org/">
+      <SearchResult>
+        <FareData>
+          <Adult>1</Adult>
+          <Child>0</Child>
+          <Infant>0</Infant>
+          <TotalPax>1</TotalPax>
+          <FareAdult>5793000</FareAdult>
+          <FareChild>0</FareChild>
+          <FareInfant>0</FareInfant>
+          <TotalFare>5793000</TotalFare>
+          <LastTkDt>2025-06-01T12:00:00</LastTkDt>
+          <FareDataId>0</FareDataId>
+          <Itinerary>1</Itinerary>
+          <CurrencyCode>VND</CurrencyCode>
+          <PlatingCarrier>MH</PlatingCarrier>
+          <ListDepartureFlight>
+            <Flight>
+              <StartPoint>JHB</StartPoint>
+              <EndPoint>SGN</EndPoint>
+              <Airline>MH</Airline>
+              <StartTm>2025-06-01T06:35:00</StartTm>
+              <EndTm>2025-06-01T10:00:00</EndTm>
+              <Duration />
+              <Index>0</Index>
+              <FareDataId>0</FareDataId>
+              <StopNum>1</StopNum>
+              <ListAvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>1034</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>JHB</StartAirp>
+                  <EndAirp>KUL</EndAirp>
+                  <StartTm>635</StartTm>
+                  <EndTm>735</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>265</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal />
+                  <EndTerminal>1</EndTerminal>
+                  <FltTm>60</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>0</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>750</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>KUL</StartAirp>
+                  <EndAirp>SGN</EndAirp>
+                  <StartTm>900</StartTm>
+                  <EndTm>1000</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>265</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal>1</StartTerminal>
+                  <EndTerminal>2</EndTerminal>
+                  <FltTm>120</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>1</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+              </ListAvailFlt>
+            </Flight>
+            <Flight>
+              <StartPoint>JHB</StartPoint>
+              <EndPoint>SGN</EndPoint>
+              <Airline>MH</Airline>
+              <StartTm>2025-06-01T11:15:00</StartTm>
+              <EndTm>2025-06-01T15:40:00</EndTm>
+              <Duration />
+              <Index>1</Index>
+              <FareDataId>0</FareDataId>
+              <StopNum>1</StopNum>
+              <ListAvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>1052</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>JHB</StartAirp>
+                  <EndAirp>KUL</EndAirp>
+                  <StartTm>1115</StartTm>
+                  <EndTm>1210</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>325</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal />
+                  <EndTerminal>1</EndTerminal>
+                  <FltTm>55</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>0</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>758</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>KUL</StartAirp>
+                  <EndAirp>SGN</EndAirp>
+                  <StartTm>1430</StartTm>
+                  <EndTm>1540</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>325</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal>1</StartTerminal>
+                  <EndTerminal>2</EndTerminal>
+                  <FltTm>130</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>1</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+              </ListAvailFlt>
+            </Flight>
+          </ListDepartureFlight>
+        </FareData>
+        <FareData>
+          <Adult>1</Adult>
+          <Child>0</Child>
+          <Infant>0</Infant>
+          <TotalPax>1</TotalPax>
+          <FareAdult>5800000</FareAdult>
+          <FareChild>0</FareChild>
+          <FareInfant>0</FareInfant>
+          <TotalFare>5800000</TotalFare>
+          <LastTkDt>2025-06-01T12:00:00</LastTkDt>
+          <FareDataId>1</FareDataId>
+          <Itinerary>1</Itinerary>
+          <CurrencyCode>VND</CurrencyCode>
+          <PlatingCarrier>MH</PlatingCarrier>
+          <ListDepartureFlight>
+            <Flight>
+              <StartPoint>JHB</StartPoint>
+              <EndPoint>SGN</EndPoint>
+              <Airline>MH</Airline>
+              <StartTm>2025-06-01T19:45:00</StartTm>
+              <EndTm>2025-06-02T10:00:00</EndTm>
+              <Duration />
+              <Index>0</Index>
+              <FareDataId>1</FareDataId>
+              <StopNum>1</StopNum>
+              <ListAvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>1058</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>JHB</StartAirp>
+                  <EndAirp>KUL</EndAirp>
+                  <StartTm>1945</StartTm>
+                  <EndTm>2045</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>915</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal />
+                  <EndTerminal>1</EndTerminal>
+                  <FltTm>60</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>0</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>1</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>750</FltNum>
+                  <StartDt>20250602</StartDt>
+                  <StartAirp>KUL</StartAirp>
+                  <EndAirp>SGN</EndAirp>
+                  <StartTm>900</StartTm>
+                  <EndTm>1000</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>915</JrnyTm>
+                  <EndDt>20250602</EndDt>
+                  <StartTerminal>1</StartTerminal>
+                  <EndTerminal>2</EndTerminal>
+                  <FltTm>120</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>1</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+              </ListAvailFlt>
+            </Flight>
+            <Flight>
+              <StartPoint>JHB</StartPoint>
+              <EndPoint>SGN</EndPoint>
+              <Airline>MH</Airline>
+              <StartTm>2025-06-01T19:45:00</StartTm>
+              <EndTm>2025-06-02T15:40:00</EndTm>
+              <Duration />
+              <Index>1</Index>
+              <FareDataId>1</FareDataId>
+              <StopNum>1</StopNum>
+              <ListAvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>1058</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>JHB</StartAirp>
+                  <EndAirp>KUL</EndAirp>
+                  <StartTm>1945</StartTm>
+                  <EndTm>2045</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>1255</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal />
+                  <EndTerminal>1</EndTerminal>
+                  <FltTm>60</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>0</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>1</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>758</FltNum>
+                  <StartDt>20250602</StartDt>
+                  <StartAirp>KUL</StartAirp>
+                  <EndAirp>SGN</EndAirp>
+                  <StartTm>1430</StartTm>
+                  <EndTm>1540</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>1255</JrnyTm>
+                  <EndDt>20250602</EndDt>
+                  <StartTerminal>1</StartTerminal>
+                  <EndTerminal>2</EndTerminal>
+                  <FltTm>130</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>1</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+              </ListAvailFlt>
+            </Flight>
+            <Flight>
+              <StartPoint>JHB</StartPoint>
+              <EndPoint>SGN</EndPoint>
+              <Airline>MH</Airline>
+              <StartTm>2025-06-01T11:15:00</StartTm>
+              <EndTm>2025-06-02T10:00:00</EndTm>
+              <Duration />
+              <Index>2</Index>
+              <FareDataId>1</FareDataId>
+              <StopNum>1</StopNum>
+              <ListAvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>1052</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>JHB</StartAirp>
+                  <EndAirp>KUL</EndAirp>
+                  <StartTm>1115</StartTm>
+                  <EndTm>1210</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>1425</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal />
+                  <EndTerminal>1</EndTerminal>
+                  <FltTm>55</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>0</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>1</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>750</FltNum>
+                  <StartDt>20250602</StartDt>
+                  <StartAirp>KUL</StartAirp>
+                  <EndAirp>SGN</EndAirp>
+                  <StartTm>900</StartTm>
+                  <EndTm>1000</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>1425</JrnyTm>
+                  <EndDt>20250602</EndDt>
+                  <StartTerminal>1</StartTerminal>
+                  <EndTerminal>2</EndTerminal>
+                  <FltTm>120</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>1</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+              </ListAvailFlt>
+            </Flight>
+            <Flight>
+              <StartPoint>JHB</StartPoint>
+              <EndPoint>SGN</EndPoint>
+              <Airline>MH</Airline>
+              <StartTm>2025-06-01T19:45:00</StartTm>
+              <EndTm>2025-06-02T18:50:00</EndTm>
+              <Duration />
+              <Index>3</Index>
+              <FareDataId>1</FareDataId>
+              <StopNum>1</StopNum>
+              <ListAvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>1058</FltNum>
+                  <StartDt>20250601</StartDt>
+                  <StartAirp>JHB</StartAirp>
+                  <EndAirp>KUL</EndAirp>
+                  <StartTm>1945</StartTm>
+                  <EndTm>2045</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>1445</JrnyTm>
+                  <EndDt>20250601</EndDt>
+                  <StartTerminal />
+                  <EndTerminal>1</EndTerminal>
+                  <FltTm>60</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>0</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>1</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+                <AvailFlt>
+                  <AirV>MH</AirV>
+                  <FltNum>766</FltNum>
+                  <StartDt>20250602</StartDt>
+                  <StartAirp>KUL</StartAirp>
+                  <EndAirp>SGN</EndAirp>
+                  <StartTm>1735</StartTm>
+                  <EndTm>1850</EndTm>
+                  <DayChg>00</DayChg>
+                  <Equip>73H</Equip>
+                  <NumStops>0</NumStops>
+                  <JrnyTm>1445</JrnyTm>
+                  <EndDt>20250602</EndDt>
+                  <StartTerminal>1</StartTerminal>
+                  <EndTerminal>2</EndTerminal>
+                  <FltTm>135</FltTm>
+                  <OpAirV />
+                  <ClassAdult>N</ClassAdult>
+                  <ClassChild />
+                  <ClassInfant />
+                  <IsLastItem>1</IsLastItem>
+                  <StopTime />
+                  <StopOvernight>0</StopOvernight>
+                  <ChangeStation>0</ChangeStation>
+                  <ChangeAirport />
+                  <NonRefund>false</NonRefund>
+                </AvailFlt>
+              </ListAvailFlt>
+            </Flight>
+          </ListDepartureFlight>
+        </FareData>
+      </SearchResult>
+    </SearchResponse>
+  </soap:Body>
+</soap:Envelope>

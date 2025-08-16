@@ -1,0 +1,1402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SkytourWebModelStoreContainer" CdmEntityContainer="SkytourWebEntities2">
+    <EntitySetMapping Name="AdminMenus">
+      <EntityTypeMapping TypeName="SkytourWebModel.AdminMenu">
+        <MappingFragment StoreEntitySet="AdminMenu">
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ParentPageId" ColumnName="ParentPageId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+          <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="SuperAdmin" ColumnName="SuperAdmin" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Technician" ColumnName="Technician" />
+          <ScalarProperty Name="Accountant" ColumnName="Accountant" />
+          <ScalarProperty Name="Editor" ColumnName="Editor" />
+          <ScalarProperty Name="Ticketing" ColumnName="Ticketing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Airlines">
+      <EntityTypeMapping TypeName="SkytourWebModel.Airline">
+        <MappingFragment StoreEntitySet="Airline">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="AirlineCodeICAO" ColumnName="AirlineCodeICAO" />
+          <ScalarProperty Name="AirlineName" ColumnName="AirlineName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="IsAutoSuggest" ColumnName="IsAutoSuggest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AirlineTopupBalances">
+      <EntityTypeMapping TypeName="SkytourWebModel.AirlineTopupBalance">
+        <MappingFragment StoreEntitySet="AirlineTopupBalance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VJAccount" ColumnName="VJAccount" />
+          <ScalarProperty Name="BLAccount" ColumnName="BLAccount" />
+          <ScalarProperty Name="TimeUpdate" ColumnName="TimeUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Airports">
+      <EntityTypeMapping TypeName="SkytourWebModel.Airport">
+        <MappingFragment StoreEntitySet="Airport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryPriority" ColumnName="CountryPriority" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="AirportNameEN" ColumnName="AirportNameEN" />
+          <ScalarProperty Name="AirportNameVN" ColumnName="AirportNameVN" />
+          <ScalarProperty Name="SuggestNormal" ColumnName="SuggestNormal" />
+          <ScalarProperty Name="SuggestNormalVN" ColumnName="SuggestNormalVN" />
+          <ScalarProperty Name="SuggestMobile" ColumnName="SuggestMobile" />
+          <ScalarProperty Name="IsAutoSuggest" ColumnName="IsAutoSuggest" />
+          <ScalarProperty Name="IsMainAirport" ColumnName="IsMainAirport" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="OrderDisplay" ColumnName="OrderDisplay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARCNameRules">
+      <EntityTypeMapping TypeName="SkytourWebModel.ARCNameRule">
+        <MappingFragment StoreEntitySet="ARCNameRule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="SkytourWebModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="SkytourWebModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryDisplayOrder" ColumnName="CountryDisplayOrder" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameVN" ColumnName="NameVN" />
+          <ScalarProperty Name="IsAutoSuggest" ColumnName="IsAutoSuggest" />
+          <ScalarProperty Name="IsMainCity" ColumnName="IsMainCity" />
+          <ScalarProperty Name="IsBigCity" ColumnName="IsBigCity" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigCategories">
+      <EntityTypeMapping TypeName="SkytourWebModel.ConfigCategory">
+        <MappingFragment StoreEntitySet="ConfigCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigValues">
+      <EntityTypeMapping TypeName="SkytourWebModel.ConfigValue">
+        <MappingFragment StoreEntitySet="ConfigValue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigValueOptions">
+      <EntityTypeMapping TypeName="SkytourWebModel.ConfigValueOption">
+        <MappingFragment StoreEntitySet="ConfigValueOption">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConfigValueId" ColumnName="ConfigValueId" />
+          <ScalarProperty Name="OptionValue" ColumnName="OptionValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="SkytourWebModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameVN" ColumnName="NameVN" />
+          <ScalarProperty Name="AllowsBilling" ColumnName="AllowsBilling" />
+          <ScalarProperty Name="AllowsShipping" ColumnName="AllowsShipping" />
+          <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterIsoCode" />
+          <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterIsoCode" />
+          <ScalarProperty Name="NumericIsoCode" ColumnName="NumericIsoCode" />
+          <ScalarProperty Name="ContinentCode" ColumnName="ContinentCode" />
+          <ScalarProperty Name="SubjectToVat" ColumnName="SubjectToVat" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCardFees">
+      <EntityTypeMapping TypeName="SkytourWebModel.CreditCardFee">
+        <MappingFragment StoreEntitySet="CreditCardFee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerFeedbacks">
+      <EntityTypeMapping TypeName="SkytourWebModel.CustomerFeedback">
+        <MappingFragment StoreEntitySet="CustomerFeedback">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="DateQuestion" ColumnName="DateQuestion" />
+          <ScalarProperty Name="DateAnswer" ColumnName="DateAnswer" />
+          <ScalarProperty Name="UserIdAnswer" ColumnName="UserIdAnswer" />
+          <ScalarProperty Name="IsAnswer" ColumnName="IsAnswer" />
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerInfoes">
+      <EntityTypeMapping TypeName="SkytourWebModel.CustomerInfo">
+        <MappingFragment StoreEntitySet="CustomerInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsVip" ColumnName="IsVip" />
+          <ScalarProperty Name="IsBlackList" ColumnName="IsBlackList" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerRequests">
+      <EntityTypeMapping TypeName="SkytourWebModel.CustomerRequest">
+        <MappingFragment StoreEntitySet="CustomerRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+          <ScalarProperty Name="UserProcess" ColumnName="UserProcess" />
+          <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerReviews">
+      <EntityTypeMapping TypeName="SkytourWebModel.CustomerReview">
+        <MappingFragment StoreEntitySet="CustomerReview">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Vocative" ColumnName="Vocative" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Review" ColumnName="Review" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="UserAnswer" ColumnName="UserAnswer" />
+          <ScalarProperty Name="MobileUserAnswer" ColumnName="MobileUserAnswer" />
+          <ScalarProperty Name="ActiveAnswer" ColumnName="ActiveAnswer" />
+          <ScalarProperty Name="DateTimeAnswer" ColumnName="DateTimeAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="ShowOnHomepage" ColumnName="ShowOnHomepage" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DomesticDiscounts">
+      <EntityTypeMapping TypeName="SkytourWebModel.DomesticDiscount">
+        <MappingFragment StoreEntitySet="DomesticDiscount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Airline" ColumnName="Airline" />
+          <ScalarProperty Name="DiscountType" ColumnName="DiscountType" />
+          <ScalarProperty Name="DiscountAdult" ColumnName="DiscountAdult" />
+          <ScalarProperty Name="DiscountChild" ColumnName="DiscountChild" />
+          <ScalarProperty Name="DiscountInfant" ColumnName="DiscountInfant" />
+          <ScalarProperty Name="IndividualAdult" ColumnName="IndividualAdult" />
+          <ScalarProperty Name="IndividualChild" ColumnName="IndividualChild" />
+          <ScalarProperty Name="IndividualInfant" ColumnName="IndividualInfant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DomesticFees">
+      <EntityTypeMapping TypeName="SkytourWebModel.DomesticFee">
+        <MappingFragment StoreEntitySet="DomesticFee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
+          <ScalarProperty Name="AirportCodeArrival" ColumnName="AirportCodeArrival" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+          <ScalarProperty Name="AirportSurchargeAdult" ColumnName="AirportSurchargeAdult" />
+          <ScalarProperty Name="AirportSurchargeChild" ColumnName="AirportSurchargeChild" />
+          <ScalarProperty Name="AirportSurchargeInfant" ColumnName="AirportSurchargeInfant" />
+          <ScalarProperty Name="ServiceFeeAdult" ColumnName="ServiceFeeAdult" />
+          <ScalarProperty Name="ServiceFeeChild" ColumnName="ServiceFeeChild" />
+          <ScalarProperty Name="ServiceFeeInfant" ColumnName="ServiceFeeInfant" />
+          <ScalarProperty Name="PercentBaseFeeChild" ColumnName="PercentBaseFeeChild" />
+          <ScalarProperty Name="PercentBaseFeeInfant" ColumnName="PercentBaseFeeInfant" />
+          <ScalarProperty Name="DomesticFeeStatus" ColumnName="DomesticFeeStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DomesticRoutes">
+      <EntityTypeMapping TypeName="SkytourWebModel.DomesticRoute">
+        <MappingFragment StoreEntitySet="DomesticRoute">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="IsVN" ColumnName="IsVN" />
+          <ScalarProperty Name="IsBL" ColumnName="IsBL" />
+          <ScalarProperty Name="IsVD" ColumnName="IsVD" />
+          <ScalarProperty Name="IsInternational" ColumnName="IsInternational" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="SkytourWebModel.EmailTemplate">
+        <MappingFragment StoreEntitySet="EmailTemplate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailContentType" ColumnName="EmailContentType" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FareNames">
+      <EntityTypeMapping TypeName="SkytourWebModel.FareName">
+        <MappingFragment StoreEntitySet="FareName">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+          <ScalarProperty Name="FareTypeEN" ColumnName="FareTypeEN" />
+          <ScalarProperty Name="FareTypeVN" ColumnName="FareTypeVN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FareRules">
+      <EntityTypeMapping TypeName="SkytourWebModel.FareRule">
+        <MappingFragment StoreEntitySet="FareRule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+          <ScalarProperty Name="RuleName" ColumnName="RuleName" />
+          <ScalarProperty Name="RuleDetail" ColumnName="RuleDetail" />
+          <ScalarProperty Name="RuleSimple" ColumnName="RuleSimple" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FareRuleVNAs">
+      <EntityTypeMapping TypeName="SkytourWebModel.FareRuleVNA">
+        <MappingFragment StoreEntitySet="FareRuleVNA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FareNameId" ColumnName="FareNameId" />
+          <ScalarProperty Name="FlightChange" ColumnName="FlightChange" />
+          <ScalarProperty Name="ItineraryChange" ColumnName="ItineraryChange" />
+          <ScalarProperty Name="CancellationAndRefund" ColumnName="CancellationAndRefund" />
+          <ScalarProperty Name="MaximumStay" ColumnName="MaximumStay" />
+          <ScalarProperty Name="MinimumStay" ColumnName="MinimumStay" />
+          <ScalarProperty Name="GLPAccuralRates" ColumnName="GLPAccuralRates" />
+          <ScalarProperty Name="MarketId" ColumnName="MarketId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galleries">
+      <EntityTypeMapping TypeName="SkytourWebModel.Gallery">
+        <MappingFragment StoreEntitySet="Gallery">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotels">
+      <EntityTypeMapping TypeName="SkytourWebModel.Hotel">
+        <MappingFragment StoreEntitySet="Hotels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ShowFromDate" ColumnName="ShowFromDate" />
+          <ScalarProperty Name="ShowEndDate" ColumnName="ShowEndDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Sale" ColumnName="Sale" />
+          <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+          <ScalarProperty Name="IsDomestic" ColumnName="IsDomestic" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="RuleOrderRoom" ColumnName="RuleOrderRoom" />
+          <ScalarProperty Name="LocationDetail" ColumnName="LocationDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotlines">
+      <EntityTypeMapping TypeName="SkytourWebModel.Hotline">
+        <MappingFragment StoreEntitySet="Hotline">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotlineBusies">
+      <EntityTypeMapping TypeName="SkytourWebModel.HotlineBusy">
+        <MappingFragment StoreEntitySet="HotlineBusy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DateTimeClickBusy" ColumnName="DateTimeClickBusy" />
+          <ScalarProperty Name="DateTimeNotBusy" ColumnName="DateTimeNotBusy" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HTMLBlocks">
+      <EntityTypeMapping TypeName="SkytourWebModel.HTMLBlock">
+        <MappingFragment StoreEntitySet="HTMLBlock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LandingPages">
+      <EntityTypeMapping TypeName="SkytourWebModel.LandingPage">
+        <MappingFragment StoreEntitySet="LandingPage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Metakeyword" ColumnName="Metakeyword" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
+          <ScalarProperty Name="AirportCode1" ColumnName="AirportCode1" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+          <ScalarProperty Name="AllowComment" ColumnName="AllowComment" />
+          <ScalarProperty Name="ShowInHomePage" ColumnName="ShowInHomePage" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localizations">
+      <EntityTypeMapping TypeName="SkytourWebModel.Localization">
+        <MappingFragment StoreEntitySet="Localization">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameType" ColumnName="NameType" />
+          <ScalarProperty Name="RelateCode" ColumnName="RelateCode" />
+          <ScalarProperty Name="LangCountryCode" ColumnName="LangCountryCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarkupAndDiscounts">
+      <EntityTypeMapping TypeName="SkytourWebModel.MarkupAndDiscount">
+        <MappingFragment StoreEntitySet="MarkupAndDiscount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="ValueOneWay" ColumnName="ValueOneWay" />
+          <ScalarProperty Name="ValueRoundTrip" ColumnName="ValueRoundTrip" />
+          <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+          <ScalarProperty Name="BaseOnType" ColumnName="BaseOnType" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ThirdParty" ColumnName="ThirdParty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="SkytourWebModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NewsGroupID" ColumnName="NewsGroupID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="AllowComment" ColumnName="AllowComment" />
+          <ScalarProperty Name="ShowOnHomepage" ColumnName="ShowOnHomepage" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsLetterSubscriptions">
+      <EntityTypeMapping TypeName="SkytourWebModel.NewsLetterSubscription">
+        <MappingFragment StoreEntitySet="NewsLetterSubscription">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NewsLetterSubscriptionGuid" ColumnName="NewsLetterSubscriptionGuid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offices">
+      <EntityTypeMapping TypeName="SkytourWebModel.Office">
+        <MappingFragment StoreEntitySet="Office">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+          <ScalarProperty Name="IsAgencys" ColumnName="IsAgencys" />
+          <ScalarProperty Name="FeeAgecys" ColumnName="FeeAgecys" />
+          <ScalarProperty Name="MapImageUrl" ColumnName="MapImageUrl" />
+          <ScalarProperty Name="ServiceAgencys" ColumnName="ServiceAgencys" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderBaggages">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderBaggage">
+        <MappingFragment StoreEntitySet="OrderBaggage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderTravellerId" ColumnName="OrderTravellerId" />
+          <ScalarProperty Name="AirlineOutBound" ColumnName="AirlineOutBound" />
+          <ScalarProperty Name="PriceOutBound" ColumnName="PriceOutBound" />
+          <ScalarProperty Name="KgOutBound" ColumnName="KgOutBound" />
+          <ScalarProperty Name="AirlineInBound" ColumnName="AirlineInBound" />
+          <ScalarProperty Name="PriceInBound" ColumnName="PriceInBound" />
+          <ScalarProperty Name="KgInBound" ColumnName="KgInBound" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderBlockFlights">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderBlockFlight">
+        <MappingFragment StoreEntitySet="OrderBlockFlight">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ProcessedBy" ColumnName="ProcessedBy" />
+          <ScalarProperty Name="TickitBlockFlightId" ColumnName="TickitBlockFlightId" />
+          <ScalarProperty Name="ItineraryDesc" ColumnName="ItineraryDesc" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="TotalAdult" ColumnName="TotalAdult" />
+          <ScalarProperty Name="TotalChild" ColumnName="TotalChild" />
+          <ScalarProperty Name="TotalInfant" ColumnName="TotalInfant" />
+          <ScalarProperty Name="TotalBasePrice" ColumnName="TotalBasePrice" />
+          <ScalarProperty Name="TotalTaxAndFee" ColumnName="TotalTaxAndFee" />
+          <ScalarProperty Name="TotalAddOnFee" ColumnName="TotalAddOnFee" />
+          <ScalarProperty Name="TotalServiceFee" ColumnName="TotalServiceFee" />
+          <ScalarProperty Name="Commission" ColumnName="Commission" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="TotalTickit" ColumnName="TotalTickit" />
+          <ScalarProperty Name="PriceNote" ColumnName="PriceNote" />
+          <ScalarProperty Name="OptionGetBetterFare" ColumnName="OptionGetBetterFare" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="KeepSeat15minStatus" ColumnName="KeepSeat15minStatus" />
+          <ScalarProperty Name="SessionIdGDS" ColumnName="SessionIdGDS" />
+          <ScalarProperty Name="DateTimeKeepSeat" ColumnName="DateTimeKeepSeat" />
+          <ScalarProperty Name="PnrFake" ColumnName="PnrFake" />
+          <ScalarProperty Name="PnrKeepStatus" ColumnName="PnrKeepStatus" />
+          <ScalarProperty Name="DateTimeCreatePnr" ColumnName="DateTimeCreatePnr" />
+          <ScalarProperty Name="OtherFee" ColumnName="OtherFee" />
+          <ScalarProperty Name="PNRNumber" ColumnName="PNRNumber" />
+          <ScalarProperty Name="IsRoundTrip" ColumnName="IsRoundTrip" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="DepartureCity" ColumnName="DepartureCity" />
+          <ScalarProperty Name="ArrivalCity" ColumnName="ArrivalCity" />
+          <ScalarProperty Name="OutBoundRefNumber" ColumnName="OutBoundRefNumber" />
+          <ScalarProperty Name="InBoundRefNumber" ColumnName="InBoundRefNumber" />
+          <ScalarProperty Name="Adult" ColumnName="Adult" />
+          <ScalarProperty Name="Child" ColumnName="Child" />
+          <ScalarProperty Name="Infant" ColumnName="Infant" />
+          <ScalarProperty Name="IsIssuedEticket" ColumnName="IsIssuedEticket" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderBookings">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderBooking">
+        <MappingFragment StoreEntitySet="OrderBooking">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="StatusAvailable" ColumnName="StatusAvailable" />
+          <ScalarProperty Name="FinnalStatus" ColumnName="FinnalStatus" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="IsHotel" ColumnName="IsHotel" />
+          <ScalarProperty Name="IsFlight" ColumnName="IsFlight" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+          <ScalarProperty Name="IsRequirePayment" ColumnName="IsRequirePayment" />
+          <ScalarProperty Name="PaymentMethodSelected" ColumnName="PaymentMethodSelected" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="SupplierHotel" ColumnName="SupplierHotel" />
+          <ScalarProperty Name="SupplierFlight" ColumnName="SupplierFlight" />
+          <ScalarProperty Name="OrderStep" ColumnName="OrderStep" />
+          <ScalarProperty Name="BookingReference" ColumnName="BookingReference" />
+          <ScalarProperty Name="OrderErrorMessage" ColumnName="OrderErrorMessage" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="IsShowFrontEnd" ColumnName="IsShowFrontEnd" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="PriceFirstPaid" ColumnName="PriceFirstPaid" />
+          <ScalarProperty Name="ExtraFee" ColumnName="ExtraFee" />
+          <ScalarProperty Name="ExtraFeeType" ColumnName="ExtraFeeType" />
+          <ScalarProperty Name="PaymentStatusFinnal" ColumnName="PaymentStatusFinnal" />
+          <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+          <ScalarProperty Name="UserCountry" ColumnName="UserCountry" />
+          <ScalarProperty Name="LastTimeValidBankOrCashOrigin" ColumnName="LastTimeValidBankOrCashOrigin" />
+          <ScalarProperty Name="LastTimeValidBankOrCashCurrent" ColumnName="LastTimeValidBankOrCashCurrent" />
+          <ScalarProperty Name="LastTimeValidBank" ColumnName="LastTimeValidBank" />
+          <ScalarProperty Name="LastTimeValidCash" ColumnName="LastTimeValidCash" />
+          <ScalarProperty Name="IsMobile" ColumnName="IsMobile" />
+          <ScalarProperty Name="IsTracking" ColumnName="IsTracking" />
+          <ScalarProperty Name="IsBooking" ColumnName="IsBooking" />
+          <ScalarProperty Name="UserIdProcess" ColumnName="UserIdProcess" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CallPaxStatus" ColumnName="CallPaxStatus" />
+          <ScalarProperty Name="CallPaxFromTime" ColumnName="CallPaxFromTime" />
+          <ScalarProperty Name="CallPaxToTime" ColumnName="CallPaxToTime" />
+          <ScalarProperty Name="CallPaxUser" ColumnName="CallPaxUser" />
+          <ScalarProperty Name="DateTimeProcess" ColumnName="DateTimeProcess" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="UserIdAssignedBooking" ColumnName="UserIdAssignedBooking" />
+          <ScalarProperty Name="UserAssingedBookingStatus" ColumnName="UserAssingedBookingStatus" />
+          <ScalarProperty Name="UserIdAssingedCallPax" ColumnName="UserIdAssingedCallPax" />
+          <ScalarProperty Name="UserAssingedCallPaxStatus" ColumnName="UserAssingedCallPaxStatus" />
+          <ScalarProperty Name="IsKeepSeat" ColumnName="IsKeepSeat" />
+          <ScalarProperty Name="IsDone" ColumnName="IsDone" />
+          <ScalarProperty Name="KeepSeatByUserId" ColumnName="KeepSeatByUserId" />
+          <ScalarProperty Name="AssignedBookingDate" ColumnName="AssignedBookingDate" />
+          <ScalarProperty Name="DateTimeKeepSeat" ColumnName="DateTimeKeepSeat" />
+          <ScalarProperty Name="TimeLimit" ColumnName="TimeLimit" />
+          <ScalarProperty Name="UserIdUpdateStatus" ColumnName="UserIdUpdateStatus" />
+          <ScalarProperty Name="IsRecallPax" ColumnName="IsRecallPax" />
+          <ScalarProperty Name="XiCangDan" ColumnName="XiCangDan" />
+          <ScalarProperty Name="LogClientId" ColumnName="LogClientId" />
+          <ScalarProperty Name="DateTimeClickPayment" ColumnName="DateTimeClickPayment" />
+          <ScalarProperty Name="DateTimeDelivery" ColumnName="DateTimeDelivery" />
+          <ScalarProperty Name="DateTimeRecall" ColumnName="DateTimeRecall" />
+          <ScalarProperty Name="UserRecall" ColumnName="UserRecall" />
+          <ScalarProperty Name="StatusRecall" ColumnName="StatusRecall" />
+          <ScalarProperty Name="DateTimeDoneRecall" ColumnName="DateTimeDoneRecall" />
+          <ScalarProperty Name="UserIdDeactive" ColumnName="UserIdDeactive" />
+          <ScalarProperty Name="DateTimeDeactive" ColumnName="DateTimeDeactive" />
+          <ScalarProperty Name="NeedToResell" ColumnName="NeedToResell" />
+          <ScalarProperty Name="InvoiceStatus" ColumnName="InvoiceStatus" />
+          <ScalarProperty Name="UserInvoiceRequest" ColumnName="UserInvoiceRequest" />
+          <ScalarProperty Name="UserInvoiceIssued" ColumnName="UserInvoiceIssued" />
+          <ScalarProperty Name="UserInvoiceRequestTime" ColumnName="UserInvoiceRequestTime" />
+          <ScalarProperty Name="UserInvoiceIssuedTime" ColumnName="UserInvoiceIssuedTime" />
+          <ScalarProperty Name="NeedToBeIssued" ColumnName="NeedToBeIssued" />
+          <ScalarProperty Name="Issued" ColumnName="Issued" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="OriginOnlinePaymentStatus" ColumnName="OriginOnlinePaymentStatus" />
+          <ScalarProperty Name="Refunded" ColumnName="Refunded" />
+          <ScalarProperty Name="IsDebt" ColumnName="IsDebt" />
+          <ScalarProperty Name="DebtReason" ColumnName="DebtReason" />
+          <ScalarProperty Name="NeedToSell" ColumnName="NeedToSell" />
+          <ScalarProperty Name="CanExploited" ColumnName="CanExploited" />
+          <ScalarProperty Name="PayAtBank" ColumnName="PayAtBank" />
+          <ScalarProperty Name="HasLoss" ColumnName="HasLoss" />
+          <ScalarProperty Name="LostAmount" ColumnName="LostAmount" />
+          <ScalarProperty Name="HasSMSBank" ColumnName="HasSMSBank" />
+          <ScalarProperty Name="DepositAmmount" ColumnName="DepositAmmount" />
+          <ScalarProperty Name="KeepSeatStatus" ColumnName="KeepSeatStatus" />
+          <ScalarProperty Name="RemindBeforeFlyStatus" ColumnName="RemindBeforeFlyStatus" />
+          <ScalarProperty Name="RemindBeforeFlyQuality" ColumnName="RemindBeforeFlyQuality" />
+          <ScalarProperty Name="RemindBeforeFlyUser" ColumnName="RemindBeforeFlyUser" />
+          <ScalarProperty Name="RemindBeforeFlyCallDate" ColumnName="RemindBeforeFlyCallDate" />
+          <ScalarProperty Name="DeactiveReason" ColumnName="DeactiveReason" />
+          <ScalarProperty Name="DeactiveStatus" ColumnName="DeactiveStatus" />
+          <ScalarProperty Name="NeedToDelivery" ColumnName="NeedToDelivery" />
+          <ScalarProperty Name="DeliveryAddess" ColumnName="DeliveryAddess" />
+          <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+          <ScalarProperty Name="IsTour" ColumnName="IsTour" />
+          <ScalarProperty Name="IsBlockFlight" ColumnName="IsBlockFlight" />
+          <ScalarProperty Name="VoucherCode" ColumnName="VoucherCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderContactInfoes">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderContactInfo">
+        <MappingFragment StoreEntitySet="OrderContactInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsInvoice" ColumnName="IsInvoice" />
+          <ScalarProperty Name="NameInvoice" ColumnName="NameInvoice" />
+          <ScalarProperty Name="ProfessionInvoice" ColumnName="ProfessionInvoice" />
+          <ScalarProperty Name="VATInvoice" ColumnName="VATInvoice" />
+          <ScalarProperty Name="AddressInvoice" ColumnName="AddressInvoice" />
+          <ScalarProperty Name="CityInvoice" ColumnName="CityInvoice" />
+          <ScalarProperty Name="TaxOffice" ColumnName="TaxOffice" />
+          <ScalarProperty Name="IsReciveInformation" ColumnName="IsReciveInformation" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="AddressReciveInvoice" ColumnName="AddressReciveInvoice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderCustomerAddresses">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderCustomerAddress">
+        <MappingFragment StoreEntitySet="OrderCustomerAddress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+          <ScalarProperty Name="CustomerCity" ColumnName="CustomerCity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderEmails">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderEmail">
+        <MappingFragment StoreEntitySet="OrderEmail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+          <ScalarProperty Name="FromName" ColumnName="FromName" />
+          <ScalarProperty Name="ToEmail" ColumnName="ToEmail" />
+          <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+          <ScalarProperty Name="EmailContent" ColumnName="EmailContent" />
+          <ScalarProperty Name="EmailContentType" ColumnName="EmailContentType" />
+          <ScalarProperty Name="UserIdLogin" ColumnName="UserIdLogin" />
+          <ScalarProperty Name="UserIdReceive" ColumnName="UserIdReceive" />
+          <ScalarProperty Name="DateTimeSent" ColumnName="DateTimeSent" />
+          <ScalarProperty Name="IsError" ColumnName="IsError" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="PC" ColumnName="PC" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderFlights">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderFlight">
+        <MappingFragment StoreEntitySet="OrderFlight">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ProcessedBy" ColumnName="ProcessedBy" />
+          <ScalarProperty Name="Triptype" ColumnName="Triptype" />
+          <ScalarProperty Name="ItineraryDesc" ColumnName="ItineraryDesc" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="TotalAdult" ColumnName="TotalAdult" />
+          <ScalarProperty Name="TotalChild" ColumnName="TotalChild" />
+          <ScalarProperty Name="TotalInfant" ColumnName="TotalInfant" />
+          <ScalarProperty Name="TotalBasePrice" ColumnName="TotalBasePrice" />
+          <ScalarProperty Name="TotalTaxAndFee" ColumnName="TotalTaxAndFee" />
+          <ScalarProperty Name="TotalAddOnFee" ColumnName="TotalAddOnFee" />
+          <ScalarProperty Name="TotalServiceFee" ColumnName="TotalServiceFee" />
+          <ScalarProperty Name="Commission" ColumnName="Commission" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="PriceNote" ColumnName="PriceNote" />
+          <ScalarProperty Name="OptionGetBetterFare" ColumnName="OptionGetBetterFare" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="KeepSeat15minStatus" ColumnName="KeepSeat15minStatus" />
+          <ScalarProperty Name="SessionIdGDS" ColumnName="SessionIdGDS" />
+          <ScalarProperty Name="DateTimeKeepSeat" ColumnName="DateTimeKeepSeat" />
+          <ScalarProperty Name="PnrFake" ColumnName="PnrFake" />
+          <ScalarProperty Name="PnrKeepStatus" ColumnName="PnrKeepStatus" />
+          <ScalarProperty Name="DateTimeCreatePnr" ColumnName="DateTimeCreatePnr" />
+          <ScalarProperty Name="IsShowFlagSNB" ColumnName="IsShowFlagSNB" />
+          <ScalarProperty Name="NoFlagSNB" ColumnName="NoFlagSNB" />
+          <ScalarProperty Name="IsShowFlagTML" ColumnName="IsShowFlagTML" />
+          <ScalarProperty Name="OtherFee" ColumnName="OtherFee" />
+          <ScalarProperty Name="PNRNumber" ColumnName="PNRNumber" />
+          <ScalarProperty Name="Enviroment" ColumnName="Enviroment" />
+          <ScalarProperty Name="IsRoundTrip" ColumnName="IsRoundTrip" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="DepartureCity" ColumnName="DepartureCity" />
+          <ScalarProperty Name="ArrivalCity" ColumnName="ArrivalCity" />
+          <ScalarProperty Name="RecommendationNumber" ColumnName="RecommendationNumber" />
+          <ScalarProperty Name="OutBoundRefNumber" ColumnName="OutBoundRefNumber" />
+          <ScalarProperty Name="InBoundRefNumber" ColumnName="InBoundRefNumber" />
+          <ScalarProperty Name="Adult" ColumnName="Adult" />
+          <ScalarProperty Name="Child" ColumnName="Child" />
+          <ScalarProperty Name="Infant" ColumnName="Infant" />
+          <ScalarProperty Name="IsIssuedEticket" ColumnName="IsIssuedEticket" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="AirlineCodeInBound" ColumnName="AirlineCodeInBound" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderFlightSegments">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderFlightSegment">
+        <MappingFragment StoreEntitySet="OrderFlightSegment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderFlightId" ColumnName="OrderFlightId" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="FlightNumber" ColumnName="FlightNumber" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+          <ScalarProperty Name="TicketClassName" ColumnName="TicketClassName" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+          <ScalarProperty Name="SegmentPrice" ColumnName="SegmentPrice" />
+          <ScalarProperty Name="PNRNumber" ColumnName="PNRNumber" />
+          <ScalarProperty Name="EticketNumber" ColumnName="EticketNumber" />
+          <ScalarProperty Name="PNRStatus" ColumnName="PNRStatus" />
+          <ScalarProperty Name="Timelimit" ColumnName="Timelimit" />
+          <ScalarProperty Name="SegmentType" ColumnName="SegmentType" />
+          <ScalarProperty Name="TimeRemindCustomer" ColumnName="TimeRemindCustomer" />
+          <ScalarProperty Name="RemindCustomerStatus" ColumnName="RemindCustomerStatus" />
+          <ScalarProperty Name="GroupIndex" ColumnName="GroupIndex" />
+          <ScalarProperty Name="SI" ColumnName="SI" />
+          <ScalarProperty Name="BasePrice" ColumnName="BasePrice" />
+          <ScalarProperty Name="FareRule" ColumnName="FareRule" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="PriceShownOnTicket" ColumnName="PriceShownOnTicket" />
+          <ScalarProperty Name="RecheckStatus" ColumnName="RecheckStatus" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UserIdRecheck" ColumnName="UserIdRecheck" />
+          <ScalarProperty Name="ARC_FullBookingDetail" ColumnName="ARC_FullBookingDetail" />
+          <ScalarProperty Name="ARC_BookStatus" ColumnName="ARC_BookStatus" />
+          <ScalarProperty Name="ContentIssue" ColumnName="ContentIssue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderHotels">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderHotel">
+        <MappingFragment StoreEntitySet="OrderHotel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="TotalRoom" ColumnName="TotalRoom" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="RuleOfRoom" ColumnName="RuleOfRoom" />
+          <ScalarProperty Name="RuleOfSKT" ColumnName="RuleOfSKT" />
+          <ScalarProperty Name="PassengerDetail" ColumnName="PassengerDetail" />
+          <ScalarProperty Name="TotalAdult" ColumnName="TotalAdult" />
+          <ScalarProperty Name="TotalChild" ColumnName="TotalChild" />
+          <ScalarProperty Name="TotalInfant" ColumnName="TotalInfant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderHotelRooms">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderHotelRoom">
+        <MappingFragment StoreEntitySet="OrderHotelRoom">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderHotelId" ColumnName="OrderHotelId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderPayments">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderPayment">
+        <MappingFragment StoreEntitySet="OrderPayment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentTime" ColumnName="PaymentTime" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaymentNote" ColumnName="PaymentNote" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="CreditCardFeeId" ColumnName="CreditCardFeeId" />
+          <ScalarProperty Name="FeePrice" ColumnName="FeePrice" />
+          <ScalarProperty Name="DeliveryUserId" ColumnName="DeliveryUserId" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderPaymentBaoKims">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderPaymentBaoKim">
+        <MappingFragment StoreEntitySet="OrderPaymentBaoKim">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="payment_type" ColumnName="payment_type" />
+          <ScalarProperty Name="transaction_status" ColumnName="transaction_status" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="net_amount" ColumnName="net_amount" />
+          <ScalarProperty Name="fee_amount" ColumnName="fee_amount" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="verify_sign" ColumnName="verify_sign" />
+          <ScalarProperty Name="resend" ColumnName="resend" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+          <ScalarProperty Name="strResponse" ColumnName="strResponse" />
+          <ScalarProperty Name="order_id_response" ColumnName="order_id_response" />
+          <ScalarProperty Name="transaction_id_response" ColumnName="transaction_id_response" />
+          <ScalarProperty Name="transaction_status_response" ColumnName="transaction_status_response" />
+          <ScalarProperty Name="order_description_response" ColumnName="order_description_response" />
+          <ScalarProperty Name="DatetimeResponse" ColumnName="DatetimeResponse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderPaymentNganLuongs">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderPaymentNganLuong">
+        <MappingFragment StoreEntitySet="OrderPaymentNganLuong">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Payment_Id" ColumnName="Payment_Id" />
+          <ScalarProperty Name="Transaction_Info" ColumnName="Transaction_Info" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+          <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+          <ScalarProperty Name="Payer_FullName" ColumnName="Payer_FullName" />
+          <ScalarProperty Name="Payer_Email" ColumnName="Payer_Email" />
+          <ScalarProperty Name="Payer_Mobile" ColumnName="Payer_Mobile" />
+          <ScalarProperty Name="Delivery_Address" ColumnName="Delivery_Address" />
+          <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+          <ScalarProperty Name="Paid_Time" ColumnName="Paid_Time" />
+          <ScalarProperty Name="Transaction_Status" ColumnName="Transaction_Status" />
+          <ScalarProperty Name="InsertDateTime" ColumnName="InsertDateTime" />
+          <ScalarProperty Name="Response_Order_Id" ColumnName="Response_Order_Id" />
+          <ScalarProperty Name="ResponseDateTime" ColumnName="ResponseDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderPaymentSoHas">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderPaymentSoHa">
+        <MappingFragment StoreEntitySet="OrderPaymentSoHa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Order_Product_Title" ColumnName="Order_Product_Title" />
+          <ScalarProperty Name="Transaction_Info" ColumnName="Transaction_Info" />
+          <ScalarProperty Name="Order_Code" ColumnName="Order_Code" />
+          <ScalarProperty Name="Order_Email" ColumnName="Order_Email" />
+          <ScalarProperty Name="Order_Session" ColumnName="Order_Session" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Site_Code" ColumnName="Site_Code" />
+          <ScalarProperty Name="Response_Code" ColumnName="Response_Code" />
+          <ScalarProperty Name="Response_Message" ColumnName="Response_Message" />
+          <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+          <ScalarProperty Name="Payment_Time" ColumnName="Payment_Time" />
+          <ScalarProperty Name="Error_Text" ColumnName="Error_Text" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+          <ScalarProperty Name="DateTimeResponse" ColumnName="DateTimeResponse" />
+          <ScalarProperty Name="Response_Discription" ColumnName="Response_Discription" />
+          <ScalarProperty Name="Secure_Code" ColumnName="Secure_Code" />
+          <ScalarProperty Name="Response_Order_Id" ColumnName="Response_Order_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderReceipts">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderReceipt">
+        <MappingFragment StoreEntitySet="OrderReceipt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderPaymentId" ColumnName="OrderPaymentId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="UserIdPrint" ColumnName="UserIdPrint" />
+          <ScalarProperty Name="DatePrint" ColumnName="DatePrint" />
+          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+          <ScalarProperty Name="Office" ColumnName="Office" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="IsCancel" ColumnName="IsCancel" />
+          <ScalarProperty Name="ReasonCancel" ColumnName="ReasonCancel" />
+          <ScalarProperty Name="IsBankDeposit" ColumnName="IsBankDeposit" />
+          <ScalarProperty Name="DepositDate" ColumnName="DepositDate" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderRechecks">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderRecheck">
+        <MappingFragment StoreEntitySet="OrderRecheck">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="FlightNumberOut" ColumnName="FlightNumberOut" />
+          <ScalarProperty Name="DepartureDateOut" ColumnName="DepartureDateOut" />
+          <ScalarProperty Name="FlightNumberIn" ColumnName="FlightNumberIn" />
+          <ScalarProperty Name="DepartureDateIn" ColumnName="DepartureDateIn" />
+          <ScalarProperty Name="DateTimeRecheck" ColumnName="DateTimeRecheck" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderRemarks">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderRemark">
+        <MappingFragment StoreEntitySet="OrderRemark">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="UserIdCreate" ColumnName="UserIdCreate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="TodolistId" ColumnName="TodolistId" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderTours">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderTour">
+        <MappingFragment StoreEntitySet="OrderTour">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TourId" ColumnName="TourId" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="TotalAdult" ColumnName="TotalAdult" />
+          <ScalarProperty Name="TotalChild" ColumnName="TotalChild" />
+          <ScalarProperty Name="TotalInfant" ColumnName="TotalInfant" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderTransactions">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderTransaction">
+        <MappingFragment StoreEntitySet="OrderTransaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+          <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="TransactionMethod" ColumnName="TransactionMethod" />
+          <ScalarProperty Name="InWhere" ColumnName="InWhere" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="SendTo" ColumnName="SendTo" />
+          <ScalarProperty Name="SendFrom" ColumnName="SendFrom" />
+          <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+          <ScalarProperty Name="UserProcess" ColumnName="UserProcess" />
+          <ScalarProperty Name="UserApprove" ColumnName="UserApprove" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+          <ScalarProperty Name="DateTimeUpdate" ColumnName="DateTimeUpdate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderTravellers">
+      <EntityTypeMapping TypeName="SkytourWebModel.OrderTraveller">
+        <MappingFragment StoreEntitySet="OrderTraveller">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderFlightId" ColumnName="OrderFlightId" />
+          <ScalarProperty Name="OrderPackageHotelRoomId" ColumnName="OrderPackageHotelRoomId" />
+          <ScalarProperty Name="OrderHotelRoomId" ColumnName="OrderHotelRoomId" />
+          <ScalarProperty Name="TravellerType" ColumnName="TravellerType" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="IsMilesCard" ColumnName="IsMilesCard" />
+          <ScalarProperty Name="MilesCardNumber" ColumnName="MilesCardNumber" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="PaxGiaCoBan" ColumnName="PaxGiaCoBan" />
+          <ScalarProperty Name="PaxTaxAndFee" ColumnName="PaxTaxAndFee" />
+          <ScalarProperty Name="PaxAddOnFee" ColumnName="PaxAddOnFee" />
+          <ScalarProperty Name="PaxServiceFee" ColumnName="PaxServiceFee" />
+          <ScalarProperty Name="PaxPrice" ColumnName="PaxPrice" />
+          <ScalarProperty Name="PaxNote" ColumnName="PaxNote" />
+          <ScalarProperty Name="TaxAndFeeExcludeDiscount" ColumnName="TaxAndFeeExcludeDiscount" />
+          <ScalarProperty Name="ServiceFee" ColumnName="ServiceFee" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="EticketNumberOutBound" ColumnName="EticketNumberOutBound" />
+          <ScalarProperty Name="EticketNumberInBound" ColumnName="EticketNumberInBound" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="PNROutBound" ColumnName="PNROutBound" />
+          <ScalarProperty Name="PNRInBound" ColumnName="PNRInBound" />
+          <ScalarProperty Name="OrderTourId" ColumnName="OrderTourId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceBaggages">
+      <EntityTypeMapping TypeName="SkytourWebModel.PriceBaggage">
+        <MappingFragment StoreEntitySet="PriceBaggage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Airline" ColumnName="Airline" />
+          <ScalarProperty Name="TotalKg" ColumnName="TotalKg" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="SkytourWebModel.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+          <ScalarProperty Name="Regions" ColumnName="Regions" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="SkytourWebModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="SinglePrice" ColumnName="SinglePrice" />
+          <ScalarProperty Name="DoublePrice" ColumnName="DoublePrice" />
+          <ScalarProperty Name="TriplePrice" ColumnName="TriplePrice" />
+          <ScalarProperty Name="IsBreakfast" ColumnName="IsBreakfast" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchInputs">
+      <EntityTypeMapping TypeName="SkytourWebModel.SearchInput">
+        <MappingFragment StoreEntitySet="SearchInput">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="IsRoundTrip" ColumnName="IsRoundTrip" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="DepartureCity" ColumnName="DepartureCity" />
+          <ScalarProperty Name="ArrivalCity" ColumnName="ArrivalCity" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="RequestMaxResult" ColumnName="RequestMaxResult" />
+          <ScalarProperty Name="AdultNumber" ColumnName="AdultNumber" />
+          <ScalarProperty Name="ChildNumber" ColumnName="ChildNumber" />
+          <ScalarProperty Name="InfantNumber" ColumnName="InfantNumber" />
+          <ScalarProperty Name="TotalPax" ColumnName="TotalPax" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+          <ScalarProperty Name="IsSearchDomestic" ColumnName="IsSearchDomestic" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="SearchIndividual" ColumnName="SearchIndividual" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchSessions">
+      <EntityTypeMapping TypeName="SkytourWebModel.SearchSession">
+        <MappingFragment StoreEntitySet="SearchSession">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceSearched" ColumnName="ServiceSearched" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="DateTimeInsert" ColumnName="DateTimeInsert" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchWS">
+      <EntityTypeMapping TypeName="SkytourWebModel.SearchW">
+        <MappingFragment StoreEntitySet="SearchWS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="TotalSearch" ColumnName="TotalSearch" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchWSHistories">
+      <EntityTypeMapping TypeName="SkytourWebModel.SearchWSHistory">
+        <MappingFragment StoreEntitySet="SearchWSHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SearchWSId" ColumnName="SearchWSId" />
+          <ScalarProperty Name="DateTimeBlock" ColumnName="DateTimeBlock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceFees">
+      <EntityTypeMapping TypeName="SkytourWebModel.ServiceFee">
+        <MappingFragment StoreEntitySet="ServiceFee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsDomestric" ColumnName="IsDomestric" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+          <ScalarProperty Name="BeforeFlightDay" ColumnName="BeforeFlightDay" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSBanks">
+      <EntityTypeMapping TypeName="SkytourWebModel.SMSBank">
+        <MappingFragment StoreEntitySet="SMSBank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="SMSContent" ColumnName="SMSContent" />
+          <ScalarProperty Name="BookingReference" ColumnName="BookingReference" />
+          <ScalarProperty Name="Ammount" ColumnName="Ammount" />
+          <ScalarProperty Name="RealMoney" ColumnName="RealMoney" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="UserIdPost" ColumnName="UserIdPost" />
+          <ScalarProperty Name="UserIdRecieve" ColumnName="UserIdRecieve" />
+          <ScalarProperty Name="UserIdUpdate" ColumnName="UserIdUpdate" />
+          <ScalarProperty Name="Expired" ColumnName="Expired" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TargetMarkets">
+      <EntityTypeMapping TypeName="SkytourWebModel.TargetMarket">
+        <MappingFragment StoreEntitySet="TargetMarket">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MarketType" ColumnName="MarketType" />
+          <ScalarProperty Name="MarketName" ColumnName="MarketName" />
+          <ScalarProperty Name="DepartureType" ColumnName="DepartureType" />
+          <ScalarProperty Name="GeneralRule" ColumnName="GeneralRule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TickitBlockFlights">
+      <EntityTypeMapping TypeName="SkytourWebModel.TickitBlockFlight">
+        <MappingFragment StoreEntitySet="TickitBlockFlight">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrnNumber" ColumnName="PrnNumber" />
+          <ScalarProperty Name="AirlineCode" ColumnName="AirlineCode" />
+          <ScalarProperty Name="AirlineName" ColumnName="AirlineName" />
+          <ScalarProperty Name="FlightNumberOut" ColumnName="FlightNumberOut" />
+          <ScalarProperty Name="FlightNumberIn" ColumnName="FlightNumberIn" />
+          <ScalarProperty Name="TicketClassOut" ColumnName="TicketClassOut" />
+          <ScalarProperty Name="TicketClassNameOut" ColumnName="TicketClassNameOut" />
+          <ScalarProperty Name="TicketClassIn" ColumnName="TicketClassIn" />
+          <ScalarProperty Name="TicketClassNameIn" ColumnName="TicketClassNameIn" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="DepartureDateTime" ColumnName="DepartureDateTime" />
+          <ScalarProperty Name="ArrivalDateTime" ColumnName="ArrivalDateTime" />
+          <ScalarProperty Name="PriceAdult" ColumnName="PriceAdult" />
+          <ScalarProperty Name="PriceSaleAdult" ColumnName="PriceSaleAdult" />
+          <ScalarProperty Name="PriceChild" ColumnName="PriceChild" />
+          <ScalarProperty Name="PriceSaleChild" ColumnName="PriceSaleChild" />
+          <ScalarProperty Name="PriceInfant" ColumnName="PriceInfant" />
+          <ScalarProperty Name="PriceSaleInfant" ColumnName="PriceSaleInfant" />
+          <ScalarProperty Name="ConditionsTickets" ColumnName="ConditionsTickets" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateTimeEnd" ColumnName="DateTimeEnd" />
+          <ScalarProperty Name="IsRoundTrip" ColumnName="IsRoundTrip" />
+          <ScalarProperty Name="IsSearchDomestic" ColumnName="IsSearchDomestic" />
+          <ScalarProperty Name="CountTickit" ColumnName="CountTickit" />
+          <ScalarProperty Name="AlreadySold" ColumnName="AlreadySold" />
+          <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TourCategories">
+      <EntityTypeMapping TypeName="SkytourWebModel.TourCategory">
+        <MappingFragment StoreEntitySet="TourCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tours">
+      <EntityTypeMapping TypeName="SkytourWebModel.Tour">
+        <MappingFragment StoreEntitySet="Tours">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="ShowFromDate" ColumnName="ShowFromDate" />
+          <ScalarProperty Name="ShowEndDate" ColumnName="ShowEndDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IsDomestic" ColumnName="IsDomestic" />
+          <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="TourCategory" ColumnName="TourCategory" />
+          <ScalarProperty Name="OrderDisplay" ColumnName="OrderDisplay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TurnoverWages">
+      <EntityTypeMapping TypeName="SkytourWebModel.TurnoverWage">
+        <MappingFragment StoreEntitySet="TurnoverWage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="KeepSeatCount" ColumnName="KeepSeatCount" />
+          <ScalarProperty Name="BookingProcessCount" ColumnName="BookingProcessCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="SkytourWebModel.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStaffs">
+      <EntityTypeMapping TypeName="SkytourWebModel.UserStaff">
+        <MappingFragment StoreEntitySet="UserStaff">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Office" ColumnName="Office" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Yahoo" ColumnName="Yahoo" />
+          <ScalarProperty Name="Skype" ColumnName="Skype" />
+          <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IsStaff" ColumnName="IsStaff" />
+          <ScalarProperty Name="IsTicketing" ColumnName="IsTicketing" />
+          <ScalarProperty Name="AllowAccessAdmin" ColumnName="AllowAccessAdmin" />
+          <ScalarProperty Name="HideAdminMenu" ColumnName="HideAdminMenu" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="IsShowNote" ColumnName="IsShowNote" />
+          <ScalarProperty Name="OrderDisplay" ColumnName="OrderDisplay" />
+          <ScalarProperty Name="IsDefaultOnline" ColumnName="IsDefaultOnline" />
+          <ScalarProperty Name="FareType" ColumnName="FareType" />
+          <ScalarProperty Name="OffWork" ColumnName="OffWork" />
+          <ScalarProperty Name="HotlineStatus" ColumnName="HotlineStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VNFareClasses">
+      <EntityTypeMapping TypeName="SkytourWebModel.VNFareClass">
+        <MappingFragment StoreEntitySet="VNFareClass">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="BaseFare" ColumnName="BaseFare" />
+          <ScalarProperty Name="TicketClass" ColumnName="TicketClass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="SkytourWebModel.Voucher">
+        <MappingFragment StoreEntitySet="Voucher">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VoucherCode" ColumnName="VoucherCode" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="SkytourWebModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="UrbanType" ColumnName="UrbanType" />
+          <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
