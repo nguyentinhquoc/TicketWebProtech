@@ -1,6 +1,33 @@
-﻿@{
+﻿@model List<TicketProtechGroup.service.BindApiFlight.GroupFlight>
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+@functions {
+    public static string FormatVietnameseDate(DateTime date)
+    {
+        int dayOfWeek = (int)date.DayOfWeek;
+        string thu;
+
+        switch (dayOfWeek)
+        {
+            case 0: thu = "Chủ nhật"; break;
+            case 1: thu = "Thứ 2"; break;
+            case 2: thu = "Thứ 3"; break;
+            case 3: thu = "Thứ 4"; break;
+            case 4: thu = "Thứ 5"; break;
+            case 5: thu = "Thứ 6"; break;
+            case 6: thu = "Thứ 7"; break;
+            default: thu = ""; break;
+        }
+
+        return $"{thu} - {date:dd/MM}";
+    }
+}
+
+
 @* <div class="banner"  style="background-image: url('/img/banner.png')"> *@
 <!-- FORM SEARCH -->
 <div class="modal-form-search">
@@ -34,8 +61,8 @@
                                     <option value="all">Chọn hãng bay</option>
                                     @*@foreach (var airline in Model.Airlines)
                                     {
-                                        <option value="@airline.AirlineCode">@airline.AirlineName</option>
-                                    }*@
+                                        <option value="@airline.AirlineCode">@airline.AirlineName</option>*@
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -301,35 +328,35 @@
                                     <input type="checkbox" />
                                     <div>
                                         <span>VietJet Air</span>
-                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                 </label>
                                 <label class="color-dark">
                                     <input type="checkbox" />
                                     <div>
                                         <span>Bamboo Airways</span>
-                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                 </label>
                                 <label class="color-dark">
                                     <input type="checkbox" />
                                     <div>
                                         <span>Vietravel Airlines</span>
-                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                 </label>
                                 <label class="color-dark">
                                     <input type="checkbox" />
                                     <div>
                                         <span>Vietnam Airlines</span>
-                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                 </label>
                                 <label class="color-dark">
                                     <input type="checkbox" />
                                     <div>
                                         <span>Pacific Airlines</span>
-                                        <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                 </label>
                             </div>
@@ -386,7 +413,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="airline-info">
-                                    <img src="/img/home/image-log-bamboo.png" alt="logo">
+                                    <img src="~/Content/img/home/image-log-bamboo.png" alt="logo">
                                     <div class="airline-name">
                                         <span class="color-dark name">VIETJET AIR</span>
                                         <span class="color-info code">VJ2051 - A320</span>
@@ -485,17 +512,17 @@
                         </div>
                         <div class="list-ticket-items">
                             <div class="cheapest">
-                                @*@foreach (var ticket in Model.Tickets)
+                                @foreach (var ticket in Model)
                                 {
                                     <div class="item-ticket">
                                         <div class="row">
                                             <div class="col-3">
                                                 <div class="airline-info">
-
-                                                    <img src="@ticket.LogoPath" alt="logo @ticket.AirlineName" />
+<img src="@Url.Content("~/Content/img/logo-flight/" + (ticket.MainAirlineCode == "VJ" ? "vietjet.png" : ""))" 
+     alt="logo @ticket.MainAirlineCode" />
                                                     <div class="airline-name">
-                                                        <span class="color-dark name">@ticket.AirlineName</span>
-                                                        <span class="color-info code">VJ2051 - A30</span>
+                                                        <span class="color-dark name">@ticket.MainAirlineName</span>
+                                                        <span class="color-info code">@ticket.MainFlightNumber</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -503,15 +530,15 @@
                                                 <div class="flight-details">
                                                     <div class="time-info">
                                                         <div class="departure">
-                                                            <div class="time">@ticket.DepartureDate.ToString("HH:mm")</div>
-                                                            <div class="location">@ticket.DepartureAirport</div>
-                                                            <div class="date">Thứ 5-04/02</div>
+                                                            <div class="time">@ticket.MainDepartureTime</div>
+                                                            <div class="location">@ticket.MainDepartureAirportName</div>
+                                                            <div class="date">@FormatVietnameseDate(ticket.MainDepartureDate)</div>
                                                         </div>
                                                         <div class="arrow">✈</div>
                                                         <div class="arrival">
-                                                            <div class="time">@ticket.ArrivalDate.ToString("HH:mm")</div>
-                                                            <div class="location">@ticket.ArrivalAirport</div>
-                                                            <div class="date">Thứ 5-04/02</div>
+                                                           <div class="time">@ticket.MainArrivalTime</div>
+                                                            <div class="location">@ticket.MainArrivalAirportName</div>
+                                                            <div class="date">@FormatVietnameseDate(ticket.MainArrivalDate)</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -666,13 +693,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                }*@
+                                }
 
                                 @* <div class="item-ticket">
                                       <div class="row">
                                         <div class="col-3">
                                           <div class="airline-info">
-                                            <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                            <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                             <div class="airline-name">
                                               <span class="color-dark name">VIETJET AIR</span>
                                               <span class="color-info code">VJ2051 - A320</span>
@@ -718,7 +745,7 @@
                                         </div>
                                         <div class="col-3">
                                           <div class="airline-info">
-                                            <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                            <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                             <div class="airline-name">
                                               <span class="color-dark name">VIETJET AIR</span>
                                               <span class="color-info code">VJ2051 - A320</span>
@@ -879,7 +906,7 @@
                                     <div class="row">
                                       <div class="col-3">
                                         <div class="airline-info">
-                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                           <div class="airline-name">
                                             <span class="color-dark name">VIETJET AIR</span>
                                             <span class="color-info code">VJ2051 - A320</span>
@@ -1055,7 +1082,7 @@
                                     <div class="row">
                                       <div class="col-3">
                                         <div class="airline-info">
-                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                           <div class="airline-name">
                                             <span class="color-dark name">VIETJET AIR</span>
                                             <span class="color-info code">VJ2051 - A320</span>
@@ -1101,7 +1128,7 @@
                                       </div>
                                       <div class="col-3">
                                         <div class="airline-info">
-                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                           <div class="airline-name">
                                             <span class="color-dark name">VIETJET AIR</span>
                                             <span class="color-info code">VJ2051 - A320</span>
@@ -1262,7 +1289,7 @@
                                     <div class="row">
                                       <div class="col-3">
                                         <div class="airline-info">
-                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                           <div class="airline-name">
                                             <span class="color-dark name">VIETJET AIR</span>
                                             <span class="color-info code">VJ2051 - A320</span>
@@ -1438,7 +1465,7 @@
                                     <div class="row">
                                       <div class="col-3">
                                         <div class="airline-info">
-                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                           <div class="airline-name">
                                             <span class="color-dark name">VIETJET AIR</span>
                                             <span class="color-info code">VJ2051 - A320</span>
@@ -1484,7 +1511,7 @@
                                       </div>
                                       <div class="col-3">
                                         <div class="airline-info">
-                                          <img src="/img/home/image-log-bamboo.png" alt="logo" />
+                                          <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                           <div class="airline-name">
                                             <span class="color-dark name">VIETJET AIR</span>
                                             <span class="color-info code">VJ2051 - A320</span>
@@ -1796,7 +1823,7 @@
         <div class="point-start point box">
           <label class="row g-0">
             <div class="col-xl-12">
-              <img src="/svg/search/plane.svg" alt="plane">
+              <img src="/Content/svg/search/plane.svg" alt="plane">
               <span>Điểm đi</span>
             </div>
             <p id="start" data-position-box="${newRouteNumber}" data-position-item="1" class="col-xl-9 col-sm-12 point-route">
@@ -1810,7 +1837,7 @@
         <div class="point-end point box">
           <label class="row g-0">
             <div class="col-xl-12">
-              <img src="/svg/search/map.svg" alt="plane">
+              <img src="/Content/svg/search/map.svg" alt="plane">
               <span>Điểm đến</span>
             </div>
             <p data-position-box="${newRouteNumber}" data-position-item="2" class="col-xl-9 col-sm-12 point-route">
@@ -1821,8 +1848,8 @@
         </div>
       </div>
       <div class="iconRound">
-        <img src="/svg/search/oneRound.svg" alt="iconRound" class="icon-one">
-        <img src="/svg/search/twoRound.svg" alt="iconRound" class="icon-two hidden">
+        <img src="/Content/svg/search/oneRound.svg" alt="iconRound" class="icon-one">
+        <img src="/Content/svg/search/twoRound.svg" alt="iconRound" class="icon-two hidden">
       </div>
     </div>
     <div class="row  g-1 col-lg-12 date-search col-4">
@@ -1830,7 +1857,7 @@
         <div class="point-start point box">
           <label class="row g-0">
             <div class="col-12">
-              <img src="/svg/search/calender.svg" alt="plane">
+              <img src="/Content/svg/search/calender.svg" alt="plane">
               <span>Ngày đi</span>
             </div>
             <input type="text" name="chang${newRouteNumber}[ngayDi]" class="calendar-input col-12 flatpickr-input" placeholder="dd/mm/yyyy" readonly>
@@ -1841,7 +1868,7 @@
         <div class="point-end point box">
           <label class="row g-0">
             <div>
-              <img src="/svg/search/calender.svg" alt="plane">
+              <img src="/Content/svg/search/calender.svg" alt="plane">
               <span>Ngày về</span>
             </div>
             <input name="chang${newRouteNumber}[ngayVe]" type="text" class="col-12 calendar-input flatpickr-input" placeholder="dd/mm/yyyy" readonly>

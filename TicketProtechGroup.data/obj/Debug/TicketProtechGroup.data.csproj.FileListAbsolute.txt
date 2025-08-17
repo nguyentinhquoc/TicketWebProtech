@@ -18,6 +18,7 @@ C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\De
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Microsoft.Extensions.Logging.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Newtonsoft.Json.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\System.Buffers.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\System.Collections.Immutable.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\System.ComponentModel.Annotations.dll
@@ -43,6 +44,7 @@ C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\De
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Microsoft.Extensions.Options.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Newtonsoft.Json.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\System.Buffers.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\System.Collections.Immutable.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\System.Diagnostics.DiagnosticSource.xml
@@ -55,5 +57,3 @@ C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\obj\De
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\obj\Debug\TicketPr.AE777D17.Up2Date
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\obj\Debug\TicketProtechGroup.data.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\obj\Debug\TicketProtechGroup.data.pdb
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Newtonsoft.Json.dll
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.data\bin\Debug\Newtonsoft.Json.xml

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicketProtechGroup.data;
+using TicketProtechGroup.service.BindApiFlight.RootFlight;
 
 namespace TicketProtechGroup.service.BindApiFlight
 {
@@ -95,26 +97,11 @@ namespace TicketProtechGroup.service.BindApiFlight
     public class GroupFlight : IEquatable<GroupFlight>
     {
         public int FareDataId;
-        public string BookingKey;
-        public  FlightServiceSearch FlightServiceSearch;
-        public decimal PriceDomestic;
+        public FlightServiceSearch FlightServiceSearch;
         public string BgRow;
         public string Plane;
-        public decimal FareAdt;
-        public decimal FareChd;
-        public decimal FareInf;
-        public decimal TaxAdt;
-        public decimal TaxChd;
-        public decimal TaxInf;
-        public decimal FeeAdt;
-        public decimal FeeChd;
-        public decimal FeeInf;
-        public decimal Discount;
 
-        public string ReturnTicket;
-        public string TicketClassDomestic;
-        public decimal FlightRef;
-        public List<Segment> ListChangBays;
+        public decimal Discount;
         public string MainFlightNumber;
         public string MainAirlineCode;
         public string MainAirlineName;
@@ -132,15 +119,18 @@ namespace TicketProtechGroup.service.BindApiFlight
         public string MainArrivalCountry;
         public string MainArrivalTime;
         public DateTime MainArrivalDate;
-        public string AllowanceBaggage;
 
         public string Duration; // Duration in XML file (for display)
         public int TotalMinute; // Duration in INT (for sort)
         public int Stop;
         public WayType WayType;
         public bool IsSelected = false;
-        public string RecommendationNumber = "0";
-        public string Note;
+
+
+        public List<ListHangVe> ListHangVes { get; set; } = new List<ListHangVe>();
+
+        // ===================
+
         public bool IsMarkupPrivate = false;
         public bool Equals(GroupFlight other)
         {
@@ -156,6 +146,44 @@ namespace TicketProtechGroup.service.BindApiFlight
             //        return true;
             return false;
         }
+    }
+    public class ListHangVe
+    {
+        public string ReturnTicket;
+
+        public string AllowanceBaggage;
+        public string RecommendationNumber = "0";
+
+        public string BookingKey;
+
+        public decimal PriceDomestic;
+
+        public decimal FareAdt;
+
+        public decimal TaxAdt;
+
+        public decimal FareChd;
+
+        public decimal TaxChd;
+
+        public decimal FareInf;
+
+        public decimal TaxInf;
+
+        public decimal FeeAdt;
+
+        public decimal FeeChd;
+
+        public decimal FeeInf;
+
+        public string TicketClassDomestic;
+
+        public decimal FlightRef;
+
+        public string Note;
+        public List<Segment> ListChangBays;
+
+
     }
     public class Segment
     {

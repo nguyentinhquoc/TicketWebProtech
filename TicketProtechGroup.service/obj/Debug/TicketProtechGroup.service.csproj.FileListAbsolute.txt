@@ -1,10 +1,6 @@
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\TicketProtechGroup.service.dll.config
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\TicketProtechGroup.service.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\TicketProtechGroup.service.pdb
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.csproj.AssemblyReference.cache
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.csproj.CoreCompileInputs.cache
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.dll
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.pdb
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\TicketProtechGroup.service.dll.config
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\EntityFramework.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\Newtonsoft.Json.dll
@@ -14,4 +10,8 @@ C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\EntityFramework.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.csproj.AssemblyReference.cache
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.csproj.CoreCompileInputs.cache
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketPr.8B5340B7.Up2Date
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.dll
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup.service\obj\Debug\TicketProtechGroup.service.pdb

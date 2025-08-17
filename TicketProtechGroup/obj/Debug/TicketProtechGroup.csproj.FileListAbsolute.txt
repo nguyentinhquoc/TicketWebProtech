@@ -91,6 +91,7 @@ C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\WebGrea
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\TicketProtechGroup.data.pdb
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\TicketProtechGroup.data.dll.config
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\TicketProtechGroup.service.pdb
+C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\TicketProtechGroup.service.dll.config
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\EntityFramework.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\EntityFramework.SqlServer.xml
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\Microsoft.Bcl.AsyncInterfaces.xml
@@ -129,4 +130,3 @@ C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\obj\Debug\T
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\obj\Debug\TicketPr.1DEDB51F.Up2Date
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\obj\Debug\TicketProtechGroup.dll
 C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\obj\Debug\TicketProtechGroup.pdb
-C:\Users\wavebear\source\repos\TicketProtechGroup\TicketProtechGroup\bin\TicketProtechGroup.service.dll.config
