@@ -43,7 +43,7 @@ namespace TicketProtechGroup.Controllers
             //}
 
             // Trả về JSON gồm tất cả group flight
-            return Json(new { message = "all flights", data = allGroupFlights }, JsonRequestBehavior.AllowGet);
+            //return Json(new { message = "all flights", data = allGroupFlights }, JsonRequestBehavior.AllowGet);
             return View(allGroupFlights);
         }
 
