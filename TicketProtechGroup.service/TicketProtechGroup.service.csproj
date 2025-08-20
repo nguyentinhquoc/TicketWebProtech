@@ -55,8 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindApiFlight\BamBooAirWays.cs" />
-    <Compile Include="BindApiFlight\BuildFlightResultBamboo.cs" />
-    <Compile Include="BindApiFlight\BuildFlightResultVietJets.cs" />
     <Compile Include="BindApiFlight\RootFlight\RootBamboo.cs" />
     <Compile Include="BindApiFlight\FlightResultOutput.cs" />
     <Compile Include="BindApiFlight\RootFlight\RootVietJet.cs" />

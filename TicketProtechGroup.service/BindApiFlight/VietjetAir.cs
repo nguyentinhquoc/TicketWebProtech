@@ -11,12 +11,52 @@ namespace TicketProtechGroup.service.BindApiFlight
 {
     public class VietjetAir
     {
+        internal static FlightResultOutput Build(RootVietJets[] alineVJ, int countPax)
+        {
+            var flightResultOutput = new FlightResultOutput();
+            flightResultOutput.IsFlightDomestic = true;
+            flightResultOutput.BlockItems = new List<BlockItem>();
+            flightResultOutput.Airlines = new List<FlightResultOutput.Airline>();
+            var airline = new FlightResultOutput.Airline();
+            airline.AirlineName = "VietJetAir";
+            airline.AirlineCode = "VJ";
+            flightResultOutput.Airlines.Add(airline);
+            BlockItem blockItem = new BlockItem();
+            blockItem.FlightOutBounds = new List<GroupFlight>();
+            blockItem.FlightInBounds = new List<GroupFlight>();
+            if (alineVJ != null && alineVJ.Length > 0)
+            {
+                string departureAirport = alineVJ[0].cityPair.identifier.Split('-')[0];
+                string ArrivalAirport = alineVJ[0].cityPair.identifier.Split('-')[1];
+                for (int i = 0; i < alineVJ.Length; i++)
+                {
+
+                    if (alineVJ[i].cityPair.identifier.Equals(departureAirport + "-" + ArrivalAirport))
+                    {
+                        var gf = VietjetAir.GetGroupFlightVietJets(alineVJ[i], i, 0, countPax);
+                        if (gf != null)
+                            blockItem.FlightOutBounds.Add(gf);
+                    }
+                    else
+                    {
+                        var gf = VietjetAir.GetGroupFlightVietJets(alineVJ[i], i, 1, countPax);
+                        if (gf != null)
+                            blockItem.FlightInBounds.Add(gf);
+                    }
+                }
+                if (blockItem.FlightInBounds.Count > 0)
+                    blockItem.IsRoundTrip = true;
+            }
+            flightResultOutput.BlockItems.Add(blockItem);
+            return flightResultOutput;
+        }
+
+
         public static GroupFlight GetGroupFlightVietJets(RootVietJets root, int fareId, int waytype, int countPax)
         {
-            var airportRepository = new AirportRepository(); // khởi tạo tạm thời
+            var airportRepository = new AirportRepository(); 
             GroupFlight result = new GroupFlight();
-
-        List<ListHangVe> listHangVes = new List<ListHangVe>();
+            List<ListHangVe> listHangVes = new List<ListHangVe>();
             List<FareOption> fareOptions = GetFareClass(root.fareOptions, countPax);
             if (fareOptions != null && fareOptions.Count > 0)
             {
@@ -51,14 +91,15 @@ namespace TicketProtechGroup.service.BindApiFlight
                     result.WayType = WayType.OutBound;
                 else
                     result.WayType = WayType.InBound;
+
                 foreach (var fareOption in fareOptions)
                 {
-
                     if (fareOption.fareClass != null)
                     {
                         var listHangVe = new ListHangVe();
                         listHangVe.ListChangBays = GetListChangBayVJ(root.flights, fareOptions[0].fareClass.description);
                         listHangVe.BookingKey = fareOption.bookingKey;
+                        listHangVe.Discount = GetDiscountVJ(fareOption);
                         listHangVe.PriceDomestic = GetPriceDomesticVJ(fareOption);
                         listHangVe.FareAdt = GetFareAdtVJ(fareOption);
                         listHangVe.TaxAdt = GetTaxAdtVJ(fareOption);
@@ -169,7 +210,17 @@ namespace TicketProtechGroup.service.BindApiFlight
             return result;
         }
 
+        private static decimal GetDiscountVJ(FareOption faOp)
+        {
+            decimal result = 0;
+            faOp.fareCharges.ForEach(f =>
+            {
+                if (f.chargeType.code.Equals("FA"))
+                    result = Convert.ToDecimal(f.currencyAmounts[0].discountAmount);
+            });
+            return result;
 
+        }
         private static decimal GetPriceDomesticVJ(FareOption faOp)
         {
             decimal result = 0;

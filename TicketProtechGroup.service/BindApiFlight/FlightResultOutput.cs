@@ -163,6 +163,7 @@ namespace TicketProtechGroup.service.BindApiFlight
         public decimal TaxAdt;
 
         public decimal FareChd;
+        public decimal Discount;
 
         public decimal TaxChd;
 

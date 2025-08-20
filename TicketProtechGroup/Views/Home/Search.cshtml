@@ -547,17 +547,18 @@
                                                 <div class="flight-meta">
                                                     <div>
                                                         <p class="color-info">Bay thẳng</p>
-                                                        <p class="color-dark">02h10m</p>
+                                                        <p class="color-dark">@ticket.Duration</p>
                                                     </div>
                                                     <div>
                                                         <p class="color-info">Hạng vé</p>
-                                                        <p class="color-dark">Phổ thông siêu tiết kiệm</p>
+                                            <p class="color-dark">@ticket.ListHangVes[0].TicketClassDomestic</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="info-price">
-                                                    <span class="color-info price">3,240,000đ</span>
+                                            <p class="color-info price">@string.Format("{0:N0}", ticket.ListHangVes[0].PriceDomestic) đ</p>
+
                                                     <div class="color-primary info">
                                                         Giá cho 1 người lớn
                                                     </div>
