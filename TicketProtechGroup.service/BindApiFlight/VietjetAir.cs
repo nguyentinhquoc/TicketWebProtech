@@ -11,7 +11,7 @@ namespace TicketProtechGroup.service.BindApiFlight
 {
     public class VietjetAir
     {
-        internal static FlightResultOutput Build(RootVietJets[] alineVJ, int countPax)
+         public static FlightResultOutput BuildRootVietJets(RootVietJets[] alineVJ, int countPax)
         {
             var flightResultOutput = new FlightResultOutput();
             flightResultOutput.IsFlightDomestic = true;
@@ -20,6 +20,7 @@ namespace TicketProtechGroup.service.BindApiFlight
             var airline = new FlightResultOutput.Airline();
             airline.AirlineName = "VietJetAir";
             airline.AirlineCode = "VJ";
+            airline.ImageUrl = "vietjet.png";
             flightResultOutput.Airlines.Add(airline);
             BlockItem blockItem = new BlockItem();
             blockItem.FlightOutBounds = new List<GroupFlight>();
@@ -55,15 +56,14 @@ namespace TicketProtechGroup.service.BindApiFlight
         public static GroupFlight GetGroupFlightVietJets(RootVietJets root, int fareId, int waytype, int countPax)
         {
             var airportRepository = new AirportRepository(); 
-            GroupFlight result = new GroupFlight();
             List<ListHangVe> listHangVes = new List<ListHangVe>();
+            GroupFlight result = new GroupFlight();
             List<FareOption> fareOptions = GetFareClass(root.fareOptions, countPax);
             if (fareOptions != null && fareOptions.Count > 0)
             {
                 result.FareDataId = fareId;
                 result.FlightServiceSearch = FlightServiceSearch.VietjetAir;
                 result.BgRow = string.Empty;
-                result.MainFlightNumber = "VJ" + root.flights[0].flightNumber;
                 result.MainAirlineCode = "VJ";
                 result.MainAirlineName = "VietJet Air";
                 result.MainDepartureAirportCode = root.flights[0].departure.airport.code;
@@ -72,6 +72,7 @@ namespace TicketProtechGroup.service.BindApiFlight
                 result.MainDepartureCity = departureAirportRow.CityName;
                 result.MainDepartureCountry = departureAirportRow.CountryName;
                 result.MainDepartureTime = Convert.ToDateTime(root.flights[0].departure.scheduledTime).ToString("HH:mm");
+                result.MainFlightNumber = "VJ" + root.flights[0].flightNumber;
                 result.Plane = root.flights[0].aircraftModel.name;
                 result.MainDepartureDate = Convert.ToDateTime(root.flights[0].departure.scheduledTime);
                 result.MainArrivalAirportCode = root.flights[root.flights.Count - 1].arrival.airport.code;
@@ -97,7 +98,7 @@ namespace TicketProtechGroup.service.BindApiFlight
                     if (fareOption.fareClass != null)
                     {
                         var listHangVe = new ListHangVe();
-                        listHangVe.ListChangBays = GetListChangBayVJ(root.flights, fareOptions[0].fareClass.description);
+                        listHangVe.ListChangBays = GetListChangBayVJ(root.flights, fareOption.fareClass.description);
                         listHangVe.BookingKey = fareOption.bookingKey;
                         listHangVe.Discount = GetDiscountVJ(fareOption);
                         listHangVe.PriceDomestic = GetPriceDomesticVJ(fareOption);

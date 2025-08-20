@@ -21,6 +21,7 @@ namespace TicketProtechGroup.service.BindApiFlight
         public List<BlockItem> BlockItems;
         public class Airline : IEquatable<Airline>
         {
+            public string ImageUrl;
             public string AirlineName;
             public string AirlineCode;
             public bool Equals(Airline other)
@@ -125,6 +126,7 @@ namespace TicketProtechGroup.service.BindApiFlight
         public int Stop;
         public WayType WayType;
         public bool IsSelected = false;
+
 
 
         public List<ListHangVe> ListHangVes { get; set; } = new List<ListHangVe>();

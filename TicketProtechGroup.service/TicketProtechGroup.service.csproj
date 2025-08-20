@@ -57,8 +57,10 @@
     <Compile Include="BindApiFlight\BamBooAirWays.cs" />
     <Compile Include="BindApiFlight\RootFlight\RootBamboo.cs" />
     <Compile Include="BindApiFlight\FlightResultOutput.cs" />
+    <Compile Include="BindApiFlight\RootFlight\RootVietNamAirline.cs" />
     <Compile Include="BindApiFlight\RootFlight\RootVietJet.cs" />
     <Compile Include="BindApiFlight\VietjetAir.cs" />
+    <Compile Include="BindApiFlight\VietNamAirLines.cs" />
     <Compile Include="DbService\AirportRepository.cs" />
     <Compile Include="DbService\BaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

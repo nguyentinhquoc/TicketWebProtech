@@ -11,7 +11,7 @@ namespace TicketProtechGroup.service.BindApiFlight
 
     public class BamBooAirWays
     {
-        internal static FlightResultOutput Build(RootBamboo alineBB, int countPax)
+        public static FlightResultOutput BuildRootBamboo(RootBamboo alineBB, int countPax)
         {
             var flightResultOutput = new FlightResultOutput();
             flightResultOutput.IsFlightDomestic = true;
@@ -20,7 +20,7 @@ namespace TicketProtechGroup.service.BindApiFlight
             var airline = new FlightResultOutput.Airline();
             airline.AirlineName = "BamBooAirways";
             airline.AirlineCode = "QH";
-
+            airline.ImageUrl = "bamboo.png";
             flightResultOutput.Airlines.Add(airline);
             BlockItem blockItem = new BlockItem();
             blockItem.FlightOutBounds = new List<GroupFlight>();
@@ -95,7 +95,6 @@ namespace TicketProtechGroup.service.BindApiFlight
                 foreach (var classBamBoo in classBamBoos)
                 {
                     var listHangVe = new ListHangVe();
-
                     listHangVe.ListChangBays = GetListChangBayQH(tripInfo.segment_info, classBamBoo.cabin_class);
                     listHangVe.BookingKey = classBamBoo.group_fare[0].fare_class + "-" + classBamBoo.group_fare[0].fare_basis + "-" + keyroot;
                     listHangVe.PriceDomestic = classBamBoo.pricing.pax_pricing_info[0].display_fare.amount - result.Discount;
