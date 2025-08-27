@@ -88,7 +88,6 @@ namespace TicketProtechGroup.service.BindApiFlight
                 result.MainArrivalCountry = arrivalAirportRow.CountryName;
                 result.MainArrivalTime = Convert.ToDateTime(mArrTime).ToString("HH:mm");
                 result.MainArrivalDate = Convert.ToDateTime(mArrTime);
-
                 TimeSpan beweenTime = result.MainArrivalDate - result.MainDepartureDate;
                 double TotalMinute = beweenTime.TotalMinutes;
                 var h = Convert.ToInt16(TotalMinute / 60);
@@ -135,79 +134,65 @@ namespace TicketProtechGroup.service.BindApiFlight
                             case "Economy Super Lite":
                                 listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                                 listHangVe.AllowanceBaggage = "Hành lý ký gửi	Trả phí";
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note += "    <li>Hành lý xách tay Không quá 12kg</li>";
                                 listHangVe.Note += "    <li>Không bao gồm hành lý ký gửi</li>";
                                 listHangVe.Note += "    <li>Không được phép thay đổi</li>";
                                 listHangVe.Note += "    <li>Không bao gồm quầy thủ tục ưu tiên</li>";
                                 listHangVe.Note += "    <li>Không được phép hoàn/hủy vé</li>";
                                 listHangVe.Note += "    <li>Tích lũy 10% số dặm</li>";
-                                listHangVe.Note += "</ul>";
                                 listHangVe.ReturnTicket = "Không hoàn hủy";
                                 break;
                             case "Economy Lite":
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note += "    <li>Hành lý xách tay Không quá 12kg</li>";
                                 listHangVe.Note += "    <li>Có 01 kiện hành lý ký gửi (23kg)</li>";
                                 listHangVe.Note += "    <li>Được phép Thay đổi mất phí + Chênh lệch giá vé (nếu có)</li>";
                                 listHangVe.Note += "    <li>Không bao gồm quầy thủ tục ưu tiên</li>";
                                 listHangVe.Note += "    <li>Được phép Hoàn/hủy vé mất phí</li>";
                                 listHangVe.Note += "    <li>Tích lũy 60% số dặm</li>";
-                                listHangVe.Note += "</ul>";
                                 listHangVe.ReturnTicket = "Được phép Hoàn/hủy vé mất phí";
                                 break;
                             case "Economy Classic":
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note += "    <li>Hành lý xách tay Không quá 12kg</li>";
                                 listHangVe.Note += "    <li>Có 01 kiện hành lý ký gửi (23kg)</li>";
                                 listHangVe.Note += "    <li>Được phép Thay đổi mất phí + Chênh lệch giá vé (nếu có)</li>";
                                 listHangVe.Note += "    <li>Không bao gồm quầy thủ tục ưu tiên</li>";
                                 listHangVe.Note += "    <li>Được phép Hoàn/hủy vé mất phí</li>";
                                 listHangVe.Note += "    <li>Tích lũy 80% số dặm</li>";
-                                listHangVe.Note += "</ul>";
                                 listHangVe.ReturnTicket = "Có thể hoàn hủy";
                                 break;
                             case "Economy Flex":
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note += "    <li>Hành lý xách tay Không quá 12kg</li>";
                                 listHangVe.Note += "    <li>Có 01 kiện hành lý ký gửi (23kg)</li>";
                                 listHangVe.Note += "    <li>Được phép Thay đổi miễn phí + Chênh lệch giá vé (nếu có)</li>";
                                 listHangVe.Note += "    <li>Được sử dụng quầy thủ tục ưu tiên";
                                 listHangVe.Note += "    <li>Được phép Hoàn/hủy vé mất phí</li>";
                                 listHangVe.Note += "    <li>Tích lũy 100% số dặm</li>";
-                                listHangVe.Note += "</ul>";
                                 listHangVe.ReturnTicket = "Có thể hoàn hủy";
                                 break;
                             case "Business Classic":
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note = "    <li>Hành lý xách tay: Không quá 18kg (2 kiện, mỗi kiện 9kg)</li>";
                                 listHangVe.Note = "    <li>Có 01 kiện hành lý ký gửi (32kg)</li>";
                                 listHangVe.Note = "    <li>Được phép Thay đổi mất phí + Chênh lệch giá vé (nếu có)</li>";
                                 listHangVe.Note = "    <li>Được phép Đổi chuyến tại sân bay mất phí</li>";
                                 listHangVe.Note = "    <li>Được phép Hoàn/hủy vé mất phí</li>";
                                 listHangVe.Note = "    <li>Tích lũy 150% số dặm</li>";
-                                listHangVe.Note = "</ul>";
                                 listHangVe.ReturnTicket = "Có thể hoàn hủy";
                                 break;
                             case "Business Flex":
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note = "     <li>Hành lý xách tay: Không quá 18kg (2 kiện, mỗi kiện 9kg)</li>";
                                 listHangVe.Note = "     <li>Có 01 kiện hành lý ký gửi (32kg)</li>";
                                 listHangVe.Note = "     <li>Được phép Thay đổi miễn phí + Chênh lệch giá vé (nếu có)</li>";
                                 listHangVe.Note = "     <li>Được phép Đổi chuyến tại sân bay mất phí</li>";
                                 listHangVe.Note = "     <li>Được phép Hoàn/hủy vé mất phí</li>";
                                 listHangVe.Note = "     <li>Tích lũy 200% số dặm</li>";
-                                listHangVe.Note = " </ul>";
                                 listHangVe.ReturnTicket = "Có thể hoàn hủy";
                                 break;
                             default:
                                 listHangVe.RecommendationNumber = "0 Kg hành lý xách tay";
                                 listHangVe.AllowanceBaggage = "0 Kg hành lý ký gửi";
-                                listHangVe.Note = "<ul class=\"none-style\">";
                                 listHangVe.Note += "<li>0 Kg hành lý xách tay</li>";
                                 listHangVe.Note += "<li>0 Kg hành lý ký gửi</li>";
                                 listHangVe.Note += "<li>Không được thay đổi chuyến bay, chặng bay, ngày bay</li>";
-                                listHangVe.Note += "</ul>";
                                 listHangVe.ReturnTicket = "Không hoàn hủy";
                                 break;
                         }

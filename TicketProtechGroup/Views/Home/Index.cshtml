@@ -10,32 +10,28 @@
                     <div class="left-form row">
                         <div class="col-4 col-xl-5 col-lg-9 col-sm-12">
                             <div class="itinerary">
-                                <input hidden type="radio" name="type" id="oneway" class="typeItinerary" value="oneway" />
+                                <input hidden type="radio" name="type" id="oneway" class="typeItinerary" value="1" />
                                 <label for="oneway">Một chiều</label>
-                                <input hidden type="radio" name="type" id="roundtrip" checked class="typeItinerary" value="roundtrip" />
+                                <input hidden type="radio" name="type" id="roundtrip" checked class="typeItinerary" value="2" />
                                 <label for="roundtrip">Khứ hồi</label>
-                                <input hidden type="radio" name="type" id="multicity" class="typeItinerary" value="multicity" />
+                                <input hidden type="radio" name="type" id="multicity" class="typeItinerary" value="3" />
                                 <label for="multicity">Nhiều chặng</label>
                             </div>
                         </div>
                         <div class="col-3 col-xl-4 col-lg-12">
                             <div class="row">
                                 <div class="col-6">
-                                    <select name="sltHangve" id>
-                                        <option value="all">Chọn hạng ghế</option>
-                                        <option value="tietKiem">Hạng tiết kiệm</option>
-                                        <option value="khuyenMai">Hạng khuyến mại</option>
-                                        <option value="phoThong">Hạng phổ thông</option>
-                                        <option value="thuongGia">Hạng thương gia</option>
+                                    <select name id>
+                                        <option value>Chon chuyến bay</option>
+                                        <option value>option 1</option>
+                                        <option value>option 2</option>
                                     </select>
                                 </div>
                                 <div class="col-6">
                                     <select name id>
-                                        <option value="all">Chọn hãng bay</option>
-                                        @*@foreach (var airline in Model.AirlinesVN)
-                                        {
-                                            <option value="@airline.AirlineCode">@airline.AirlineName</option>
-                                        }*@
+                                        <option value>Chon chuyến bay</option>
+                                        <option value>option 1</option>
+                                        <option value>option 2</option>
                                     </select>
                                 </div>
                             </div>
@@ -112,9 +108,9 @@
                         </div>
                         <div class="route-point box-submit-search col-4 col-xl-12">
                             <div class="row g-1">
-                                <div class="row col-7">
+                                <div class="row col-7 col-sm-12">
                                     <div class="row col-12">
-                                        <div class="col-12 member-box" onclick="openModal()">
+                                        <div class="col-12 member-box " onclick="openModal()">
                                             <div class="box">
                                                 <label>
                                                     <div>
@@ -131,7 +127,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row col-5">
+                                <div class="row col-5 col-sm-12">
                                     <div class="row col-12">
                                         <div class="col-12 member-box btn-search-box">
                                             <button class="btn-search">Tìm Kiếm</button>
@@ -213,10 +209,9 @@
             <div class="passenger-row">
                 <div class="list-items">
                     <ul>
-                        @*@foreach (var airport in Model.AirportsVN)
-                        {
-                            <li onclick="checkRoute(this,'@airport.AirportCode')">@airport.CityName (@airport.AirportCode)</li>
-                        }*@
+                        <li onclick="checkRoute(this,'HAN')">Hà Nội (HAN)</li>
+                        <li onclick="checkRoute(this,'SGN')">Hồ Chí Minh (SGN)</li>
+                        <li onclick="checkRoute(this,'DAD')">Đà Nẵng (DAD)</li>
                     </ul>
                 </div>
             </div>
@@ -248,15 +243,18 @@
             </div>
             <div class="row row-cols-md-1 g-md-2 g-2 g-xxl-1 g-xl-5 g-lg-3 g-md-1">
                 <div class="col-3 col-xl-6">
-                    <div class="item">
+                    <div class="item card1">
                         <div class="img">
-                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
                             <div class="info-img">
                                 <span class="sale">Giảm 10%</span>
                                 <div class="info-content-img">
                                     <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
                                     <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
                                 </div>
+                            </div>
+                            <div class="logo">
+                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo">
                             </div>
                         </div>
                         <div class="item-content">
@@ -300,15 +298,18 @@
                     </div>
                 </div>
                 <div class="col-3 col-xl-6">
-                    <div class="item">
+                    <div class="item card1">
                         <div class="img">
-                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
                             <div class="info-img">
                                 <span class="sale">Giảm 10%</span>
                                 <div class="info-content-img">
                                     <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
                                     <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
                                 </div>
+                            </div>
+                            <div class="logo">
+                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo">
                             </div>
                         </div>
                         <div class="item-content">
@@ -354,11 +355,11 @@
                 <div class="col-6 col-xl-12">
                     <div class="item">
                         <div class="image-container">
-                            <img class="bg-img" src="~/Content/img/home/image1.png" )" alt="Beach Tour" />
+                            <img class="bg-img" src="~/Content/img/home/image1.png" alt="Beach Tour" />
                             <div class="content-info">
                                 <div class="top">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="badge">GIẢM 10%</div>
                                 </div>
@@ -401,11 +402,11 @@
                 <div class="col-6 col-xl-12">
                     <div class="item">
                         <div class="image-container">
-                            <img class="bg-img" src="~/Content/img/home/image1.png" )" alt="Beach Tour" />
+                            <img class="bg-img" src="~/Content/img/home/image1.png" alt="Beach Tour" />
                             <div class="content-info">
                                 <div class="top">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="badge">GIẢM 10%</div>
                                 </div>
@@ -446,15 +447,18 @@
                     </div>
                 </div>
                 <div class="col-3 col-xl-6">
-                    <div class="item">
+                    <div class="item card1">
                         <div class="img">
-                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
                             <div class="info-img">
                                 <span class="sale">Giảm 10%</span>
                                 <div class="info-content-img">
                                     <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
                                     <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
                                 </div>
+                            </div>
+                            <div class="logo">
+                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo">
                             </div>
                         </div>
                         <div class="item-content">
@@ -498,15 +502,18 @@
                     </div>
                 </div>
                 <div class="col-3 col-xl-6">
-                    <div class="item">
+                    <div class="item card1">
                         <div class="img">
-                            <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
                             <div class="info-img">
                                 <span class="sale">Giảm 10%</span>
                                 <div class="info-content-img">
                                     <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
                                     <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
                                 </div>
+                            </div>
+                            <div class="logo">
+                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo">
                             </div>
                         </div>
                         <div class="item-content">
@@ -573,7 +580,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -598,7 +605,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -623,7 +630,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -648,7 +655,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -673,7 +680,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -698,7 +705,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -725,7 +732,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES gr</div>
                                     <div class="code color-info">VN2115</div>
@@ -750,7 +757,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -775,7 +782,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -800,7 +807,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -825,7 +832,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -850,7 +857,7 @@
                             <div class="ticket-item">
                                 <div class="airline">
                                     <div class="logo">
-                                        <img src="~/Content/img/home/image-log-bamboo.png" )" alt="logo" />
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
                                     </div>
                                     <div class="name">VIETNAM AIRLINES</div>
                                     <div class="code color-info">VN2115</div>
@@ -889,7 +896,7 @@
                         </div>
                         <div class="img-banner">
                             <div class="img">
-                                <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                <img src="~/Content/img/home/image1.png" alt="image1" />
                             </div>
                             <div class="info-banner">
                                 <span class="sale">Giảm 10%</span>
@@ -906,7 +913,7 @@
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="item-img">
-                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                    <img src="~/Content/img/home/image1.png" alt="image1" />
                                                 </div>
                                                 <p class="time">
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -967,7 +974,7 @@
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="item-img">
-                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                    <img src="~/Content/img/home/image1.png" alt="image1" />
                                                 </div>
                                                 <p class="time">
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -1028,7 +1035,7 @@
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="item-img">
-                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                    <img src="~/Content/img/home/image1.png" alt="image1" />
                                                 </div>
                                                 <p class="time">
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -1093,13 +1100,13 @@
                     <div class="news">
                         <div class="heading">
                             <h2>TIN TỨC & KHUYẾN MẠI</h2>
-                            <p class="description">
+                            <p class="description min-2">
                                 News hottest about Airlines & Explore Around the World
                             </p>
                         </div>
                         <div class="img-banner">
                             <div class="img">
-                                <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                <img src="~/Content/img/home/image1.png" alt="image1" />
                             </div>
                             <div class="info-banner">
                                 <span class="sale">Giảm 10%</span>
@@ -1116,7 +1123,7 @@
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="item-img">
-                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                    <img src="~/Content/img/home/image1.png" alt="image1" />
                                                 </div>
                                                 <p class="tag">
                                                     AIRLINES
@@ -1129,12 +1136,10 @@
                                                 <p class="name color-dark max-2">
                                                     Sunset Beach Resort with Kahung Beach with Kahung Beach
                                                 </p>
-                                                <div class="info-deail color-dark max-5">
+                                                <div class="info-deail color-dark max-6">
                                                     From May 26 to the end of June 30, Vietnam
                                                     Airlines
-                                                    applies the program "Korea -
-                                                    Summer paradise, cheap tickets Lorem ipsum dolor sit amet consectetur adi Lorem ipsum
-                                                    dolor sit amet consectetur adi cheap tic
+                                                    applies
                                                 </div>
                                             </div>
                                         </div>
@@ -1145,7 +1150,7 @@
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="item-img">
-                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                    <img src="~/Content/img/home/image1.png" alt="image1" />
                                                 </div>
                                                 <p class="tag">
                                                     AIRLINES
@@ -1161,9 +1166,7 @@
                                                 <div class="info-deail color-dark max-5">
                                                     From May 26 to the end of June 30, Vietnam
                                                     Airlines
-                                                    applies the program "Korea -
-                                                    Summer paradise, cheap tickets Lorem ipsum dolor sit amet consectetur adi Lorem ipsum
-                                                    dolor sit amet consectetur adi cheap tic
+                                                    applies the progr
                                                 </div>
                                             </div>
                                         </div>
@@ -1174,7 +1177,7 @@
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="item-img">
-                                                    <img src="~/Content/img/home/image1.png" )" alt="image1" />
+                                                    <img src="~/Content/img/home/image1.png" alt="image1" />
                                                 </div>
                                                 <p class="tag">
                                                     AIRLINES
@@ -1185,24 +1188,1498 @@
                                             </div>
                                             <div class="col-8">
                                                 <p class="name color-dark max-2">
-                                                    Sunset Beach Resort with Kahung Beach with Kahung Beach
+                                                    Sunset Beach Resort w
                                                 </p>
-                                                <div class="info-deail color-dark max-5">
+                                                <div class="info-deail color-dark max-6">
                                                     From May 26 to the end of June 30, Vietnam
-                                                    Airlines
-                                                    applies the program "Korea -
-                                                    Summer paradise, cheap tickets Lorem ipsum dolor sit amet consectetur adi Lorem ipsum
-                                                    dolor sit amet consectetur adi cheap tic
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <a href="" class="color-dark continue">Continue...</a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="event-and-sport">
+        <div class="container">
+            <div class="heading">
+                <div>
+                    <h2 class="color-dark">VÉ SỰ KIỆN VÀ THỂ THAO</h2>
+                    <p class="color-primary">Save up to $400 per person</p>
+                </div>
+                <div>
+                    <ul>
+                        <!-- <li><a class="color-info" href="">Asia</a></li>
+                        <li><a href="">Africa</a></li>
+                        <li><a href="">Euro</a></li>
+                        <li><a href="">America</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="row row-cols-md-1 g-md-2 g-2 g-xxl-1 g-xl-5 g-lg-3 g-md-1">
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-red">
+                                        Thể thao
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-yellow">
+                                        Thiếu nhi
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-aqua">
+                                        Triển lãm/Lễ hội
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-red">
+                                        Thể thao
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-red">
+                                        Thể thao
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-red">
+                                        Thể thao
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-red">
+                                        Thể thao
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card2">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1">
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="love">
+                                    <label class="box-checkLove">
+                                        <input class="checkLove" type="checkbox" hidden>
+                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.45067 9.90821L9.40329 16.4395C9.64278 16.6644 9.76253 16.7769 9.90372 16.8046C9.9673 16.8171 10.0327 16.8171 10.0963 16.8046C10.2375 16.7769 10.3572 16.6644 10.5967 16.4395L17.5493 9.90821C19.5055 8.07059 19.743 5.0466 18.0978 2.92607L17.7885 2.52734C15.8203 -0.00942016 11.8696 0.416014 10.4867 3.31365C10.2913 3.72296 9.70868 3.72296 9.51333 3.31365C8.13037 0.416014 4.17972 -0.00941634 2.21154 2.52735L1.90219 2.92607C0.256947 5.0466 0.494498 8.07059 2.45067 9.90821Z"
+                                                  stroke="white" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="info-content-img">
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="box box-red">
+                                        Thể thao
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count ">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="name max-2">
+                                Take off to Tokyo sale Sakura show Take off to Tokyo sale Sakura show
+                            </p>
+                            <ul class="infos">
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 8.25C14.25 11.9075 10.6216 14.1488 9.39767 14.8008C9.14627 14.9348 8.85373 14.9348 8.60232 14.8008C7.37836 14.1488 3.75 11.9075 3.75 8.25C3.75 5.35051 6.10051 3 9 3C11.8995 3 14.25 5.35051 14.25 8.25Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="8.25" r="2.25" fill="#222222" />
+                                    </svg>
+                                    <p>Hạ Long, Quảng Ninh</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.82526 3.00009C9.96666 3.0004 10.0374 3.00055 10.0812 3.04446C10.125 3.08838 10.125 3.15916 10.125 3.30072V4.875C10.125 5.70343 10.7966 6.375 11.625 6.375C12.4534 6.375 13.125 5.70343 13.125 4.875V3.41145C13.125 3.32998 13.205 3.27352 13.2803 3.30469C14.2604 3.71066 15.0393 4.48961 15.4453 5.46973C15.7497 6.20476 15.75 7.1365 15.75 9C15.75 10.8635 15.7497 11.7952 15.4453 12.5303C15.0393 13.5104 14.2604 14.2893 13.2803 14.6953C12.5452 14.9997 11.6135 15 9.75 15H8.25C6.3865 15 5.45476 14.9997 4.71973 14.6953C3.73961 14.2893 2.96066 13.5104 2.55469 12.5303C2.25034 11.7952 2.25 10.8635 2.25 9C2.25 7.1365 2.25034 6.20476 2.55469 5.46973C2.96066 4.48961 3.73961 3.71066 4.71973 3.30469C4.795 3.27352 4.875 3.32998 4.875 3.41145V4.875C4.875 5.70343 5.54658 6.375 6.375 6.375C7.20343 6.375 7.875 5.70343 7.875 4.875V3.30072C7.875 3.15916 7.875 3.08838 7.91882 3.04446C7.96264 3.00055 8.03334 3.0004 8.17474 3.00009C8.19966 3.00003 8.22474 3 8.25 3H9.75C9.77526 3 9.80034 3.00003 9.82526 3.00009Z"
+                                              fill="#7E869E" fill-opacity="0.25" />
+                                        <path d="M6.375 1.875L6.375 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <path d="M11.625 1.875L11.625 4.875" stroke="#222222" stroke-linecap="round" />
+                                        <circle cx="4.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="8.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="10.5" r="0.5" fill="white" />
+                                        <circle cx="4.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="6.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="8.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="10.5" cy="12.5" r="0.5" fill="white" />
+                                        <circle cx="12.5" cy="8.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="10.5" r="0.5" fill="#222222" />
+                                        <circle cx="12.5" cy="12.5" r="0.5" fill="#222222" />
+                                    </svg>
+                                    <p>T3, 17/11</p>
+                                </li>
+                                <li>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="6" fill="#7E869E" fill-opacity="0.25" />
+                                        <circle cx="9" cy="9" r="6.6" stroke="#B2BECA" stroke-opacity="0.3" stroke-width="1.2" />
+                                        <path d="M12.375 9H9.25C9.11193 9 9 8.88807 9 8.75V6.375" stroke="#222222" stroke-width="1.2"
+                                              stroke-linecap="round" />
+                                    </svg>
+                                    <p>04:30 - 16:30</p>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br>
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="booking-banner">
+        <div class="container">
+            <div class="row">
+                <div class="content">
+                    <p class="heading">
+                        Booking Flight around the World
+                    </p>
+                    <p class="description">
+                        The price is always the cheapest in Viet Nam
+                    </p>
+                </div>
+                <div class="btn">
+                    <a href="" class="color-dark">
+                        BOOK NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-provinces">
+        <div class="container">
+            <div class="heading">
+                <div>
+                    <h2 class="color-dark">DANH SÁCH ĐẠI LÝ TẠI CÁC TỈNH</h2>
+                </div>
+                <div>
+                    <ul>
+                        <li class="prev">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.9167 26.25L11.6667 20M11.6667 20L17.9167 13.75M11.6667 20L28.3333 20M1.25 20C1.25 9.64466 9.64466 1.25 20 1.25C30.3553 1.25 38.75 9.64466 38.75 20C38.75 30.3553 30.3553 38.75 20 38.75C9.64466 38.75 1.25 30.3553 1.25 20Z"
+                                      stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </li>
+                        <li class="next">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.0833 13.75L28.3333 20M28.3333 20L22.0833 26.25M28.3333 20L11.6667 20M38.75 20C38.75 30.3553 30.3553 38.75 20 38.75C9.64466 38.75 1.25 30.3553 1.25 20C1.25 9.64466 9.64466 1.25 20 1.25C30.3553 1.25 38.75 9.64466 38.75 20Z"
+                                      stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <ul class="provinces">
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="~/Content/img/home/image1.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="color-dark">
+                            81 HOANG CAU O CHO DUA, DONG DA
+                        </div>
+                        <div class="color-primary">Ha Noi</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cheap-flights">
+        <div class="container">
+
+            <div class="row row-cols-md-1 g-md-2 g-2 g-xxl-1 g-xl-5 g-lg-3 g-md-1">
+                <div class="col-3 col-xl-6">
+                    <div class="item card1">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card1">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-12">
+                    <div class="item">
+                        <div class="image-container">
+                            <img class="bg-img" src="~/Content/img/home/image1.png" alt="Beach Tour" />
+                            <div class="content-info">
+                                <div class="top">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                    <div class="badge">GIẢM 10%</div>
+                                </div>
+                                <div class="overlay-content">
+                                    <h3 class="title max-2">
+                                        Tour 1 Ngày Antelope<br />Canyon & Horseshoe Bend
+                                    </h3>
+                                    <div class="location color-dark">
+                                        Dubai - Tokyo
+                                        <span class="region color-primary">/ Asia</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="flight">
+                                            VÉ MÁY BAY QUỐC TẾ
+                                            <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                        </span>
+                                        <span class="rating">
+                                            <span class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </span>
+                                            <span class="count">25 Người xem</span>
+                                        </span>
+                                    </div>
+                                    <div class="footer">
+                                        <a class="btn btn-info btn-lg">CHI TIẾT</a>
+                                        <div class="price">
+                                            <span class="current">35,000,000 đ</span><br />
+                                            <span class="old">39,680,000 đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-12">
+                    <div class="item">
+                        <div class="image-container">
+                            <img class="bg-img" src="~/Content/img/home/image1.png" alt="Beach Tour" />
+                            <div class="content-info">
+                                <div class="top">
+                                    <div class="logo">
+                                        <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
+                                    </div>
+                                    <div class="badge">GIẢM 10%</div>
+                                </div>
+                                <div class="overlay-content">
+                                    <h3 class="title max-2">
+                                        Tour 1 Ngày Antelope<br />Canyon & Horseshoe Bend
+                                    </h3>
+                                    <div class="location color-dark">
+                                        Dubai - Tokyo
+                                        <span class="region color-primary">/ Asia</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="flight">
+                                            VÉ MÁY BAY QUỐC TẾ
+                                            <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                        </span>
+                                        <span class="rating">
+                                            <span class="stars">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </span>
+                                            <span class="count">25 Người xem</span>
+                                        </span>
+                                    </div>
+                                    <div class="footer">
+                                        <a class="btn btn-info btn-lg">CHI TIẾT</a>
+                                        <div class="price">
+                                            <span class="current">35,000,000 đ</span><br />
+                                            <span class="old">39,680,000 đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card1">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-6">
+                    <div class="item card1">
+                        <div class="img">
+                            <img src="~/Content/img/home/image1.png" alt="image1" />
+                            <div class="info-img">
+                                <span class="sale">Giảm 10%</span>
+                                <div class="info-content-img">
+                                    <h3>Take off to Tokyo sale Sakura áddaFs show</h3>
+                                    <span class="date">Hết hạn sau: 34 ngày 12:08:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="route">
+                                <span class="color-dark">Dubai - Tokyo</span>
+                                <span class="color-primary"> / Asia</span>
+                            </div>
+                            <div class="info-row">
+                                <div class="type-plane">
+                                    <p class="color-primary">
+                                        vé máy bay quốc tế
+                                        <img src="~/Content/svg/home/plane.svg" alt="plane" />
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                    <span class="count color-dark">25 Người xem</span>
+                                </div>
+                            </div>
+                            <p class="description color-dark max-3 min-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Saepe vero officia sequi a blanditiis. Saepe vero officia
+                                sequi a blanditiis. adipisicing elit. Saepe vero officia
+                                sequi a blanditiis. Saepe vero officia sequi a blanditiis.
+                            </p>
+
+                            <div class="footer">
+                                <a class="btn btn-sm btn-primary">CHI TIẾT</a>
+                                <div class="price">
+                                    <span class="current color-dark">35,000,000 đ</span><br />
+                                    <span class="old color-primary">39,680,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="steps">
+        <div class="container">
+            <div class="row row-cols-md-1 g-md-2 g-2 g-xxl-1 g-xl-5 g-lg-3 g-md-1">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg width="46" height="46" viewBox="0 0 46 46" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M33.8421 31.9256C31.7134 34.0544 26.8299 38.9379 24.4109 41.3569C23.6298 42.138 22.3699 42.138 21.5889 41.357C19.2087 38.9768 14.4332 34.2013 12.1575 31.9256C6.16949 25.9376 6.16949 16.2291 12.1575 10.241C18.1456 4.25299 27.8541 4.25299 33.8421 10.241C39.8302 16.2291 39.8302 25.9376 33.8421 31.9256Z"
+                                  stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M28.7498 21.0833C28.7498 24.259 26.1755 26.8333 22.9998 26.8333C19.8242 26.8333 17.2498 24.259 17.2498 21.0833C17.2498 17.9077 19.8242 15.3333 22.9998 15.3333C26.1755 15.3333 28.7498 17.9077 28.7498 21.0833Z"
+                                  stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Pick your perfect trip</h3>
+                    <p>
+                        We offer 200+ immersive, guided tours around the world. Wherever you choose to go, you’ll enjoy lots
+                        of advantages that make traveling with us different.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg width="46" height="46" viewBox="0 0 46 46" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.75 19.1663H40.25M13.4167 28.7497H15.3333M23 28.7497H24.9167M11.5 36.4163H34.5C37.6756 36.4163 40.25 33.842 40.25 30.6663V15.333C40.25 12.1574 37.6756 9.58301 34.5 9.58301H11.5C8.32436 9.58301 5.75 12.1574 5.75 15.333V30.6663C5.75 33.842 8.32436 36.4163 11.5 36.4163Z"
+                                  stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Put just $99 down</h3>
+                    <p>
+                        That’s all it takes to secure a spot on one of our group tours when you sign up for AutoPay. Plus,
+                        you can pay in interest-free, monthly installments.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg width="46" height="46" viewBox="0 0 46 46" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40.25 25.4059C34.923 27.5622 29.1002 28.7496 23 28.7496C16.8998 28.7496 11.077 27.5622 5.75 25.4059M30.6667 11.4997V7.66634C30.6667 5.54925 28.9504 3.83301 26.8333 3.83301H19.1667C17.0496 3.83301 15.3333 5.54925 15.3333 7.66634V11.4997M23 22.9997H23.0192M9.58333 38.333H36.4167C38.5338 38.333 40.25 36.6168 40.25 34.4997V15.333C40.25 13.2159 38.5338 11.4997 36.4167 11.4997H9.58333C7.46624 11.4997 5.75 13.2159 5.75 15.333V34.4997C5.75 36.6168 7.46624 38.333 9.58333 38.333Z"
+                                  stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Prep your packing list</h3>
+                    <p>
+                        While you’re deciding what to take, we’ll be busy arranging your hotels, meals, tickets, and more
+                        tour essentials. That’s what going guided is all about.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg width="46" height="46" viewBox="0 0 46 46" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_2454_3558)">
+                                <path d="M40.25 38.834C40.6109 38.8345 40.9583 38.972 41.2207 39.2197C41.4832 39.4675 41.6409 39.8066 41.6621 40.167C41.6833 40.5274 41.5657 40.8823 41.334 41.1592C41.1043 41.4336 40.7796 41.6106 40.4248 41.6553L40.2363 41.667H5.75098C5.3899 41.6666 5.04185 41.5281 4.7793 41.2803C4.5169 41.0324 4.35904 40.6933 4.33789 40.333C4.3168 39.9726 4.43432 39.6176 4.66602 39.3408C4.89715 39.0648 5.22467 38.887 5.58203 38.8438L5.7627 38.834H40.25ZM14.8281 7.6709C15.0855 7.7107 15.3317 7.80319 15.5518 7.94238L15.7559 8.0918L27.5967 17.8398L27.7754 17.9863L28.0029 17.9453L35.3477 16.6191C36.5451 16.4029 37.7789 16.4983 38.9287 16.8965C40.0783 17.2947 41.106 17.9823 41.9131 18.8926V18.8936C42.6902 19.7693 42.9952 20.8926 42.6289 21.9756C42.3249 22.8744 41.817 23.691 41.1455 24.3613C40.5578 24.948 39.8582 25.4092 39.0898 25.7178L38.7568 25.8398L38.3896 25.9521L9.49219 33.6953C9.21397 33.7697 8.9209 33.768 8.64355 33.6904C8.36744 33.6131 8.11676 33.4634 7.91797 33.2568L7.77832 33.0898L1.7002 24.9658C1.56838 24.7899 1.47807 24.5862 1.4375 24.3701C1.39696 24.1541 1.40682 23.9315 1.46582 23.7197C1.52487 23.508 1.63184 23.3124 1.77832 23.1484C1.92265 22.987 2.10159 22.8598 2.30176 22.7773L2.4834 22.7168L6.83008 21.5527C7.09727 21.4811 7.37697 21.4697 7.64941 21.5176C7.85371 21.5535 8.05032 21.6225 8.23145 21.7217L8.40723 21.8311L8.58984 21.9717L10.1006 23.3008L10.3291 23.502L10.6123 23.3916L15.2031 21.5977L15.8311 21.3516L15.4141 20.8223L8.00195 11.4053C7.86393 11.2298 7.76845 11.0244 7.72363 10.8057C7.67887 10.587 7.68628 10.361 7.74414 10.1455C7.80208 9.92988 7.90923 9.73031 8.05762 9.56348C8.20416 9.3988 8.3866 9.26931 8.59082 9.18652L8.76953 9.12793L14.0479 7.71191C14.3021 7.64387 14.5681 7.63069 14.8281 7.6709ZM14.0654 10.6416L12.2734 11.1211L11.541 11.3164L12.0098 11.9131L19.2227 21.082C19.7802 21.7899 19.5497 22.8131 18.7793 23.2285L18.6094 23.3086L10.5664 26.4502C10.3495 26.535 10.1152 26.566 9.88379 26.54C9.65399 26.5142 9.43396 26.4328 9.24219 26.3037L9.08594 26.1816L7.28223 24.5947L7.08105 24.418L6.82129 24.4883L5.91895 24.7314L5.20703 24.9229L5.64844 25.5137L9.35742 30.4717L9.56055 30.7432L9.8877 30.6553L37.6582 23.2148C38.6594 22.9464 39.4734 22.229 39.8682 21.2793L39.9893 20.9883L39.7793 20.7539C39.3358 20.2594 38.7824 19.8753 38.1641 19.6328C37.5457 19.3904 36.8791 19.2962 36.2178 19.3574L36.2061 19.3584L36.1953 19.3594L35.875 19.4033L35.8652 19.4053L35.8545 19.4072L27.6436 20.8906C27.2942 20.9538 26.9344 20.884 26.6328 20.6973L26.4551 20.5674L14.5166 10.7383L14.3779 10.625H14.1289L14.0654 10.6416Z"
+                                      stroke="#0A7C79" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_2454_3558">
+                                    <rect width="46" height="46" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Say bon voyage!</h3>
+                    <p>
+                        Set off on a life-changing, horizon-expanding adventure with peace of mind knowing that we’ve got you
+                        covered every step of the way.
+                    </p>
                 </div>
             </div>
         </div>

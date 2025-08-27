@@ -118,7 +118,6 @@ namespace TicketProtechGroup.service.BindApiFlight
                            case "ECO":
                                listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                                listHangVe.AllowanceBaggage = "0 Kg hành lý ký gửi";
-                               listHangVe.Note = "<ul class=\"none-style\">";
                                listHangVe.Note += "<li><b>Bao gồm:</b></li>";
                                listHangVe.Note += "<li> 7 Kg hành lý xách tay</li>";
                                listHangVe.Note += "<li><b>Chưa bao gồm:</b></li>";
@@ -126,43 +125,36 @@ namespace TicketProtechGroup.service.BindApiFlight
                                listHangVe.Note += "<li> Chọn trước chỗ ngồi</li>";
                                listHangVe.Note += "<li> Phí thay đổi chuyến bay, chặng bay, ngày bay</li>";
                                listHangVe.Note += "<li> Chênh lệch tiền vé khi thay đổi(nếu có)</li>";
-                               listHangVe.Note += "</ul>";
                                listHangVe.ReturnTicket = "Không hoàn hủy";
                                break;
                            case "DLX":
                                listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                                listHangVe.AllowanceBaggage = "20 Kg hành lý ký gửi";
-                               listHangVe.Note = "<ul class=\"none-style\">";
                                listHangVe.Note += "<li>7 Kg hành lý xách tay</li>";
                                listHangVe.Note += "<li>20 Kg hành lý ký gửi</li>";
                                listHangVe.Note += "<li>Ưu tiên làm thủ tục check -in</li>";
                                listHangVe.Note += "<li>Ưu tiên chọn chỗ ngồi yêu thích (không áp dụng các hàng ghế dành cho Skyboss)</li>";
                                listHangVe.Note += "<li>Miễn phí thay đổi chuyến bay, chặng bay, ngày bay (thu chênh lệch tiền vé nếu có)</li>";
                                listHangVe.Note += "<li>Bảo hiểm Deluxe_Flight Care (chưa áp dụng cho các chuyến bay do Thai Vietjet khai thác)</li>";
-                               listHangVe.Note += "</ul>";
                                listHangVe.ReturnTicket = "Có thể hoàn hủy";
                                break;
                            case "SBoss":
                                listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                                listHangVe.AllowanceBaggage = "20 Kg hành lý ký gửi";
-                               listHangVe.Note = "<ul class=\"none-style\">";
                                listHangVe.Note += "<li>7 Kg hành lý xách tay</li>";
                                listHangVe.Note += "<li>20 Kg hành lý ký gửi</li>";
                                listHangVe.Note += "<li>Ưu tiên làm thủ tục check -in</li>";
                                listHangVe.Note += "<li>Ưu tiên chọn chỗ ngồi yêu thích (không áp dụng các hàng ghế dành cho Skyboss)</li>";
                                listHangVe.Note += "<li>Miễn phí thay đổi chuyến bay, chặng bay, ngày bay (thu chênh lệch tiền vé nếu có)</li>";
                                listHangVe.Note += "<li>Bảo hiểm Deluxe_Flight Care (chưa áp dụng cho các chuyến bay do Thai Vietjet khai thác)</li>";
-                               listHangVe.Note += "</ul>";
                                listHangVe.ReturnTicket = "Có thể hoàn hủy";
                                break;
                            default:
                                listHangVe.RecommendationNumber = "0 Kg hành lý xách tay";
                                listHangVe.AllowanceBaggage = "0 Kg hành lý ký gửi";
-                               listHangVe.Note = "<ul class=\"none-style\">";
                                listHangVe.Note += "<li>0 Kg hành lý xách tay</li>";
                                listHangVe.Note += "<li>0 Kg hành lý ký gửi</li>";
                                listHangVe.Note += "<li>Không được thay đổi chuyến bay, chặng bay, ngày bay</li>";
-                               listHangVe.Note += "</ul>";
                                listHangVe.ReturnTicket = "Không hoàn hủy";
                                break;
                         }

@@ -115,7 +115,6 @@ namespace TicketProtechGroup.service.BindApiFlight
                         case "EconomySaverMax":
                             listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "Hành lý ký gửi	Trả phí";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note += "    <li>Hành lý xách tay 7 kg</li>";
                             listHangVe.Note += "    <li>Hành lý ký gửi	Trả phí</li>";
                             listHangVe.Note += "    <li>Thay đổi chuyến bay/ hành trình (Trước giờ khởi hành tối thiểu 03 tiếng) Không áp dụng</li>";
@@ -123,13 +122,11 @@ namespace TicketProtechGroup.service.BindApiFlight
                             listHangVe.Note += "    <li>Đổi tên (Trước giờ khởi hành đầu tiên trên vé tối thiểu 03 tiếng)Không áp dụng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trước giờ khởi hành tối thiểu 03 tiếng) Không áp dụng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trong vòng 03 tiếng trước giờ khởi hành và sau giờ khởi hành) Không áp dụng</li>";
-                            listHangVe.Note += "</ul>";
                             listHangVe.ReturnTicket = "Không hoàn hủy";
                             break;
                         case "EconomySaver":
                             listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "20 Kg hành lý ký gửi";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note += "    <li>Hành lý xách tay 7 kg</li>";
                             listHangVe.Note += "    <li>Hành lý ký gửi 20 kg</li>";
                             listHangVe.Note += "    <li>Thay đổi chuyến bay/ hành trình (Trước giờ khởi hành tối thiểu 03 tiếng) 270,000 VNĐ/người/chặng + chênh lệch (nếu có)</li>";
@@ -137,13 +134,11 @@ namespace TicketProtechGroup.service.BindApiFlight
                             listHangVe.Note += "    <li>Đổi tên (Trước giờ khởi hành đầu tiên trên vé tối thiểu 03 tiếng) 350,000 VNĐ/người/chặng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trước giờ khởi hành tối thiểu 03 tiếng) Không áp dụng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trong vòng 03 tiếng trước giờ khởi hành và sau giờ khởi hành) Không áp dụng</li>";
-                            listHangVe.Note += "</ul>";
                             listHangVe.ReturnTicket = "Không hoàn hủy";
                             break;
                         case "EconomySmart":
                             listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "20 Kg hành lý ký gửi";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note += "    <li>Hành lý xách tay 7 kg</li>";
                             listHangVe.Note += "    <li>Hành lý ký gửi	20 kg</li>";
                             listHangVe.Note += "    <li>Thay đổi chuyến bay/ hành trình (Trước giờ khởi hành tối thiểu 03 tiếng) 270,000 VNĐ/người/chặng + chênh lệch (nếu có)</li>";
@@ -151,13 +146,11 @@ namespace TicketProtechGroup.service.BindApiFlight
                             listHangVe.Note += "    <li>Đổi tên (Trước giờ khởi hành đầu tiên trên vé tối thiểu 03 tiếng) 350,000 VNĐ/người/chặng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trước giờ khởi hành tối thiểu 03 tiếng) 350,000 VNĐ/người/chặng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trong vòng 03 tiếng trước giờ khởi hành và sau giờ khởi hành) 550,000 VNĐ/người/chặng</li>";
-                            listHangVe.Note += "</ul>";
                             listHangVe.ReturnTicket = "Có thể hoàn hủy";
                             break;
                         case "EconomyFlex":
                             listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "20 Kg hành lý ký gửi";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note += "    <li>Hành lý xách tay 7 kg</li>";
                             listHangVe.Note += "    <li>Hành lý ký gửi	20 kg</li>";
                             listHangVe.Note += "    <li>Thay đổi chuyến bay/ hành trình (Trước giờ khởi hành tối thiểu 03 tiếng) Miễn phí + chênh lệch (nếu có)</li>";
@@ -165,13 +158,11 @@ namespace TicketProtechGroup.service.BindApiFlight
                             listHangVe.Note += "    <li>Đổi tên (Trước giờ khởi hành đầu tiên trên vé tối thiểu 03 tiếng) 350,000 VNĐ/người/chặng</li>";
                             listHangVe.Note += "    <li>Hoàn vé (Trước giờ khởi hành tối thiểu 03 tiếng) 350,000 VNĐ/người/chặng</li>";
                             listHangVe.Note += "   	<li>Hoàn vé (Trong vòng 03 tiếng trước giờ khởi hành và sau giờ khởi hành) 350,000 VNĐ/người/chặng</li>";
-                            listHangVe.Note += "</ul>";
                             listHangVe.ReturnTicket = "Có thể hoàn hủy";
                             break;
                         case "PremiumSmart":
                             listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "30 Kg hành lý ký gửi";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note = "    <li>Hành lý xách tay 7 kg</li>";
                             listHangVe.Note = "    <li>Hành lý ký gửi	30 kg</li>";
                             listHangVe.Note = "    <li>Thay đổi chuyến bay/ hành trình 270,000 VNĐ/người/chặng + chênh lệch(Trước giờ khởi hành tối thiểu 03 tiếng) (nếu có)</li>";
@@ -179,13 +170,11 @@ namespace TicketProtechGroup.service.BindApiFlight
                             listHangVe.Note = "    <li>Đổi tên 350,000 VNĐ/người/chặng(Trước giờ khởi hành đầu tiên trên vé tối thiểu 03 tiếng)</li>";
                             listHangVe.Note = "    <li>Hoàn vé 350,000 VNĐ/người/chặng(Trước giờ khởi hành tối thiểu 03 tiếng)</li>";
                             listHangVe.Note = "    <li>Hoàn vé 350,000 VNĐ/người/chặng(Trong vòng 03 tiếng trước giờ khởi hành và sau giờ khởi hành)</li>";
-                            listHangVe.Note = "</ul>";
                             listHangVe.ReturnTicket = "Có thể hoàn hủy";
                             break;
                         case "PremiumFlex":
                             listHangVe.RecommendationNumber = "7 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "30 Kg hành lý ký gửi";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note = "     <li>Hành lý xách tay 7 kg</li>";
                             listHangVe.Note = "     <li>Hành lý ký gửi	30 kg</li>";
                             listHangVe.Note = "     <li>Thay đổi chuyến bay/ hành trình (Miễn phí + chênh lệch(Trước giờ khởi hành tối thiểu 03 tiếng) (nếu có)</li>";
@@ -193,17 +182,14 @@ namespace TicketProtechGroup.service.BindApiFlight
                             listHangVe.Note = "     <li>Đổi tên 350,000 VNĐ/người/chặng (Trước giờ khởi hành đầu tiên trên vé tối thiểu 03 tiếng)</li>";
                             listHangVe.Note = "     <li>Hoàn vé	350,000 VNĐ/người/chặng (Trước giờ khởi hành tối thiểu 03 tiếng)</li>";
                             listHangVe.Note = "     <li>Hoàn vé	350,000 VNĐ/người/chặng (Trong vòng 03 tiếng trước giờ khởi hành và sau giờ khởi hành)</li>";
-                            listHangVe.Note = " </ul>";
                             listHangVe.ReturnTicket = "Có thể hoàn hủy";
                             break;
                         default:
                             listHangVe.RecommendationNumber = "0 Kg hành lý xách tay";
                             listHangVe.AllowanceBaggage = "0 Kg hành lý ký gửi";
-                            listHangVe.Note = "<ul class=\"none-style\">";
                             listHangVe.Note += "<li>0 Kg hành lý xách tay</li>";
                             listHangVe.Note += "<li>0 Kg hành lý ký gửi</li>";
                             listHangVe.Note += "<li>Không được thay đổi chuyến bay, chặng bay, ngày bay</li>";
-                            listHangVe.Note += "</ul>";
                             listHangVe.ReturnTicket = "Không hoàn hủy";
                             break;
                     }
