@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TicketProtechGroup.ViewModels.HomeViewModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="banner" style="background-image: url('/Content/img/banner.png')">
@@ -21,17 +22,19 @@
                         <div class="col-3 col-xl-4 col-lg-12">
                             <div class="row">
                                 <div class="col-6">
-                                    <select name id>
-                                        <option value>Chon chuyến bay</option>
-                                        <option value>option 1</option>
-                                        <option value>option 2</option>
+                                    <select id="seatClass" name="seatClass" class="form-control">
+                                        <option value="all">Tất cả hạng ghế</option>
+                                        <option value="economy">Phổ thông</option>
+                                        <option value="business">Thương gia</option>
+                                        <option value="first">Hạng nhất</option>
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <select name id>
-                                        <option value>Chon chuyến bay</option>
-                                        <option value>option 1</option>
-                                        <option value>option 2</option>
+                                    <select id="airline" name="airline" class="form-control">
+                                        <option value="all">Tất cả hãng bay</option>
+                                        <option value="VJ">VietJet Air</option>
+                                        <option value="VN">Vietnam Airlines</option>
+                                        <option value="QH">Bamboo Airways</option>
                                     </select>
                                 </div>
                             </div>
@@ -209,9 +212,10 @@
             <div class="passenger-row">
                 <div class="list-items">
                     <ul>
-                        <li onclick="checkRoute(this,'HAN')">Hà Nội (HAN)</li>
-                        <li onclick="checkRoute(this,'SGN')">Hồ Chí Minh (SGN)</li>
-                        <li onclick="checkRoute(this,'DAD')">Đà Nẵng (DAD)</li>
+                        @foreach (var airport in Model.SearchViewModel.Airports)
+                        {
+                            <li onclick="checkRoute(this,'@airport.AirportCode')">@airport.AirportNameVN (@airport.AirportCode)</li>
+                        }
                     </ul>
                 </div>
             </div>

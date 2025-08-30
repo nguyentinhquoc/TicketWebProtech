@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TicketProtechGroup.data;
-using TicketProtechGroup.service.BindApiFlight.RootFlight;
+using System.Web;
 
 namespace TicketProtechGroup.service.BindApiFlight
 {

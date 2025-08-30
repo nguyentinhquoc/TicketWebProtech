@@ -268,7 +268,7 @@
                                               stroke="#0A7C79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <div class="box-filter">
+                                <div class="box-filter" id="box-filter-sx">
                                     <div class="heading">
                                         <p class="color-primary">Sắp xếp</p>
                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
@@ -279,40 +279,40 @@
                                     </div>
                                     <div class="filter-content">
                                         <label class="color-dark">
-                                            <input type="checkbox" />
+                                            <input type="checkbox" value="price" />
                                             Giá (Từ thấp đến cao)
                                         </label>
                                         <label class="color-dark">
-                                            <input type="checkbox" />
+                                            <input type="checkbox" value="time" />
                                             Giờ cất cánh (Sớm đến muộn)
                                         </label>
                                     </div>
                                 </div>
-                                <div class="box-filter">
-                                    <div class="heading">
-                                        <p class="color-primary">Lọc theo Giá vé</p>
-                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1426 1.5L7.64258 8.5L1.14258 1.5" stroke="#0A7C79" stroke-width="1.5"
-                                                  stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <div class="filter-content">
-                                        <label class="color-dark">
-                                            <input type="checkbox" />
-                                            Giá chưa bao gồm thuế phí
-                                        </label>
-                                        <label class="color-dark">
-                                            <input type="checkbox" />
-                                            Giá full thuế phí cho 1 người lớn
-                                        </label>
-                                        <label class="color-dark">
-                                            <input type="checkbox" />
-                                            Tổng giá cho tất cả hành khách
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="box-filter">
+                                <!-- <div class="box-filter">
+                                  <div class="heading">
+                                    <p class="color-primary">Lọc theo Giá vé</p>
+                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
+                                      xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M14.1426 1.5L7.64258 8.5L1.14258 1.5" stroke="#0A7C79" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                  </div>
+                                  <div class="filter-content">
+                                    <label class="color-dark">
+                                      <input type="checkbox" />
+                                      Giá chưa bao gồm thuế phí
+                                    </label>
+                                    <label class="color-dark">
+                                      <input type="checkbox" />
+                                      Giá full thuế phí cho 1 người lớn
+                                    </label>
+                                    <label class="color-dark">
+                                      <input type="checkbox" />
+                                      Tổng giá cho tất cả hành khách
+                                    </label>
+                                  </div>
+                                </div> -->
+                                <div class="box-filter" id="box-filter-lth">
                                     <div class="heading">
                                         <p class="color-primary">Lọc Hãng hàng không</p>
                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
@@ -323,43 +323,29 @@
                                     </div>
                                     <div class="filter-content">
                                         <label class="color-dark">
-                                            <input type="checkbox" />
+                                            <input type="checkbox" value="VJ" />
                                             <div>
                                                 <span>VietJet Air</span>
-                                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
+                                                <img src="~/Content/img/logo-flight/vietjet.png" alt="logo" />
                                             </div>
                                         </label>
                                         <label class="color-dark">
-                                            <input type="checkbox" />
+                                            <input type="checkbox" value="QH" />
                                             <div>
                                                 <span>Bamboo Airways</span>
-                                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
+                                                <img src="~/Content/img/logo-flight/bamboo.png" alt="logo" />
                                             </div>
                                         </label>
                                         <label class="color-dark">
-                                            <input type="checkbox" />
-                                            <div>
-                                                <span>Vietravel Airlines</span>
-                                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
-                                            </div>
-                                        </label>
-                                        <label class="color-dark">
-                                            <input type="checkbox" />
+                                            <input type="checkbox" value="VN" />
                                             <div>
                                                 <span>Vietnam Airlines</span>
-                                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
-                                            </div>
-                                        </label>
-                                        <label class="color-dark">
-                                            <input type="checkbox" />
-                                            <div>
-                                                <span>Pacific Airlines</span>
-                                                <img src="~/Content/img/home/image-log-bamboo.png" alt="logo" />
+                                                <img src="/img/home/image-log-bamboo.png" alt="logo" />
                                             </div>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="box-filter">
+                                <div class="box-filter" id="box-filter-time">
                                     <div class="heading">
                                         <p class="color-primary">Giờ cất cánh chiều đi</p>
                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
@@ -515,71 +501,11 @@
 
                                     foreach (var ticket in Model[i].BlockItems[0].FlightOutBounds)
                                     {
-                                        <div class="item-ticket">
-                                            <div class="col-12 d-none d-block-lg">
-                                                <div class="btn-detail mobile">
-                                                    <button class="color-dark toggle-info" data-target="#@ticket.MainFlightNumber">
-                                                        Chi tiết hạng vé
-                                                        <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5"
-                                                                  stroke-linecap="round" stroke-linejoin="round" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="row g-lg-2">
-                                                <div class="col-3 d-none-lg">
-                                                    <div class="airline-info ">
-                                                        <img src="@Url.Content("~/Content/img/logo-flight/" + @Model[i].Airlines[0].ImageUrl)" alt="logo @ticket.MainAirlineCode" />
-                                                        <div class="airline-name">
-                                                            <span class="color-dark name">@ticket.MainAirlineName</span>
-                                                            <span class="color-info code">@ticket.MainFlightNumber</span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-5 col-lg-7">
-                                                    <div class="flight-details">
-                                                        <div class="time-info">
-                                                            <div class="departure">
-                                                                <div class="time">@ticket.MainDepartureTime</div>
-                                                                <div class="location">@ticket.MainDepartureAirportName</div>
-                                                                <div class="date d-none-lg">@FormatVietnameseDate(ticket.MainDepartureDate)</div>
-                                                            </div>
-                                                            <div class="arrow-item">
-                                                                <p class="color-dark">@ticket.Duration</p>
-                                                                <div class="arrow">
-                                                                    <span class="d-none-lg">---</span> ✈ <span class="d-none-lg">---</span>
-                                                                </div>
-                                                                <p class="color-dark">Bay thẳng</p>
-                                                            </div>
-                                                            <div class="arrival">
-                                                                <div class="time">@ticket.MainArrivalTime</div>
-                                                                <div class="location">@ticket.MainArrivalAirportName</div>
-                                                                <div class="date d-none-lg">@FormatVietnameseDate(ticket.MainArrivalDate)</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2 d-none-lg">
-                                                    <div class="flight-meta">
-                                                        <div>
-                                                            <p class="color-info">Hạng vé</p>
-                                                            <p class="color-dark typeRender">@ticket.ListHangVes[0].TicketClassDomestic</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2 col-lg-5">
-                                                    <div class="info-price">
-                                                        <span class="color-info price">@string.Format("{0:N0}", ticket.ListHangVes[0].PriceDomestic) đ</span>
-                                                        <div class="color-primary info">
-                                                            Giá cho 1 người lớn
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-3  d-none-lg">
-                                                    <div class="btn-detail">
+                                        if (ticket.ListHangVes != null && ticket.ListHangVes.Count > 0)
+                                        {
+                                            <div class="item-ticket" data-codeAirline="@ticket.MainAirlineCode">
+                                                <div class="col-12 d-none d-block-lg">
+                                                    <div class="btn-detail mobile">
                                                         <button class="color-dark toggle-info" data-target="#@ticket.MainFlightNumber">
                                                             Chi tiết hạng vé
                                                             <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
@@ -590,151 +516,214 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <div class="col-5  d-none-lg">
-                                                    <div class="extras">
-                                                        <div class="item">
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z"
-                                                                      stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
-                                                                      stroke-linejoin="round" />
-                                                            </svg>
-                                                            <p class="color-info">07kg</p>
-                                                        </div>
-                                                        <div class="item">
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10"
-                                                                      stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
-                                                                      stroke-linejoin="round" />
-                                                            </svg>
-                                                            <p class="color-info">20kg</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1 ">
-                                                    <div class="change-seat d-none">
-                                                        <select name id>
-                                                            <option value>Đổi hạng vé</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="line-decor col-12 d-none  d-block-lg"></div>
-                                                <div class="col-3 col-lg-6 col-md-8  d-none d-block-lg">
-                                                    <div class="airline-info-mobile row-cols-lg-2">
-                                                        <img src="@Url.Content("~/Content/img/logo-flight/" + @Model[i].Airlines[0].ImageUrl)" alt="logo @ticket.MainAirlineCode" />                                                        <div class="airline-name">
-                                                            <span class="color-dark name">@ticket.MainAirlineName</span>
-                                                            <span class="color-info code">@ticket.MainFlightNumber</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-3 col-lg-6 col-md-4">
-                                                    <div class="btn-booking">
-                                                        <a class="btn btn-info">ĐẶT VÉ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="info-ticket color-primary" id="@ticket.MainFlightNumber">
-                                                <div class="ticket-types">
-                                                    <div class="row row-cols-4 row-cols-md-3  g-md-1">
-
-                                                        @for (int j = 0; j < ticket.ListHangVes.Count; j++)
-                                                        {
-                                                            <div class="col">
-                                                                <input hidden type="radio" class="inputChangeType" id="@ticket.MainFlightNumber-@ticket.ListHangVes[j].TicketClassDomestic" name="type_@ticket.MainFlightNumber" value="@ticket.ListHangVes[j].TicketClassDomestic" data-price="@ticket.ListHangVes[j].PriceDomestic">
-                                                                <label class="type" for="@ticket.MainFlightNumber-@ticket.ListHangVes[j].TicketClassDomestic">@ticket.ListHangVes[j].TicketClassDomestic</label>
+                                                <div class="row g-lg-2">
+                                                    <div class="col-3 d-none-lg">
+                                                        <div class="airline-info ">
+                                                            <img src="@Url.Content("~/Content/img/logo-flight/" + @Model[i].Airlines[0].ImageUrl)" alt="logo @ticket.MainAirlineCode" />
+                                                            <div class="airline-name">
+                                                                <span class="color-dark name">@ticket.MainAirlineName</span>
+                                                                <span class="color-info code">@ticket.MainFlightNumber</span>
                                                             </div>
-                                                        }
-                                                    </div>
-                                                </div>
+                                                        </div>
 
-                                                @for (int j = 0; j < ticket.ListHangVes.Count; j++)
-                                                {
-                                                    <div data-idType="@ticket.MainFlightNumber-@ticket.ListHangVes[j].TicketClassDomestic" class="ticket-info-type">
-                                                        <div class="ticket-section">
-                                                            <div class="row">
-                                                                <div class="col-6 col-md-12">
-                                                                    <div class="column info">
-                                                                        <h3 class="color-info">
-                                                                            🔸 THÔNG TIN CHUYẾN BAY:
-                                                                        </h3>
-                                                                        <p>
-                                                                            <strong>Khởi hành:</strong>
-                                                                            <span class="color-dark">10:10, 01/08/2023</span>
-                                                                            (Giờ địa phương)
-                                                                        </p>
-                                                                        <ul>
-                                                                            <li class="color-dark">
-                                                                                <strong>Hà Nội - Sân bay Nội Bài</strong>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <p>
-                                                                            <strong>Đến:</strong>
-                                                                            <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
-                                                                            địa
-                                                                            phương)
-                                                                        </p>
-                                                                        <ul>
-                                                                            <li>
-                                                                                <strong class="color-dark">
-                                                                                    Tp. Hồ Chí Minh - Sân bay
-                                                                                    Tân
-                                                                                    Sơn
-                                                                                    Nhất
-                                                                                </strong>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
-                                                                    </div>
+                                                    </div>
+                                                    <div class="col-5 col-lg-7">
+                                                        <div class="flight-details">
+                                                            <div class="time-info">
+                                                                <div class="departure">
+                                                                    <div class="time">@ticket.MainDepartureTime</div>
+                                                                    <div class="location">@ticket.MainDepartureAirportCode</div>
+                                                                    <div class="date d-none-lg">@FormatVietnameseDate(ticket.MainDepartureDate)</div>
                                                                 </div>
-                                                                <div class="col-6 col-md-12 price">
-                                                                    <div class="column price">
-                                                                        <h3 class="color-info">
-                                                                            GIÁ VÉ CHIỀU ĐI:
-                                                                            <span class="total-price color-info">6,240,000VND</span>
-                                                                        </h3>
-                                                                        <table>
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th class="color-info">
-                                                                                        Hành khách x SL x Giá vé
-                                                                                    </th>
-                                                                                    <th class="color-info">Thuế và phí</th>
-                                                                                    <th class="color-info">Tổng tiền</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>Người lớn 2 x 759,000</td>
-                                                                                    <td>725,000</td>
-                                                                                    <td><strong>2,968,000</strong></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Trẻ em 1 x 570,000</td>
-                                                                                    <td>646,000</td>
-                                                                                    <td><strong>1,216,000</strong></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Em bé 1 x 100,000</td>
-                                                                                    <td>80,000</td>
-                                                                                    <td><strong>180,000</strong></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                                                <div class="arrow-item">
+                                                                    <p class="color-dark">@ticket.Duration</p>
+                                                                    <div class="arrow">
+                                                                        <span class="d-none-lg">---</span> ✈ <span class="d-none-lg">---</span>
                                                                     </div>
+                                                                    <p class="color-dark">Bay thẳng</p>
+                                                                </div>
+                                                                <div class="arrival">
+                                                                    <div class="time">@ticket.MainArrivalTime</div>
+                                                                    <div class="location">@ticket.MainArrivalAirportCode</div>
+                                                                    <div class="date d-none-lg">@FormatVietnameseDate(ticket.MainArrivalDate)</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="ticket-section">
-                                                            <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
-                                                            <ul class="conditions">
-                                                                @Html.Raw(ticket.ListHangVes[j].Note)
-                                                            </ul>
+                                                    </div>
+                                                    <div class="col-2 d-none-lg">
+                                                        <div class="flight-meta">
+                                                            <div>
+                                                                <p class="color-info">Hạng vé</p>
+                                                                <p class="color-dark typeRender">@ticket.ListHangVes[0].TicketClassDomestic</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                }
+                                                    <div class="col-2 col-lg-5">
+                                                        <div class="info-price">
+                                                            <span class="color-info price">@string.Format("{0:N0}", ticket.ListHangVes[0].PriceDomestic) đ</span>
+                                                            <div class="color-primary info">
+                                                                Giá cho 1 người lớn
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3  d-none-lg">
+                                                        <div class="btn-detail">
+                                                            <button class="color-dark toggle-info" data-target="#@ticket.MainFlightNumber">
+                                                                Chi tiết hạng vé
+                                                                <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M1.5 1.5L6.5 6.5L1.5 11.5" stroke="#FF3C13" stroke-width="1.5"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-5  d-none-lg">
+                                                        <div class="extras">
+                                                            <div class="item">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M17.5 11.046C15.1839 11.9836 12.6523 12.4998 10 12.4998C7.34775 12.4998 4.81608 11.9836 2.5 11.046M13.3333 4.99984V3.33317C13.3333 2.4127 12.5871 1.6665 11.6667 1.6665H8.33333C7.41286 1.6665 6.66667 2.4127 6.66667 3.33317V4.99984M10 9.99984H10.0083M4.16667 16.6665H15.8333C16.7538 16.6665 17.5 15.9203 17.5 14.9998V6.6665C17.5 5.74603 16.7538 4.99984 15.8333 4.99984H4.16667C3.24619 4.99984 2.5 5.74603 2.5 6.6665V14.9998C2.5 15.9203 3.24619 16.6665 4.16667 16.6665Z"
+                                                                          stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                          stroke-linejoin="round" />
+                                                                </svg>
+                                                                <p class="color-info">07kg</p>
+                                                            </div>
+                                                            <div class="item">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M10 6.66667V17.5M10 6.66667C10 6.66667 10 5.42269 10 5C10 4.07953 10.7462 3.33333 11.6667 3.33333C12.5871 3.33333 13.3333 4.07953 13.3333 5C13.3333 5.92047 12.5871 6.66667 11.6667 6.66667C11.1689 6.66667 10 6.66667 10 6.66667ZM10 6.66667C10 6.66667 10 5.05243 10 4.58333C10 3.43274 9.06726 2.5 7.91667 2.5C6.76607 2.5 5.83333 3.43274 5.83333 4.58333C5.83333 5.73393 6.76607 6.66667 7.91667 6.66667C8.59817 6.66667 10 6.66667 10 6.66667ZM4.16667 10H15.8333M4.16667 10C3.24619 10 2.5 9.25381 2.5 8.33333C2.5 7.41286 3.24619 6.66667 4.16667 6.66667H15.8333C16.7538 6.66667 17.5 7.41286 17.5 8.33333C17.5 9.25381 16.7538 10 15.8333 10M4.16667 10L4.16667 15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V10"
+                                                                          stroke="#FF3C13" stroke-width="1.5" stroke-linecap="round"
+                                                                          stroke-linejoin="round" />
+                                                                </svg>
+                                                                <p class="color-info">20kg</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1 ">
+                                                        <div class="change-seat d-none">
+                                                            <select name id>
+                                                                <option value>Đổi hạng vé</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-decor col-12 d-none  d-block-lg"></div>
+                                                    <div class="col-3 col-lg-6 col-md-8  d-none d-block-lg">
+                                                        <div class="airline-info-mobile row-cols-lg-2">
+                                                            <img src="@Url.Content("~/Content/img/logo-flight/" + @Model[i].Airlines[0].ImageUrl)" alt="logo @ticket.MainAirlineCode" />                                                        <div class="airline-name">
+                                                                <span class="color-dark name">@ticket.MainAirlineName</span>
+                                                                <span class="color-info code">@ticket.MainFlightNumber</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 col-lg-6 col-md-4">
+                                                        <div class="btn-booking">
+                                                            <a class="btn btn-info">ĐẶT VÉ</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="info-ticket color-primary" id="@ticket.MainFlightNumber">
+                                                    <div class="ticket-types">
+                                                        <div class="row row-cols-4 row-cols-md-3  g-md-1">
+
+                                                            @for (int j = 0; j < ticket.ListHangVes.Count; j++)
+                                                            {
+                                                                <div class="col">
+                                                                    <input hidden type="radio" class="inputChangeType" id="@ticket.MainFlightNumber-@ticket.ListHangVes[j].TicketClassDomestic" name="type_@ticket.MainFlightNumber" value="@ticket.ListHangVes[j].TicketClassDomestic" data-price="@ticket.ListHangVes[j].PriceDomestic">
+                                                                    <label class="type" for="@ticket.MainFlightNumber-@ticket.ListHangVes[j].TicketClassDomestic">@ticket.ListHangVes[j].TicketClassDomestic</label>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                    @for (int j = 0; j < ticket.ListHangVes.Count; j++)
+                                                    {
+                                                        <div data-idType="@ticket.MainFlightNumber-@ticket.ListHangVes[j].TicketClassDomestic" class="ticket-info-type">
+                                                            <div class="ticket-section">
+                                                                <div class="row">
+                                                                    <div class="col-6 col-md-12">
+                                                                        <div class="column info">
+                                                                            <h3 class="color-info">
+                                                                                🔸 THÔNG TIN CHUYẾN BAY:
+                                                                            </h3>
+                                                                            <p>
+                                                                                <strong>Khởi hành:</strong>
+                                                                                <span class="color-dark">10:10, 01/08/2023</span>
+                                                                                (Giờ địa phương)
+                                                                            </p>
+                                                                            <ul>
+                                                                                <li class="color-dark">
+                                                                                    <strong>Hà Nội - Sân bay Nội Bài</strong>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <p>
+                                                                                <strong>Đến:</strong>
+                                                                                <span class="color-dark">12:20, 01/08/2023 </span>(Giờ
+                                                                                địa
+                                                                                phương)
+                                                                            </p>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <strong class="color-dark">
+                                                                                        Tp. Hồ Chí Minh - Sân bay
+                                                                                        Tân
+                                                                                        Sơn
+                                                                                        Nhất
+                                                                                    </strong>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <p>Thời gian: 2 giờ 10 phút | Boeing: B787</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6 col-md-12 price">
+                                                                        <div class="column price">
+                                                                            <h3 class="color-info">
+                                                                                GIÁ VÉ CHIỀU ĐI:
+                                                                                <span class="total-price color-info">6,240,000VND</span>
+                                                                            </h3>
+                                                                            <table>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="color-info">
+                                                                                            Hành khách x SL x Giá vé
+                                                                                        </th>
+                                                                                        <th class="color-info">Thuế và phí</th>
+                                                                                        <th class="color-info">Tổng tiền</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Người lớn 2 x 759,000</td>
+                                                                                        <td>725,000</td>
+                                                                                        <td><strong>2,968,000</strong></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Trẻ em 1 x 570,000</td>
+                                                                                        <td>646,000</td>
+                                                                                        <td><strong>1,216,000</strong></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Em bé 1 x 100,000</td>
+                                                                                        <td>80,000</td>
+                                                                                        <td><strong>180,000</strong></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ticket-section">
+                                                                <h3 class="color-info">🔸 ĐIỀU KIỆN VÉ ÁP DỤNG:</h3>
+                                                                <ul class="conditions">
+                                                                    @Html.Raw(ticket.ListHangVes[j].Note)
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
                                             </div>
-                                        </div>
+                                        }
                                     }
                                 }
 
@@ -1215,4 +1204,223 @@
             ModalFilter.style.display = "none";
         }
     });
+</script>
+<!-- JavaScript cho bộ lọc chuyến bay -->
+<script>
+    // Khởi tạo bộ lọc
+    class FlightFilter {
+        constructor() {
+            this.filters = {
+                sort: [],
+                airlines: [],
+                departureTime: []
+            };
+            this.init();
+        }
+
+        init() {
+            this.bindEvents();
+            this.applyFilters();
+        }
+
+        bindEvents() {
+            // Lắng nghe sự kiện thay đổi checkbox
+            document.querySelectorAll('.box-filter input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    this.updateFilters();
+                    this.applyFilters();
+                });
+            });
+        }
+
+        updateFilters() {
+            // Cập nhật filter sắp xếp - sử dụng value thay vì text
+            this.filters.sort = [];
+            document.querySelectorAll('#box-filter-sx input[type="checkbox"]:checked').forEach(checkbox => {
+                this.filters.sort.push(checkbox.value);
+            });
+
+            // Cập nhật filter hãng bay - sử dụng value thay vì text
+            this.filters.airlines = [];
+            document.querySelectorAll('#box-filter-lth input[type="checkbox"]:checked').forEach(checkbox => {
+                this.filters.airlines.push(checkbox.value);
+            });
+
+            // Cập nhật filter giờ cất cánh
+            this.filters.departureTime = [];
+            document.querySelectorAll('#box-filter-time input[type="checkbox"]:checked').forEach(checkbox => {
+                const timeRange = checkbox.parentElement.querySelector('.time').textContent.trim();
+                this.filters.departureTime.push(timeRange);
+            });
+
+            console.log('Filters updated:', this.filters);
+        }
+
+        applyFilters() {
+            const tickets = document.querySelectorAll('.item-ticket');
+            let visibleCount = 0;
+
+            tickets.forEach(ticket => {
+                let shouldShow = true;
+
+                // Lọc theo hãng bay - sử dụng data-codeAirline
+                if (this.filters.airlines.length > 0) {
+                    const airlineCode = ticket.getAttribute('data-codeAirline');
+                    if (!this.filters.airlines.includes(airlineCode)) {
+                        shouldShow = false;
+                    }
+                }
+
+                // Lọc theo giờ cất cánh
+                if (this.filters.departureTime.length > 0 && shouldShow) {
+                    const departureTime = ticket.querySelector('.departure .time').textContent.trim();
+                    const timeInMinutes = this.timeToMinutes(departureTime);
+
+                    if (!this.filters.departureTime.some(timeRange => {
+                        return this.isTimeInRange(timeInMinutes, timeRange);
+                    })) {
+                        shouldShow = false;
+                    }
+                }
+
+                // Hiển thị/ẩn ticket
+                if (shouldShow) {
+                    ticket.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    ticket.style.display = 'none';
+                }
+            });
+
+            // Sắp xếp nếu có filter sắp xếp
+            if (this.filters.sort.length > 0) {
+                this.sortTickets();
+            }
+
+            // Hiển thị thông báo nếu không có kết quả
+            this.showNoResultsMessage(visibleCount === 0);
+        }
+
+        timeToMinutes(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        isTimeInRange(timeInMinutes, timeRange) {
+            if (timeRange === '00:00 - 24:00') return true;
+
+            const [start, end] = timeRange.split(' - ');
+            const startMinutes = this.timeToMinutes(start);
+            const endMinutes = this.timeToMinutes(end);
+
+            if (endMinutes < startMinutes) {
+                // Trường hợp qua ngày (ví dụ: 18:00 - 24:00)
+                return timeInMinutes >= startMinutes || timeInMinutes <= endMinutes;
+            } else {
+                return timeInMinutes >= startMinutes && timeInMinutes <= endMinutes;
+            }
+        }
+
+        sortTickets() {
+            const tickets = Array.from(document.querySelectorAll('.item-ticket:not([style*="display: none"])'));
+            const container = document.querySelector('.list-ticket-items');
+
+            // Sắp xếp theo value "price" thay vì text cũ
+            if (this.filters.sort.includes('price')) {
+                tickets.sort((a, b) => {
+                    const priceA = this.extractPrice(a);
+                    const priceB = this.extractPrice(b);
+                    return priceA - priceB;
+                });
+            }
+
+            if (this.filters.sort.includes('time')) {
+                tickets.sort((a, b) => {
+                    const timeA = this.extractTime(a);
+                    const timeB = this.extractTime(b);
+                    return timeA - timeB;
+                });
+            }
+
+            // Sắp xếp lại DOM
+            tickets.forEach(ticket => {
+                container.appendChild(ticket);
+            });
+        }
+
+        extractPrice(ticket) {
+            const priceText = ticket.querySelector('.price').textContent;
+            return parseInt(priceText.replace(/[^\d]/g, ''));
+        }
+
+        extractTime(ticket) {
+            const timeText = ticket.querySelector('.departure .time').textContent;
+            return this.timeToMinutes(timeText);
+        }
+
+        showNoResultsMessage(show) {
+            let message = document.querySelector('.no-results-message');
+
+            if (show) {
+                if (!message) {
+                    message = document.createElement('div');
+                    message.className = 'no-results-message';
+                    message.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                      <h3>Không tìm thấy chuyến bay phù hợp</h3>
+                      <p>Vui lòng thử lại với bộ lọc khác</p>
+                    </div>
+                  `;
+                    document.querySelector('.list-ticket-items').appendChild(message);
+                }
+            } else {
+                if (message) {
+                    message.remove();
+                }
+            }
+        }
+
+        // Reset tất cả filter
+        resetFilters() {
+            document.querySelectorAll('.box-filter input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            this.filters = { sort: [], airlines: [], departureTime: [] };
+            this.applyFilters();
+        }
+
+        // Lấy số lượng filter đang được áp dụng
+        getActiveFiltersCount() {
+            return this.filters.sort.length + this.filters.airlines.length + this.filters.departureTime.length;
+        }
+    }
+
+    // Khởi tạo bộ lọc khi trang load xong
+    document.addEventListener('DOMContentLoaded', () => {
+        window.flightFilter = new FlightFilter();
+
+    });
+
+    // Thêm CSS cho hiệu ứng filter
+    const style = document.createElement('style');
+    style.textContent = `
+            .item-ticket {
+              transition: all 0.3s ease;
+            }
+
+            .item-ticket[style*="display: none"] {
+              opacity: 0;
+              transform: scale(0.95);
+            }
+
+            .box-filter input[type="checkbox"]:checked + label {
+              color: #0A7C79;
+              font-weight: 500;
+            }
+
+            .filter .heading button:hover {
+              background: #e0e0e0;
+            }
+          `;
+    document.head.appendChild(style);
 </script>
