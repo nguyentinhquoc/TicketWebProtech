@@ -1,0 +1,12 @@
+E:\ProtechGroupForWeb\ProtechGroup.Domain\bin\Debug\ProtechGroup.Domain.dll
+E:\ProtechGroupForWeb\ProtechGroup.Domain\bin\Debug\ProtechGroup.Domain.pdb
+E:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.csproj.AssemblyReference.cache
+E:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.csproj.CoreCompileInputs.cache
+E:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.dll
+E:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.pdb
+D:\ProtechGroupForWeb\ProtechGroup.Domain\bin\Debug\ProtechGroup.Domain.dll
+D:\ProtechGroupForWeb\ProtechGroup.Domain\bin\Debug\ProtechGroup.Domain.pdb
+D:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.csproj.AssemblyReference.cache
+D:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.csproj.CoreCompileInputs.cache
+D:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.dll
+D:\ProtechGroupForWeb\ProtechGroup.Domain\obj\Debug\ProtechGroup.Domain.pdb
