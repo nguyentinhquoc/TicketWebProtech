@@ -9,3 +9,4 @@ namespace ProtechGroup.Application.Interfaces
         Task<FlightResultOutput> GetFlightDomestic(int sessionId);
     }
 }
+

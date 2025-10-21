@@ -25,9 +25,7 @@ namespace ProtechGroup.Infrastructure.Repositories
         {
             if (string.IsNullOrWhiteSpace(keyword))
                 return Enumerable.Empty<AirportView>();
-
             keyword = keyword.ToLower();
-
             return _ariportContext.Airports
                 .Where(a =>a.Active == true &(a.AirportCode.ToLower().Contains(keyword)
                          || a.CityName.ToLower().Contains(keyword)

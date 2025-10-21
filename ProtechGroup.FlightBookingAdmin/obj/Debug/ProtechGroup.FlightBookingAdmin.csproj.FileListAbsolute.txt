@@ -81,3 +81,5 @@ E:\ProtechGroupForWeb\ProtechGroup.FlightBookingAdmin\obj\Debug\ProtechGroup.Fli
 E:\ProtechGroupForWeb\ProtechGroup.FlightBookingAdmin\obj\Debug\ProtechGroup.FlightBookingAdmin.csproj.CopyComplete
 E:\ProtechGroupForWeb\ProtechGroup.FlightBookingAdmin\obj\Debug\ProtechGroup.FlightBookingAdmin.dll
 E:\ProtechGroupForWeb\ProtechGroup.FlightBookingAdmin\obj\Debug\ProtechGroup.FlightBookingAdmin.pdb
+D:\ProtechGroupForWeb\ProtechGroup.FlightBookingAdmin\obj\Debug\ProtechGroup.FlightBookingAdmin.csproj.AssemblyReference.cache
+D:\ProtechGroupForWeb\ProtechGroup.FlightBookingAdmin\obj\Debug\ProtechGroup.FlightBookingAdmin.csproj.CoreCompileInputs.cache

@@ -126,12 +126,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\ApplicationDbContext.cs" />
+    <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\ServiceFee.cs" />
     <Compile Include="FlightProviders\VietJetsProvider.cs" />
     <Compile Include="FlightProviders\VietNamAirLinesProvider.cs" />
     <Compile Include="HttpClients\ApiClient.cs" />
     <Compile Include="Repositories\NewRepository.cs" />
+    <Compile Include="Repositories\HotelRepository.cs" />
     <Compile Include="Repositories\ServiceFeeRepository.cs" />
     <Compile Include="Setting\ApiSettings.cs" />
     <Compile Include="Entities\Airport.cs" />

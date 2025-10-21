@@ -12,12 +12,16 @@ namespace ProtechGroup.Infrastructure.Mapping
             CreateMap<SearchInputMod, SearchInput>();
             CreateMap<AirportMod, Airport>();
             CreateMap<SearchWSHistoryMod, SearchWSHistory>();
+            CreateMap<NewsMod, News>();
+            CreateMap<HotelMod, Hotel>();
 
             // Infrastructure -> Domain
             CreateMap<SearchInput, SearchInputMod>();
             CreateMap<Airport, AirportMod>();
             CreateMap<SearchWSHistory, SearchWSHistoryMod>();
             CreateMap<ServiceFee, ServiceFeeMod>();
+            CreateMap<News, NewsMod>();
+            CreateMap<Hotel, HotelMod>();
         }
     }
 }

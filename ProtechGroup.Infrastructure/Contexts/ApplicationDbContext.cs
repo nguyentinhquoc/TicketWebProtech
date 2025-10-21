@@ -15,6 +15,7 @@ namespace ProtechGroup.Infrastructure.Contexts
         public DbSet<SearchWSHistory> SearchWSHistorys { get; set; }
         public DbSet<ServiceFee> ServiceFees { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -24,6 +25,7 @@ namespace ProtechGroup.Infrastructure.Contexts
             modelBuilder.Entity<SearchWSHistory>().ToTable("SearchWSHistory");
             modelBuilder.Entity<ServiceFee>().ToTable("ServiceFee");
             modelBuilder.Entity<News>().ToTable("News");
+            modelBuilder.Entity<Hotel>().ToTable("Hotels");
 
             // cấu hình column length nếu bạn muốn
             base.OnModelCreating(modelBuilder);

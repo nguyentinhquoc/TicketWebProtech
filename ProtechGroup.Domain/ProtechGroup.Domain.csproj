@@ -48,6 +48,7 @@
     <Compile Include="DTOs\VietjetAirResponse.cs" />
     <Compile Include="DTOs\VietnamAirlinesResponse.cs" />
     <Compile Include="Entities\Airport.cs" />
+    <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\SearchInput.cs" />
     <Compile Include="Entities\SearchWSHistory.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Enums\Common.cs" />
     <Compile Include="Enums\CookieName.cs" />
     <Compile Include="Interfaces\IAirportRepository.cs" />
+    <Compile Include="Interfaces\IHotelRepository.cs" />
     <Compile Include="Interfaces\IBambooAirwaysProvider.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\INewRepository.cs" />

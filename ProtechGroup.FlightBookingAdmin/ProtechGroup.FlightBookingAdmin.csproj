@@ -45,6 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\ProtechGroup.FlightBookingWeb\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\ProtechGroup.FlightBookingWeb\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\ProtechGroup.FlightBookingWeb\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\ProtechGroup.FlightBookingWeb\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -121,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +194,14 @@
     <ProjectReference Include="..\ProtechGroup.Application\ProtechGroup.Application.csproj">
       <Project>{39e12706-c176-433e-8332-a31cb3373042}</Project>
       <Name>ProtechGroup.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtechGroup.Infrastructure\ProtechGroup.Infrastructure.csproj">
+      <Project>{584ac1c8-fa3f-4229-ae08-7385e273745c}</Project>
+      <Name>ProtechGroup.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtechGroup.Domain\ProtechGroup.Domain.csproj">
+      <Project>{50f53294-cb4b-4107-b1fe-ca25be32a57f}</Project>
+      <Name>ProtechGroup.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

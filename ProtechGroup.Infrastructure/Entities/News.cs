@@ -32,12 +32,14 @@ namespace ProtechGroup.Infrastructure.Entities
         [StringLength(250)]
 
         public string ImageUrl { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Content{ get; set; }
 
-        public DateTime CreateDate { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? CreateDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
 
         public bool AllowComment { get; set; }
 

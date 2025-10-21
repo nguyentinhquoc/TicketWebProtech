@@ -46,6 +46,7 @@ namespace ProtechGroup.FlightBookingWeb
             container.RegisterType<ISearchWSHistoryRepository, SearchWSHistoryRepository>();
             container.RegisterType<IServiceFeeRepository, ServiceFeeRepository>();
             container.RegisterType<INewRepository, NewRepository>();
+            container.RegisterType<IHotelRepository, HotelRepository>();
             
 
             // Đăng ký Service
@@ -54,6 +55,7 @@ namespace ProtechGroup.FlightBookingWeb
             container.RegisterType<ISearchWSHistoryService, SearchWSHistoryService>();
             container.RegisterType<IServiceFeeService, ServiceFeeService>();
             container.RegisterType<INewsService, NewsService>();
+            container.RegisterType<IHotelService, HotelService>();
 
 
 

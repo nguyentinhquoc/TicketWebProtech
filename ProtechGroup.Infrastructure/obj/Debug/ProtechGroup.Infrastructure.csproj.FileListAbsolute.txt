@@ -60,6 +60,8 @@ E:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\Newtonsoft.Json.dll
 E:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\Newtonsoft.Json.xml
 E:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\RestSharp.dll
 E:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\RestSharp.xml
+D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechGroup.Infrastructure.csproj.AssemblyReference.cache
+D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechGroup.Infrastructure.csproj.CoreCompileInputs.cache
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\ProtechGroup.Infrastructure.dll.config
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\ProtechGroup.Infrastructure.dll
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\ProtechGroup.Infrastructure.pdb
@@ -117,8 +119,6 @@ D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\System.Text.Encoding
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\System.Text.Json.xml
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\bin\Debug\System.ValueTuple.xml
-D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechGroup.Infrastructure.csproj.AssemblyReference.cache
-D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechGroup.Infrastructure.csproj.CoreCompileInputs.cache
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechG.000672B7.Up2Date
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechGroup.Infrastructure.dll
 D:\ProtechGroupForWeb\ProtechGroup.Infrastructure\obj\Debug\ProtechGroup.Infrastructure.pdb
